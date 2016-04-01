@@ -1,5 +1,16 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
+<style>
+    td input {
+        min-width: 75px;
+    }
+
+    td select {
+        min-width: 75px;
+    }
+</style>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,12 +24,14 @@
     <link href="style.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
 <body>
     {{vm.testValue}}
+
+
     <div class="container">
     </div>
     <div class="container text-center">
@@ -42,32 +55,30 @@
                 <table class="table">
                     <tr>
                         <td>Company:</td>
-                        <td>
-                            <input ng-model="vm.testValue" value="{{vm.testValue}}"></>
-                        </td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Company</td>
                         <td>
-                            <input>
+                            <input class="form-control">
                         </td>
                     </tr>
                     <tr>
                         <td>Name</td>
                         <td>
-                            <input>
+                            <input class="form-control" />
                         </td>
                     </tr>
                     <tr>
                         <td>Phone</td>
                         <td>
-                            <input>
+                            <input class="form-control" />
                         </td>
                     </tr>
                     <tr>
                         <td>Email</td>
                         <td>
-                            <input>
+                            <input class="form-control" />
                         </td>
                     </tr>
                 </table>
@@ -77,49 +88,49 @@
                     <tr>
                         <td>Client Information</td>
                         <td>
-                            <input>
+                            <input class="form-control" />
                         </td>
                     </tr>
                     <tr>
                         <td>Name</td>
                         <td>
-                            <input>
+                            <input class="form-control" />
                         </td>
                     </tr>
                     <tr>
                         <td>Address</td>
                         <td>
-                            <input>
+                            <input class="form-control" />
                         </td>
                     </tr>
                     <tr>
                         <td></td>
                         <td>
-                            <input>
+                            <input class="form-control" />
                         </td>
                     </tr>
                     <tr>
                         <td></td>
                         <td>
-                            <input>
+                            <input class="form-control" />
                         </td>
                     </tr>
                     <tr>
                         <td>Phone</td>
                         <td>
-                            <input>
+                            <input class="form-control" />
                         </td>
                     </tr>
                     <tr>
                         <td>Email</td>
                         <td>
-                            <input>
+                            <input class="form-control" />
                         </td>
                     </tr>
                     <tr>
                         <td>Date</td>
                         <td>
-                            <input>
+                            <input class="form-control" />
                         </td>
                     </tr>
                 </table>
@@ -397,12 +408,16 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <table class="table">
                     <tr>
                         <th>Facing</th>
                         <th>Area(sq ft)</th>
                         <th>Type Glass</th>
+                        <th>HTM</th>
+                        <th>UNSHADED</th>
+                        <th>SHADED</th>
+                        <th>BTUH</th>
                     </tr>
                     <tr>
                         <td>N/SHADED</td>
@@ -416,6 +431,14 @@
                                 <option>Triple E</option>
                             </select>
                         </td>
+                        <td><input class="form-control" disabled readonly value='24' /></td>
+
+                        <td><input class="form-control" disabled readonly value='24' /></td>
+
+
+                        <td><input class="form-control" disabled readonly value='24' /></td>
+
+                        <td><input class="form-control" disabled readonly value='24' /></td>
                     </tr>
                     <tr>
 
@@ -433,6 +456,10 @@
                                 <option>Triple E</option>
                             </select>
                         </td>
+                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td><input class="form-control" disabled readonly value='24' /></td>
                     </tr>
                     <tr>
 
@@ -448,6 +475,10 @@
                                 <option>Triple E</option>
                             </select>
                         </td>
+                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td><input class="form-control" disabled readonly value='24' /></td>
                     </tr>
                     <tr>
 
@@ -463,6 +494,10 @@
                                 <option>Triple E</option>
                             </select>
                         </td>
+                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td><input class="form-control" disabled readonly value='24' /></td>
                     </tr>
                     <tr>
 
@@ -478,6 +513,10 @@
                                 <option>Triple E</option>
                             </select>
                         </td>
+                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td><input class="form-control" disabled readonly value='24' /></td>
                     </tr>
                     <tr>
 
@@ -493,13 +532,15 @@
                                 <option>Triple E</option>
                             </select>
                         </td>
+                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td><input class="form-control" disabled readonly value='24' /></td>
                     </tr>
 
                     <tr>
+                        <td colspan="2">DOES GLASS HAVE REFLECTIVE COATING?</td>
 
-
-                        <td >DOES GLASS HAVE REFLECTIVE COATING?</td>
-                        <td></td>
                         <td>
                             <select class="form-control">
                                 <option>YES</option>
@@ -507,71 +548,40 @@
 
                             </select>
                         </td>
+                        <td><input class="form-control" disabled readonly value='150' /></td>
+                        <td></td>
+                        <td></td>
+                        <td><input class="form-control" disabled readonly value='0' /></td>
+
+                    </tr>
+                    <tr>
+                        <td>SKYLIGHT</td>
+
+                        <td>
+                            <input class="form-control"></input>
+                        </td>
+                        <td>
+                            <select class="form-control">
+                                <option>Clear</option>
+                                <option>Tinted</option>
+                                <option>Reflective</option>
+                            </select>
+                        </td>
+                        <td><input class="form-control" disabled readonly value='1' /></td>
+                        <td></td>
+                        <td></td>
+                        <td><input class="form-control" disabled readonly value='11546' /></td>
+
+                    </tr>
 
 
-                    </tr>
-                </table>
-            </div>
-            <div class="col-md-6">
-                <table class="table">
                     <tr>
-                        <th>HTM</th>
-                        <th>UNSHADED</th>
-                        <th>SHADED</th>
-                        <th>BTUH</th>
-                    </tr>
-                    <tr>
-                        <td><input class="form-control" disabled readonly value='24'/></td>
-
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-
-
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                    </tr>
-                    <tr>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-
-                    
-                    </tr>
-                    <tr>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                    </tr>
-                    <tr>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                    </tr>
-                    <tr>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                    </tr>
-                    <tr>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                    </tr>
-                    <tr>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                    </tr>
-                    <tr>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Total Solar Gain</td>
                         <td><input class="form-control" disabled readonly value='24' /></td>
                     </tr>
 
@@ -580,8 +590,301 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="row">
+            <h4>8. DUCTS OR PIPES</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table">
+                    <tbody>
+                        <tr></tr>
+                        <tr>
+                            <td>LOCATION(HEATING)</td>
+                            <td>
+                                <select class="form-control">
+                                    <option>Conditioned area</option>
+                                    <option>Trunk and branches in attic</option>
+                                    <option>Radial or spider in attic</option>
+                                    <option>Under an open floor</option>
+                                    <option>Enclosed crawl space or unheated basement</option>
+                                    <option>Duct system in slab</option>
+
+                                </select>
+                            </td>
+                            <td>DUCT LOSS</td>
+                            <td>0</td>
+                        </tr>
+                        <tr></tr>
+                        <tr>
+                            <td>LOCATION(COOLING)</td>
+                            <td>
+                                <select class="form-control">
+                                    <option>Conditioned area</option>
+                                    <option>Trunk and branches in attic</option>
+                                    <option>Radial or spider in attic</option>
+                                    <option>Under an open floor</option>
+                                    <option>Enclosed crawl space or unheated basement</option>
+                                    <option>Duct system in slab</option>
+
+                                </select>
+                            </td>
+                            <td>DUCT GAIN</td>
+                            <td>0.2584</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table">
+                    <tbody>
+                        <tr></tr>
+                        <tr>
+                            <td>DUCT/PIPE INSULATION</td>
+                            <td>
+                                <select class="form-control">
+                                    <option>R-2</option>
+                                    <option>R-4</option>
+                                    <option>R-6</option>
+                                    <option>R-8</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr></tr>
+                        <tr>
+                            <td>LOCATION(COOLING)</td>
+                            <td>
+                                <select class="form-control">
+                                    <option>Sealed</option>
+                                    <option>Unsealed</option>
+                                </select>
+                            </td>
+
+                        </tr>
+                        <tr></tr>
+                        <tr>
+                            <td>AREA OF ATTIC OR FLOOR WHERE DUCT IS LOCATED</td>
+                            <td>
+                                <input class="form-control" value="1900" />
+                        </tr>
+                        <tr></tr>
+                        <tr>
+                            <td>ATTIC TEMPERATURE(If ducts located in attic)</td>
+                            <td>
+                                <select class="form-control">
+                                    <option>95</option>
+                                    <option>105</option>
+                                    <option>110</option>
+                                    <option>120</option>
+                                    <option>130</option>
+                                    <option>150</option>
+                                </select>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!--TESTING-->
+    <div class="container">
+        <div class="row">
+            <h4>9. LOAD CALCULATION</h4>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <tr>
+                        <th>ELEMENTS OF LOAD</th>
+                        <th>INSULATION/R-VALUE</th>
+                        <th>AREA OR LIN. FT</th>
+                        <th>U-VALUE</th>
+                        <th>HEAT LOSS BTUH</th>
+                        <th>HEAT GAIN BTUH </th>
+                    </tr>
+                    <tr>
+                        <td>SOLAR GAIN FROM GLASS</td>
+                        <td><input readonly disabled class="form-control" /></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><input class="form-control" disabled readonly value='11546' /></td>
+                    </tr>
+                    <tr>
+                        <td>GROSS WALL</td>
+                        <td></td>
+                        <td><input class="form-control" value="1800" /></td>
+                        <td><input class="form-control" disabled readonly value='' /></td>
+                        <td><input class="form-control" disabled readonly value='' /></td>
+                        <td><input class="form-control" disabled readonly value='' /></td>
+                    </tr>
+                    <tr>
+                        <td>GLASS 1</td>
+                        <td>
+                            <select class="form-control">
+                                <option>Double</option>
+                                <option>Single</option>
+                                <option>Tripl or Low E</option>
+                            </select>
+                        </td>
+                        <td><input class="form-control" value="204" /></td>
+                        <td><input class="form-control" disabled readonly value='.56' /></td>
+                        <td><input class="form-control" disabled readonly value='5712' /></td>
+                        <td><input class="form-control" disabled readonly value='' /></td>
+                    </tr>
+                    <tr>
+                        <td>GLASS 2</td>
+                        <td>
+                            <select class="form-control">
+                                <option>Double</option>
+                                <option>Single</option>
+                                <option>Tripl or Low E</option>
+                            </select>
+                        </td>
+                        <td><input class="form-control" value="" /></td>
+                        <td><input class="form-control" disabled readonly value='' /></td>
+                        <td><input class="form-control" disabled readonly value='.56' /></td>
+                        <td><input class="form-control" disabled readonly value='0' /></td>
+                    </tr>
+                    <tr>
+                        <td>SKYLIGHT</td>
+                        <td>
+                            <select class="form-control">
+                                <option>Double</option>
+                                <option>Single</option>
+                                <option>Tripl or Low E</option>
+                            </select>
+                        </td>
+                        <td><input class="form-control" value="" /></td>
+                        <td><input class="form-control" disabled readonly value='' /></td>
+                        <td><input class="form-control" disabled readonly value='.56' /></td>
+                        <td><input class="form-control" disabled readonly value='0' /></td>
+                    </tr>
+                    <tr>
+                        <td>DOORS</td>
+                        <td>
+                            <select class="form-control">
+                                <option>Insulated or Storm</option>
+                                <option>Single Wood</option>
+                            </select>
+                        </td>
+                        <td><input class="form-control" value="42" /></td>
+                        <td><input class="form-control" disabled readonly value='.4' /></td>
+                        <td><input class="form-control" disabled readonly value='840' /></td>
+                        <td><input class="form-control" disabled readonly value='336' /></td>
+                    </tr>
+                    <tr>
+                        <td>NET WALL</td>
+                        <td>
+                            <select class="form-control">
+                                <option>R-11</option>
+                                <option>R-15</option>
+                                <option>R-19</option>
+                                <option>R-25</option>
+                                <option>R-30</option>
+                                <option>R-38</option>
+                                <option>R-45</option>
+                                <option>R-55</option>
+                            </select>
+                        </td>
+                        <td><input class="form-control" value="1554" /></td>
+                        <td><input class="form-control" disabled readonly value='.08' /></td>
+                        <td><input class="form-control" disabled readonly value='6216' /></td>
+                        <td><input class="form-control" disabled readonly value='2486.4' /></td>
+                    </tr>
+                    <tr>
+                        <td>CEILING</td>
+                        <td>
+                            <select class="form-control">
+                                <option>No Insulation</option>
+                                <option>R-11</option>
+                                <option>R-19</option>
+
+                                <option>R-30</option>
+                                <option>R-38</option>
+                                <option>R-45</option>
+                                <option>R-55</option>
+                                <option>Enter R Value</option>
+                            </select>
+                        </td>
+                        <td><input class="form-control" value="1554" /></td>
+                        <td><input class="form-control" disabled readonly value='.08' /></td>
+                        <td><input class="form-control" disabled readonly value='0' /></td>
+                        <td><input class="form-control" disabled readonly value='0' /></td>
+                    </tr>
+                    <tr>
+                        <td>FLOOR</td>
+                        <td><input class="form-control" class="HIDEME" disabled readonly value='' /></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>OVER CRAWL OR UNHEATED BASEMENT</td>
+                        <td>
+                            <select class="form-control">
+                                <option>No Insulation</option>
+                                <option>R-11</option>
+                                <option>R-19</option>
+
+                                <option>R-30</option>
+                                <option>R-38</option>
+                                <option>Enter R Value</option>
+                            </select>
+                        </td>
+                        <td><input class="form-control" value="1900" /></td>
+                        <td><input class="form-control" disabled readonly value='.025' /></td>
+                        <td><input class="form-control" disabled readonly value='2375' /></td>
+                        <td><input class="form-control" disabled readonly value='0' /></td>
+                    </tr>
+                    <tr>
+                        <td>OPEN-BEACH HOUSE ABOVE CARPORT</td>
+                        <td>
+                            <select class="form-control">
+                                <option>No Insulation</option>
+                                <option>R-11</option>
+                                <option>R-19</option>
+
+                                <option>R-30</option>
+                                <option>R-38</option>
+                                <option>Enter R Value</option>
+                            </select>
+                        </td>
+                        <td><input class="form-control" value="" /></td>
+                        <td><input class="form-control" disabled readonly value='.05' /></td>
+                        <td><input class="form-control" disabled readonly value='0' /></td>
+                        <td><input class="form-control" disabled readonly value='0' /></td>
+                    </tr>
+                    <tr>
+                        <td>SLAB ON GRADE</td>
+                        <td>
+                            <select class="form-control">
+                                <option>No Insulation</option>
+                                <option>R-5</option>
+                                <option>R-10</option>
+
+                                <option>R-15</option>
+                            </select>
+                        </td>
+                        <td><input class="form-control" value="" /></td>
+                        <td><input class="form-control" disabled readonly value='.8' /></td>
+                        <td><input class="form-control" disabled readonly value='0' /></td>
+                        <td><input class="form-control col-md-2" disabled readonly value='0' /></td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+
+    </div>
+
     <!-- Bootstrap core JavaScript
-    ================================================== -->
+        ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
