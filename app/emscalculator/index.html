@@ -3,11 +3,11 @@
 
 <style>
     td input {
-        min-width: 75px;
+        min-width: 100px;
     }
 
     td select {
-        min-width: 75px;
+        min-width: 100px;
     }
 </style>
 
@@ -705,6 +705,7 @@
                         <th>U-VALUE</th>
                         <th>HEAT LOSS BTUH</th>
                         <th>HEAT GAIN BTUH </th>
+                        <th></th>
                     </tr>
                     <tr>
                         <td>SOLAR GAIN FROM GLASS</td>
@@ -713,6 +714,7 @@
                         <td></td>
                         <td></td>
                         <td><input class="form-control" disabled readonly value='11546' /></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>GROSS WALL</td>
@@ -721,6 +723,7 @@
                         <td><input class="form-control" disabled readonly value='' /></td>
                         <td><input class="form-control" disabled readonly value='' /></td>
                         <td><input class="form-control" disabled readonly value='' /></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>GLASS 1</td>
@@ -735,6 +738,7 @@
                         <td><input class="form-control" disabled readonly value='.56' /></td>
                         <td><input class="form-control" disabled readonly value='5712' /></td>
                         <td><input class="form-control" disabled readonly value='' /></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>GLASS 2</td>
@@ -749,6 +753,7 @@
                         <td><input class="form-control" disabled readonly value='' /></td>
                         <td><input class="form-control" disabled readonly value='.56' /></td>
                         <td><input class="form-control" disabled readonly value='0' /></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>SKYLIGHT</td>
@@ -763,6 +768,7 @@
                         <td><input class="form-control" disabled readonly value='' /></td>
                         <td><input class="form-control" disabled readonly value='.56' /></td>
                         <td><input class="form-control" disabled readonly value='0' /></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>DOORS</td>
@@ -776,6 +782,7 @@
                         <td><input class="form-control" disabled readonly value='.4' /></td>
                         <td><input class="form-control" disabled readonly value='840' /></td>
                         <td><input class="form-control" disabled readonly value='336' /></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>NET WALL</td>
@@ -795,6 +802,7 @@
                         <td><input class="form-control" disabled readonly value='.08' /></td>
                         <td><input class="form-control" disabled readonly value='6216' /></td>
                         <td><input class="form-control" disabled readonly value='2486.4' /></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>CEILING</td>
@@ -815,10 +823,12 @@
                         <td><input class="form-control" disabled readonly value='.08' /></td>
                         <td><input class="form-control" disabled readonly value='0' /></td>
                         <td><input class="form-control" disabled readonly value='0' /></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>FLOOR</td>
                         <td><input class="form-control" class="HIDEME" disabled readonly value='' /></td>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -841,6 +851,7 @@
                         <td><input class="form-control" disabled readonly value='.025' /></td>
                         <td><input class="form-control" disabled readonly value='2375' /></td>
                         <td><input class="form-control" disabled readonly value='0' /></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>OPEN-BEACH HOUSE ABOVE CARPORT</td>
@@ -859,6 +870,7 @@
                         <td><input class="form-control" disabled readonly value='.05' /></td>
                         <td><input class="form-control" disabled readonly value='0' /></td>
                         <td><input class="form-control" disabled readonly value='0' /></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>SLAB ON GRADE</td>
@@ -875,8 +887,137 @@
                         <td><input class="form-control" disabled readonly value='.8' /></td>
                         <td><input class="form-control" disabled readonly value='0' /></td>
                         <td><input class="form-control col-md-2" disabled readonly value='0' /></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Infiltration-Enter cubit-ft of building</td>
+                       
+                        <td><input class="form-control" value="17100" /></td>
+                        <td></td>
+                        <td><input class="form-control" disabled readonly value='11688' /></td>
+                        <td><input class="form-control col-md-2" disabled readonly value='2195' /></td>
+                        <td><input class="form-control col-md-2" disabled readonly value='LATENT LOAD' /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>PEOPLE</td>
+                        <td></td>
+                        <td></td>
+                        <td><input class="form-control" disabled readonly value='920' /></td>
+                        <td><input class="form-control col-md-2" disabled readonly value='800' /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>APPLIANCES</td>
+                        <td></td>
+                        <td></td>
+                        <td><input class="form-control" disabled readonly value='1200' /></td>
+                        <td><input class="form-control col-md-2" disabled readonly value='' /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>SUB TOTAL</td>
+                        <td></td>
+                        <td>26831</td>
+                        <td><input class="form-control" disabled readonly value='18783' /></td>
+                        <td><input class="form-control col-md-2" disabled readonly value='' /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>DUCT LOSS/GAIN</td>
+                        <td></td>
+                        <td>0</td>
+                        <td><input class="form-control" disabled readonly value='2459' /></td>
+                        <td><input class="form-control col-md-2" disabled readonly value='1044' /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>TOTAL SENSIBLE LOAD</td>
+                        <td></td>
+                        <td>26831</td>
+                        <td><input class="form-control" disabled readonly value='21242' /></td>
+                        <td><input class="form-control col-md-2" disabled readonly value='' /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>LATENT LOAD</td>
+                        <td></td>
+                        <td></td>
+                        <td><input class="form-control" disabled readonly value='' /></td>
+                        <td><input class="form-control col-md-2" disabled readonly value='4070' /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>TOTAL LATENT LOAD</td>
+                        <td></td>
+                        <td></td>
+                        <td><input class="form-control" disabled readonly value='' /></td>
+                        <td><input class="form-control col-md-2" disabled readonly value='5913' /></td>
                     </tr>
 
+                </table>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <h4>SUMMARY</h4>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <tr>
+                        <th>HEATING LOAD</th>
+                        <th>SENSIBLE COOLING</th>
+                        <th>LATENT COOLING</th>
+                        <th>TOTAL COOLING</th>
+                        <th>NOM TONS</th>
+                    </tr>
+                    <tr>
+                        <td>26831</td>
+                        <td>21242</td>
+                        <td>5913</td>
+                        <td>27155</td>
+                        <td>2.3</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <h4>SUMMARY INCLUDING BASEMENT</h4>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <tr>
+                        <th>HEATING LOAD</th>
+                        <th>SENSIBLE COOLING</th>
+                        <th>LATENT COOLING</th>
+                        <th>TOTAL COOLING</th>
+                        <th>NOM TONS</th>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
                 </table>
             </div>
         </div>
