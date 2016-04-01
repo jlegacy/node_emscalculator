@@ -1,5 +1,5 @@
-# mean-stack-registration-login-example
+# EMS HVAC Calculator
 
-MEAN Stack User Registration and Login Example Application
+Rewriting EMS HVAC Calculator using a MEAN stack.
 
-To see a demo and further details go to http://jasonwatmore.com/post/2015/12/09/MEAN-Stack-User-Registration-and-Login-Example.aspx
+For further details go to  http://www.johnrwhite.net/EMS%20load%20calculator%203.htm
