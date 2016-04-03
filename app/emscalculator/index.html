@@ -30,7 +30,7 @@
 </head>
 <body>
     {{vm.testValue}}
-
+    
 
     <div class="container">
     </div>
@@ -154,15 +154,15 @@
                         </tr>
                         <tr>
                             <td>WINTER</td>
-                            <td>70</td>
-                            <td>20</td>
-                            <td>50</td>
+                            <td><input class="form-control" ng-change ="calculate()" value=vm.step1WinterIndoor required ng-model=vm.step1WinterIndoor></td>
+                            <td><input class="form-control" ng-change="calculate()" value="vm.step1WinterOutdoor" ng-model="vm.step1WinterOutdoor"></td>
+                            <td><label ng-model="vm.step1WinterDiff">{{vm.step1WinterDiff}}</label></td>
                         </tr>
                         <tr>
                             <td>SUMMER</td>
-                            <td>75</td>
-                            <td>95</td>
-                            <td>20</td>
+                            <td><input class="form-control" ng-change="calculate()" value="vm.step1SummerIndoor" ng-model="vm.step1SummerIndoor"></td>
+                            <td><input class="form-control" ng-change="calculate()" value="vm.step1SummerOutdoor" ng-model="vm.step1SummerOutdoor"></td>
+                            <td><label ng-model="vm.step1SummerDiff">{{vm.step1SummerDiff}}</label></td>
                         </tr>
                     </tbody>
                 </table>
@@ -179,17 +179,14 @@
                         <tr>
                             <td>FRONT OF BUILDING IS FACING</td>
                             <td>
-                                <select class="form-control">
-                                    <option>North</option>
-                                    <option>South</option>
-                                    <option>East</option>
-                                    <option>West</option>
-                                </select>
+                                <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step1FacingOptions" ng-model="vm.step1FacingOptions.selected"></select>
                             </td>
                         </tr>
                         <tr>
                             <td>TOTAL CONDITIONED AREA</td>
-                            <td>1900</td>
+                      
+                            <td><input class="form-control" value="vm.totalConditionedArea" ng-model="vm.totalConditionedArea"/></td>
+                            <td>SQ.FT</td>
                         </tr>
                     </tbody>
                 </table>
@@ -208,14 +205,9 @@
                         <tr>
                             <td></td>
                             <td>
-                                <select class="form-control">
-                                    <option>Semi-Arid</option>
-                                    <option>Average</option>
-                                    <option>Moderatley Humid</option>
-                                    <option>Very Humid</option>
-                                </select>
+                                <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step1HumidityOptions" ng-model="vm.step1HumidityOptions.selected"></select>
                             </td>
-                            <td>60</td>
+                            <td>{{vm.step1HumidityOptions.selected}}</td>
                             <td>GRAINS DIFFERENCE</td>
                         </tr>
                     </tbody>
@@ -235,15 +227,7 @@
                         <tr>
                             <td></td>
                             <td>
-                                <select class="form-control">
-                                    <option>Not tight-under 1500 Sq. Ft.</option>
-                                    <option>Average-under 1500 Sq. Ft.</option>
-                                    <option>Very tight-under 1500 Sq. Ft.</option>
-                                    <option>Not tight-over 1500 Sq. Ft.</option>
-                                    <option>Average-over 1500 Sq. Ft.</option>
-                                    <option>Very tight-over 1500 Sq. Ft.</option>
-                                    <option>Use blower door ENIR</option>
-                                </select>
+                                <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step1TightStructure" ng-model="vm.step1TightStructure.selected"></select>
                             </td>
                         </tr>
                     </tbody>
@@ -259,8 +243,8 @@
                         </tr>
                         <tr>
                             <td>AIR/CHANGES/HR.</td>
-                            <td>0.7</td>
-                            <td>.35</td>
+                            <td>{{vm.step1TightStructureWinter}}</td>
+                            <td>{{vm.step1TightStructureSummer}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -281,21 +265,10 @@
                         </tr>
                         <tr>
                             <td>
-                                <select class="form-control">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3+</option>
-                                </select>
+                                <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step1FireplaceNumber" ng-model="vm.step1FireplaceNumber.selected"></select>
                             </td>
                             <td>
-                                <select class="form-control">
-                                    <option>No fireplace
-                                    <option>Tight</option>
-                                    <option>Semi-tight</option>
-                                    <option>Average</option>
-                                    <option>Semi-loose</option>
-                                    <option>Loose</option>
-                                </select>
+                                <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step1Fireplace" ng-model="vm.step1Fireplace.selected"></select>
                             </td>
                         </tr>
                     </tbody>
@@ -308,7 +281,7 @@
                             <td>CFM</td>
                         </tr>
                         <tr>
-                            <td>13</td>
+                            <td>{{vm.step1CFM}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -334,7 +307,7 @@
                     <tbody>
                         <tr>
                             <td>
-                                <input value="4">
+                            <td><input class="form-control" value="vm.step1NumberOfOccupants" ng-model="vm.step1NumberOfOccupants" /></td>
                             </td>
                         </tr>
                     </tbody>
@@ -363,21 +336,21 @@
                 </tr>
                 <tr>
                     <td>Distance of OH from top of window (A)</td>
-                    <td>.5</td>
-                    <td>.5</td>
-                    <td></td>
+                    <td><input class="form-control" ng-change="calculate()" value="vm.step2OverhangDistanceTop_East" ng-model="vm.step2OverhangDistanceTop_East"></td>
+                    <td><input class="form-control" ng-change="calculate()" value="vm.step2OverhangDistanceTop_West" ng-model="vm.step2OverhangDistanceTop_West"></td>
+                    <td><input class="form-control" ng-change="calculate()" value="vm.step2OverhangDistanceTop_South" ng-model="vm.step2OverhangDistanceTop_South"></td>
                 </tr>
                 <tr>
                     <td>Length of overhang (B)</td>
-                    <td>1.5</td>
-                    <td>1.5</td>
-                    <td></td>
+                    <td><input class="form-control" ng-change="calculate()" value="vm.step2OverhangLength_East" ng-model="vm.step2OverhangLength_East"></td>
+                    <td><input class="form-control" ng-change="calculate()" value="vm.step2OverhangLength_West" ng-model="vm.step2OverhangLength_West"></td>
+                    <td><input class="form-control" ng-change="calculate()" value="vm.step2OverhangLength_South" ng-model="vm.step2OverhangLength_South"></td>
                 </tr>
                 <tr>
                     <td>Total linear ft. across top of windows located below overhang</td>
-                    <td>5</td>
-                    <td>12</td>
-                    <td></td>
+                    <td><input class="form-control" ng-change="calculate()" value="vm.step2LinearFootAcrossTop_East" ng-model="vm.step2LinearFootAcrossTop_East"></td>
+                    <td><input class="form-control" ng-change="calculate()" value="vm.step2LinearFootAcrossTop_West" ng-model="vm.step2LinearFootAcrossTop_West"></td>
+                    <td><input class="form-control" ng-change="calculate()" value="vm.step2LinearFootAcrossTop_South" ng-model="vm.step2LinearFootAcrossTop_South"></td>
                 </tr>
             </table>
         </div>
@@ -398,11 +371,11 @@
                 <table class="table">
                     <tr>
                         <td>Latitude</td>
-                        <td>40</td>
+                        <td>{{vm.step2SolarGainThroughGlassLat}}</td>
                         <td>U-VALUE</td>
-                        <td>.40</td>
+                        <td>{{vm.step2SolarGainUValue}}</td>
                         <td>SHGC</td>
-                        <td>.35</td>
+                        <td>{{vm.step2SolarSGHC}}</td>
                     </tr>
                 </table>
             </div>
@@ -422,16 +395,12 @@
                     <tr>
                         <td>N/SHADED</td>
                         <td>
-                            <input type="text" class="form-control" placeholder="Placeholder text">
+                            <input class="form-control" ng-change="calculate()" value="vm.step2SolarGain_NorthShadedArea" ng-model="vm.step2SolarGain_NorthShadedArea">
                         </td>
                         <td>
-                            <select class="form-control">
-                                <option>Single</option>
-                                <option>Double</option>
-                                <option>Triple E</option>
-                            </select>
+                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step2GlassCoefficients_North" ng-model="vm.step2GlassCoefficients_North.selected"></select>
                         </td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td>{{vm.step2HTM_North}}</td>
 
                         <td><input class="form-control" disabled readonly value='24' /></td>
 
@@ -450,13 +419,9 @@
                             <input type="text" class="form-control" placeholder="Placeholder text">
                         </td>
                         <td>
-                            <select class="form-control">
-                                <option>Single</option>
-                                <option>Double</option>
-                                <option>Triple E</option>
-                            </select>
+                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step2GlassCoefficients_NENW" ng-model="vm.step2GlassCoefficients_NENW.selected"></select>
                         </td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td>{{vm.step2HTM_NENW}}</td>
                         <td><input class="form-control" disabled readonly value='24' /></td>
                         <td><input class="form-control" disabled readonly value='24' /></td>
                         <td><input class="form-control" disabled readonly value='24' /></td>
@@ -469,13 +434,9 @@
                             <input type="text" class="form-control" placeholder="Placeholder text">
                         </td>
                         <td>
-                            <select class="form-control">
-                                <option>Single</option>
-                                <option>Double</option>
-                                <option>Triple E</option>
-                            </select>
+                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step2GlassCoefficients_South" ng-model="vm.step2GlassCoefficients_South.selected"></select>
                         </td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td>{{vm.step2HTM_South}}</td>
                         <td><input class="form-control" disabled readonly value='24' /></td>
                         <td><input class="form-control" disabled readonly value='24' /></td>
                         <td><input class="form-control" disabled readonly value='24' /></td>
@@ -488,13 +449,9 @@
                             <input type="text" class="form-control" placeholder="Placeholder text">
                         </td>
                         <td>
-                            <select class="form-control">
-                                <option>Single</option>
-                                <option>Double</option>
-                                <option>Triple E</option>
-                            </select>
+                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step2GlassCoefficients_SESW" ng-model="vm.step2GlassCoefficients_SESW.selected"></select>
                         </td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td>{{vm.step2HTM_SESW}}</td>
                         <td><input class="form-control" disabled readonly value='24' /></td>
                         <td><input class="form-control" disabled readonly value='24' /></td>
                         <td><input class="form-control" disabled readonly value='24' /></td>
@@ -507,13 +464,9 @@
                             <input type="text" class="form-control" placeholder="Placeholder text">
                         </td>
                         <td>
-                            <select class="form-control">
-                                <option>Single</option>
-                                <option>Double</option>
-                                <option>Triple E</option>
-                            </select>
+                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step2GlassCoefficients_East" ng-model="vm.step2GlassCoefficients_East.selected"></select>
                         </td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td>{{vm.step2HTM_East}}</td>
                         <td><input class="form-control" disabled readonly value='24' /></td>
                         <td><input class="form-control" disabled readonly value='24' /></td>
                         <td><input class="form-control" disabled readonly value='24' /></td>
@@ -526,13 +479,9 @@
                             <input type="text" class="form-control" placeholder="Placeholder text">
                         </td>
                         <td>
-                            <select class="form-control">
-                                <option>Single</option>
-                                <option>Double</option>
-                                <option>Triple E</option>
-                            </select>
+                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step2GlassCoefficients_West" ng-model="vm.step2GlassCoefficients_West.selected"></select>
                         </td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td>{{vm.step2HTM_West}}</td>
                         <td><input class="form-control" disabled readonly value='24' /></td>
                         <td><input class="form-control" disabled readonly value='24' /></td>
                         <td><input class="form-control" disabled readonly value='24' /></td>
