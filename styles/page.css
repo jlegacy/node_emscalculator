@@ -1,0 +1,12 @@
+﻿    td input {
+        min-width: 100px;
+    }
+
+    td select {
+        min-width: 100px;
+    }
+
+    .slateBackground {
+        background-color: lightsteelblue;   
+    }
+

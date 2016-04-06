@@ -1,15 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 
-<style>
-    td input {
-        min-width: 100px;
-    }
 
-    td select {
-        min-width: 100px;
-    }
-</style>
 
 <head>
     <meta charset="utf-8">
@@ -20,6 +12,7 @@
     <title>Blank Template for Bootstrap</title>
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../../styles/page.css" rel="stylesheet" />
     <!-- Custom styles for this template -->
     <link href="style.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -362,7 +355,7 @@
         <div class="row">
             <div class="col-md-12">
                 <label>
-                    <input class="control-label" type="checkbox" value="">&nbsp;Check if Using Manufacturer specs
+                    <input class="control-label" ng-click="setManSpecs()" ng-model="vm.specHasCheck" type="checkbox" value="">&nbsp;Check if Using Manufacturer specs
                 </label>
             </div>
         </div>
@@ -383,7 +376,7 @@
         <div class="row">
             <div class="col-md-12">
                 <table class="table">
-                    <tr>
+                    <tr class="slateBackground">
                         <th>Facing</th>
                         <th>Area(sq ft)</th>
                         <th>Type Glass</th>
@@ -395,19 +388,16 @@
                     <tr>
                         <td>N/SHADED</td>
                         <td>
-                            <input class="form-control" ng-change="calculate()" value="vm.step2SolarGain_NorthShadedArea" ng-model="vm.step2SolarGain_NorthShadedArea">
+                            <input class="form-control" ng-change="calculate()" value="vm.step2SolarGain_ShadedArea_North" ng-model="vm.step2SolarGain_ShadedArea_North">
                         </td>
                         <td>
                             <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step2GlassCoefficients_North" ng-model="vm.step2GlassCoefficients_North.selected"></select>
                         </td>
                         <td>{{vm.step2HTM_North}}</td>
 
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-
-
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-
-                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step2GlassUnShaded_North" ng-model="vm.step2GlassUnShaded_North"></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step2GlassShaded_North" ng-model="vm.step2GlassShaded_North"></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step2GlassBTUH_North" ng-model="vm.step2GlassBTUH_North"></td>
                     </tr>
                     <tr>
 
@@ -416,110 +406,104 @@
 
 
                         <td>
-                            <input type="text" class="form-control" placeholder="Placeholder text">
-                        </td>
+                            <input class="form-control" ng-change="calculate()" value="vm.step2SolarGain_ShadedArea_NENW" ng-model="vm.step2SolarGain_ShadedArea_NENW">
                         <td>
                             <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step2GlassCoefficients_NENW" ng-model="vm.step2GlassCoefficients_NENW.selected"></select>
                         </td>
                         <td>{{vm.step2HTM_NENW}}</td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step2GlassUnShaded_NENW" ng-model="vm.step2GlassUnShaded_NENW"></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step2GlassShaded_NENW" ng-model="vm.step2GlassShaded_NENW"></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step2GlassBTUH_NENW" ng-model="vm.step2GlassBTUH_NENW"></td>
                     </tr>
                     <tr>
 
                         <td>SOUTH</td>
 
                         <td>
-                            <input type="text" class="form-control" placeholder="Placeholder text">
+                            <input class="form-control" ng-change="calculate()" value="vm.step2SolarGain_ShadedArea_South" ng-model="vm.step2SolarGain_ShadedArea_South">
                         </td>
                         <td>
                             <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step2GlassCoefficients_South" ng-model="vm.step2GlassCoefficients_South.selected"></select>
                         </td>
                         <td>{{vm.step2HTM_South}}</td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step2GlassUnShaded_South" ng-model="vm.step2GlassUnShaded_South"></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step2GlassShaded_South" ng-model="vm.step2GlassShaded_South"></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step2GlassBTUH_South" ng-model="vm.step2GlassBTUH_South"></td>
                     </tr>
                     <tr>
 
                         <td>SE/SW</td>
 
                         <td>
-                            <input type="text" class="form-control" placeholder="Placeholder text">
+                            <input class="form-control" ng-change="calculate()" value="vm.step2SolarGain_ShadedArea_SESW" ng-model="vm.step2SolarGain_ShadedArea_SESW">
                         </td>
                         <td>
                             <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step2GlassCoefficients_SESW" ng-model="vm.step2GlassCoefficients_SESW.selected"></select>
                         </td>
                         <td>{{vm.step2HTM_SESW}}</td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step2GlassUnShaded_SESW" ng-model="vm.step2GlassUnShaded_SESW"></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step2GlassShaded_SESW" ng-model="vm.step2GlassShaded_SESW"></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step2GlassBTUH_SESW" ng-model="vm.step2GlassBTUH_SESW"></td>
                     </tr>
                     <tr>
 
                         <td>EAST</td>
 
                         <td>
-                            <input type="text" class="form-control" placeholder="Placeholder text">
+                            <input class="form-control" ng-change="calculate()" value="vm.step2SolarGain_ShadedArea_East" ng-model="vm.step2SolarGain_ShadedArea_East">
                         </td>
                         <td>
                             <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step2GlassCoefficients_East" ng-model="vm.step2GlassCoefficients_East.selected"></select>
                         </td>
                         <td>{{vm.step2HTM_East}}</td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step2GlassUnShaded_East" ng-model="vm.step2GlassUnShaded_East"></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step2GlassShaded_East" ng-model="vm.step2GlassShaded_East"></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step2GlassBTUH_East" ng-model="vm.step2GlassBTUH_East"></td>
                     </tr>
                     <tr>
 
                         <td>WEST</td>
 
                         <td>
-                            <input type="text" class="form-control" placeholder="Placeholder text">
+                            <input class="form-control" ng-change="calculate()" value="vm.step2SolarGain_ShadedArea_West" ng-model="vm.step2SolarGain_ShadedArea_West">
                         </td>
                         <td>
                             <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step2GlassCoefficients_West" ng-model="vm.step2GlassCoefficients_West.selected"></select>
                         </td>
                         <td>{{vm.step2HTM_West}}</td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step2GlassUnShaded_West" ng-model="vm.step2GlassUnShaded_West"></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step2GlassShaded_West" ng-model="vm.step2GlassShaded_West"></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step2GlassBTUH_West" ng-model="vm.step2GlassBTUH_West"></td>
                     </tr>
 
                     <tr>
                         <td colspan="2">DOES GLASS HAVE REFLECTIVE COATING?</td>
 
                         <td>
-                            <select class="form-control">
-                                <option>YES</option>
-                                <option>NO</option>
+                            
+                            
+                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step2ReflectiveCoating" ng-model="vm.step2ReflectiveCoating.selected"></select>
 
-                            </select>
                         </td>
-                        <td><input class="form-control" disabled readonly value='150' /></td>
+                        <td>{{vm.step2ReflectiveCoatingValue}}</td>
                         <td></td>
                         <td></td>
-                        <td><input class="form-control" disabled readonly value='0' /></td>
+                        <td>{{vm.step2GlassBTUH_Total}}</td>
 
                     </tr>
                     <tr>
                         <td>SKYLIGHT</td>
 
                         <td>
-                            <input class="form-control"></input>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step2SkyLightQty" ng-model="vm.step2SkyLightQty"></td>
                         </td>
                         <td>
-                            <select class="form-control">
-                                <option>Clear</option>
-                                <option>Tinted</option>
-                                <option>Reflective</option>
-                            </select>
+                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step2TintTypes" ng-model="vm.step2TintTypes.selected"></select>
                         </td>
-                        <td><input class="form-control" disabled readonly value='1' /></td>
+                        <td>{{vm.step2TintTypesValue}}</td>
                         <td></td>
                         <td></td>
-                        <td><input class="form-control" disabled readonly value='11546' /></td>
+                        <td>{{vm.step2SkyLight_Total}}</td>
 
                     </tr>
 
@@ -531,7 +515,7 @@
                         <td></td>
                         <td></td>
                         <td>Total Solar Gain</td>
-                        <td><input class="form-control" disabled readonly value='24' /></td>
+                        <td>{{vm.step2TotalSolarGain}}</td>
                     </tr>
 
 
@@ -551,36 +535,20 @@
                         <tr>
                             <td>LOCATION(HEATING)</td>
                             <td>
-                                <select class="form-control">
-                                    <option>Conditioned area</option>
-                                    <option>Trunk and branches in attic</option>
-                                    <option>Radial or spider in attic</option>
-                                    <option>Under an open floor</option>
-                                    <option>Enclosed crawl space or unheated basement</option>
-                                    <option>Duct system in slab</option>
-
-                                </select>
+                                <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step2DuctsPipesHeating" ng-model="vm.step2DuctsPipesHeating.selected"></select>
                             </td>
                             <td>DUCT LOSS</td>
-                            <td>0</td>
+                            <td>{{vm.step2DuctLoss_Heating}}</td>
                         </tr>
                         <tr></tr>
                         <tr>
                             <td>LOCATION(COOLING)</td>
                             <td>
-                                <select class="form-control">
-                                    <option>Conditioned area</option>
-                                    <option>Trunk and branches in attic</option>
-                                    <option>Radial or spider in attic</option>
-                                    <option>Under an open floor</option>
-                                    <option>Enclosed crawl space or unheated basement</option>
-                                    <option>Duct system in slab</option>
-
-                                </select>
+                                <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step2DuctsPipesCooling" ng-model="vm.step2DuctsPipesCooling.selected"></select>
                             </td>
                             <td>DUCT GAIN</td>
-                            <td>0.2584</td>
-                        </tr>
+                            <td>{{vm.step2DuctGain_Cooling}}</td>
+</tr>
                     </tbody>
                 </table>
             </div>
@@ -594,22 +562,14 @@
                         <tr>
                             <td>DUCT/PIPE INSULATION</td>
                             <td>
-                                <select class="form-control">
-                                    <option>R-2</option>
-                                    <option>R-4</option>
-                                    <option>R-6</option>
-                                    <option>R-8</option>
-                                </select>
+                                <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step2DuctsPipesRValues" ng-model="vm.step2DuctsPipesRValues.selected"></select>
                             </td>
                         </tr>
                         <tr></tr>
                         <tr>
                             <td>LOCATION(COOLING)</td>
                             <td>
-                                <select class="form-control">
-                                    <option>Sealed</option>
-                                    <option>Unsealed</option>
-                                </select>
+                                <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step2DuctLeakage" ng-model="vm.step2DuctLeakage.selected"></select>
                             </td>
 
                         </tr>
@@ -617,20 +577,14 @@
                         <tr>
                             <td>AREA OF ATTIC OR FLOOR WHERE DUCT IS LOCATED</td>
                             <td>
-                                <input class="form-control" value="1900" />
+                                <input class="form-control" ng-change="calculate()" value="vm.step2AreaDuctLocated" ng-model="vm.step2AreaDuctLocated">
+                            </td>
                         </tr>
                         <tr></tr>
                         <tr>
                             <td>ATTIC TEMPERATURE(If ducts located in attic)</td>
                             <td>
-                                <select class="form-control">
-                                    <option>95</option>
-                                    <option>105</option>
-                                    <option>110</option>
-                                    <option>120</option>
-                                    <option>130</option>
-                                    <option>150</option>
-                                </select>
+                                <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step2AtticTemperature" ng-model="vm.step2AtticTemperature.selected"></select>
                         </tr>
                     </tbody>
                 </table>
