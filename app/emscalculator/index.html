@@ -544,7 +544,7 @@
                         <tr>
                             <td>LOCATION(COOLING)</td>
                             <td>
-                                <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step2DuctsPipesCooling" ng-model="vm.step2DuctsPipesCooling.selected"></select>
+                                <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step2DuctsPipesCooling" ng-model="vm.step2DuctsPipesCooling.selected" ng-change="update()"></select>
                             </td>
                             <td>DUCT GAIN</td>
                             <td>{{vm.step2DuctGain_Cooling}}</td>

@@ -113,9 +113,75 @@
 
             vm.step2TotalSolarGain = vm.step2GlassBTUH_Total + vm.step2SkyLight_Total;
 
-            vm.step2DuctLoss_Heating = vm.step2DuctsPipesHeating.selected * vm.step2DuctsPipesRValues.selected * .206;
-            vm.step2DuctGain_Cooling = vm.step2DuctsPipesCooling.selected * vm.step2DuctsPipesRValues.selected * .214;
+            //Step 2 - Intermediate Values for Duct Loss Gain
 
+            vm.step2DuctGainLossConditionedArea_Cool = 0;
+            vm.step2DuctGainLossTrunkBranchAttic_Cool = ((((vm.step2AtticTemperature.selected - 95) / 10) * 0.06) + 0.16) + ((vm.step2AreaDuctLocated - 2000) * 0.00006);
+            vm.step2DuctGainLossRadialSpiderAttic_Cool = vm.step2DuctGainLossTrunkBranchAttic_Cool * .6;
+            vm.step2DuctGainLossUnderOpenFloor_Cool = (0.1 + (0.006 * (vm.step1SummerOutdoor - 85))) + ((vm.step2AreaDuctLocated - 1000) * 0.00006);
+            vm.step2DuctGainLossEnclosedCrawl_Cool = vm.step2DuctGainLossUnderOpenFloor_Cool * .45;
+            vm.step2DuctGainDuctSystemSlab_Cool = .3;
+
+            vm.step2DuctGainLossConditionedArea_Heat = 0;
+            vm.step2DuctGainLossTrunkBranchAttic_Heat = (0.13 + ((vm.step1SummerOutdoor - 1000) * 0.00004)) + (0.002 * (40 - vm.step1WinterOutdoor));
+            vm.step2DuctGainLossRadialSpiderAttic_Heat = vm.step2DuctGainLossTrunkBranchAttic_Heat * .6;
+            vm.step2DuctGainLossUnderOpenFloor_Heat = (0.21 + ((vm.step1SummerOutdoor - 1000) * 0.000075)) + (0.003 * (40 - vm.step1WinterOutdoor));
+            vm.step2DuctGainLossEnclosedCrawl_Heat = vm.step2DuctGainLossUnderOpenFloor_Heat * .4;
+            vm.step2DuctGainDuctSystemSlab_Heat = (0.03 + ((vm.step1SummerOutdoor - 1000) * 0.000009)) + (0.001 * (40 - vm.step1WinterOutdoor));
+
+            vm.step2DuctLoss_Heating = vm.step2DuctsPipesHeating.selected * vm.step2DuctsPipesRValues.selected * vm.step2DuctLeakage.selected;
+
+            switch (vm.step2DuctsPipesCooling.selected) {
+                case "Conditioned area":
+                    vm.coolingFactor = vm.step2DuctGainLossConditionedArea_Cool;
+                    break;
+                case "Trunk and branches in attic":
+                    vm.coolingFactor = vm.step2DuctGainLossTrunkBranchAttic_Cool;
+                    break;
+                case "Radial or spider in attic":
+                    vm.coolingFactor = vm.step2DuctGainLossRadialSpiderAttic_Cool;
+                    break;
+                case "Under an open floor":
+                    vm.coolingFactor = vm.step2DuctGainLossUnderOpenFloor_Cool;
+                    break;
+                case "Enclosed crawl space or unheated basement":
+                    vm.coolingFactor = vm.step2DuctGainLossEnclosedCrawl_Cool;
+                    break;
+                case "Duct system in slab":
+                    vm.coolingFactor = vm.step2DuctGainDuctSystemSlab_Cool;
+                    break;
+              
+            }
+
+            switch (vm.step2DuctsPipesHeating.selected) {
+                case "Conditioned area":
+                    vm.heatingFactor = vm.step2DuctGainLossConditionedArea_Heat;
+                    break;
+                case "Trunk and branches in attic":
+                    vm.heatingFactor = vm.step2DuctGainLossTrunkBranchAttic_Heat;
+                    break;
+                case "Radial or spider in attic":
+                    vm.heatingFactor = vm.step2DuctGainLossRadialSpiderAttic_Heat;
+                    break;
+                case "Under an open floor":
+                    vm.heatingFactor = vm.step2DuctGainLossUnderOpenFloor_Heat;
+                    break;
+                case "Enclosed crawl space or unheated basement":
+                    vm.heatingFactor = vm.step2DuctGainLossEnclosedCrawl_Heat;
+                    break;
+                case "Duct system in slab":
+                    vm.heatingFactor = vm.step2DuctGainDuctSystemSlab_Heat;
+                    break;
+
+            }
+
+            vm.step2DuctLoss_Heating = vm.heatingFactor * vm.step2DuctsPipesRValues.selected * vm.step2DuctLeakage.selected;
+            vm.step2DuctGain_Cooling = vm.coolingFactor * vm.step2DuctsPipesRValues.selected * vm.step2DuctLeakage.selected;
+
+        }
+
+        $scope.update = function() {
+            vm.step2DuctsPipesCooling.value = vm.step2DuctGainLossConditionedArea_Cool = 0;
         }
 
         $scope.setManSpecs = function () {
@@ -315,43 +381,43 @@
       
         vm.step2DuctsPipesHeating = [{
             "text": "Conditioned area",
-            "value": 0
+            "value": "Conditioned area"
         }, {
             "text": "Trunk and branches in attic",
-            "value": 0.304
+            "value": "Trunk and branches in attic"
         }, {
             "text": "Radial or spider in attic",
-            "value": 0.1824
+            "value": "Radial or spider in attic"
         },{
             "text": "Under an open floor",
-            "value": 0.214
+            "value": "Under an open floor"
         },{
             "text": "Enclosed crawl space or unheated basement",
-            "value": 0.0963
+            "value": "Enclosed crawl space or unheated basement"
         },{
             "text": "Duct system in slab",
-            "value": 0.3
+            "value": "Duct system in slab"
         }];
 
 
         vm.step2DuctsPipesCooling = [{
             "text": "Conditioned area",
-            "value": 0
+            "value": "Conditioned area"
         }, {
             "text": "Trunk and branches in attic",
-            "value": 0.206
+            "value": "Trunk and branches in attic"
         }, {
             "text": "Radial or spider in attic",
-            "value": .1236
+            "value": "Radial or spider in attic"
         }, {
             "text": "Under an open floor",
-            "value": 0.3375
+            "value": "Under an open floor"
         }, {
             "text": "Enclosed crawl space or unheated basement",
-            "value": 0.135
+            "value": "Enclosed crawl space or unheated basement"
         }, {
             "text": "Duct system in slab",
-            "value": 0.0581
+            "value": "Duct system in slab"
         }];
 
         vm.step2DuctsPipesRValues = [{
