@@ -12,8 +12,8 @@
         //scope data starting values//
         vm.step1WinterIndoor = 70;
         vm.step1SummerIndoor = 75;
-        vm.step1SummerOutdoor = 95;
-        vm.step1WinterOutdoor = 20;
+        vm.step1SummerOutdoor = 100;
+        vm.step1WinterOutdoor = 1;
 
         vm.totalConditionedArea = 1900;
         vm.step1NumberOfOccupants = 4;
@@ -178,6 +178,72 @@
             vm.step2DuctLoss_Heating = vm.heatingFactor * vm.step2DuctsPipesRValues.selected * vm.step2DuctLeakage.selected;
             vm.step2DuctGain_Cooling = vm.coolingFactor * vm.step2DuctsPipesRValues.selected * vm.step2DuctLeakage.selected;
 
+            /*Step 3*/
+
+            vm.step3HeatLossBTUH_Glass1 = vm.step1WinterDiff * vm.step3Area_Glass1 * vm.step3SolarGlass1.selected;
+            vm.step3HeatLossBTUH_Glass2 = vm.step1WinterDiff * vm.step3Area_Glass2 * vm.step3SolarGlass2.selected;
+            vm.step3HeatLossBTUH_SkyLight = vm.step1WinterDiff * vm.step3Area_SolarSkyLight * vm.step3SolarSkyLight.selected;
+            vm.step3HeatLossBTUH_Doors = vm.step1WinterDiff * vm.step3Area_SolarDoors * vm.step3SolarDoors.selected;
+            vm.step3HeatLossBTUH_NetWall = vm.step1WinterDiff * vm.step3Area_SolarNetWall * vm.step3SolarNetWall.selected;
+            vm.step3HeatLossBTUH_Ceiling = vm.step1WinterDiff * vm.step3Area_SolarCeiling * vm.step3SolarCeiling.selected;
+
+            vm.step3HeatLossBTUH_OverCrawl = vm.step1WinterDiff * vm.step3Area_OverCrawl * vm.step3SolarGainFloors_OverCrawl.selected;
+            vm.step3HeatLossBTUH_OpenBeach = vm.step1WinterDiff * vm.step3Area_OpenBeach * vm.step3SolarGainFloors_OpenBeach.selected;
+            vm.step3HeatLossBTUH_Slab = vm.step1WinterDiff * vm.step3Area_Slab * vm.step3SolarGainFloors_Slab.selected;
+
+            vm.step3HeatGainBTUH_Doors = vm.step1SummerDiff * vm.step3Area_SolarDoors * vm.step3SolarDoors.selected;
+            vm.step3HeatGainBTUH_NetWall = vm.step1SummerDiff * vm.step3Area_SolarNetWall * vm.step3SolarNetWall.selected;
+            vm.step3HeatGainBTUH_Ceiling = 45 * vm.step3Area_SolarCeiling * vm.step3SolarCeiling.selected;
+
+            vm.step3HeatGainBTUH_OverCrawl = 0;
+            vm.step3HeatGainBTUH_OpenBeach = vm.step1SummerDiff * vm.step3Area_OpenBeach * vm.step3SolarGainFloors_OpenBeach.selected;
+            vm.step3HeatGainBTUH_Slab = 0;
+
+            vm.step3HeatLossBTUH_Infiltration = (((vm.step3Infiltration * vm.step1TightStructureWinter) / 60) * 1.1 * vm.step1WinterDiff + (vm.step1CFM * 1.1 * vm.step1WinterDiff));
+            vm.step3HeatGainBTUH_Infiltration = ((vm.step3Infiltration * vm.step1TightStructureSummer) / 60) * 1.1 * vm.step1SummerDiff;
+
+            vm.step3HeatGainBTUH_People = vm.step1NumberOfOccupants * 230;
+            vm.step3HeatGainBTUH_Appliances = 1200;
+
+            vm.step3HeatLossBTUH_Subtotal = 
+                    vm.step3HeatLossBTUH_Glass1 +  
+                    vm.step3HeatLossBTUH_Glass2 +
+                    vm.step3HeatLossBTUH_SkyLight +
+                    vm.step3HeatLossBTUH_Doors  +
+                    vm.step3HeatLossBTUH_NetWall +
+                    vm.step3HeatLossBTUH_Ceiling +
+                    vm.step3HeatLossBTUH_OverCrawl +
+                    vm.step3HeatLossBTUH_OpenBeach +
+                    vm.step3HeatLossBTUH_Slab;
+
+            vm.step3HeatGainBTUH_Subtotal = 
+                   vm.step3HeatGainBTUH_Glass1 +  
+                   vm.step3HeatGainBTUH_Glass2 +
+                   vm.step3HeatGainBTUH_SkyLight +
+                   vm.step3HeatGainBTUH_Doors  +
+                   vm.step3HeatGainBTUH_NetWall +
+                   vm.step3HeatGainBTUH_Ceiling +
+                   vm.step3HeatGainBTUH_OverCrawl +
+                   vm.step3HeatGainBTUH_OpenBeach +
+                   vm.step3HeatGainBTUH_Slab;
+
+            //Stopped Here....
+            vm.step3HeatGainBTUH_DuctGain = vm.step3HeatGainBTUH_Subtotal
+            vm.step3HeatLossBTUH_DuctGain = vm.step3HeatLossBTUH_Subtotal
+
+
+            vm.step3HeatGainBTUH_TotalSensibleLoad = 1200;
+
+            vm.step3HeatLossBTUH_Subtotal = 1200;
+           
+            vm.step3HeatLossBTUH_TotalSensibleLoad = 1200;
+
+            vm.step3Total_People =
+            vm.step3Total_DuctLossGain =
+            vm.step3Total_LatentLoad =
+            vm.step3Total_LatentLoad_Total =
+
+
         }
 
         $scope.update = function() {
@@ -270,10 +336,10 @@
 
         vm.step1FireplaceNumber = [{
             "text": "none",
-            "value": 10
+            "value": 0
         }, {
             "text": "1",
-            "value": 0
+            "value": 1
         }, {
             "text": "2",
             "value": 7
@@ -445,7 +511,7 @@
 
         vm.step2AtticTemperature = [{
             "text": "95",
-            "value": 0
+            "value": 95
         }, {
             "text": "105",
             "value": 105
@@ -462,6 +528,168 @@
             "text": "150",
             "value": 150
         }];
+
+       
+
+        vm.step3SolarGlass1 = [{
+            "text": "Single",
+            "value": .98
+        }, {
+            "text": "Double",
+            "value": .56
+        }, {
+            "text": "Triple/Low-E",
+            "value": .42
+        }];
+
+        vm.step3SolarGlass2 = [{
+            "text": "Single",
+            "value": .98
+        }, {
+            "text": "Double",
+            "value": .56
+        }, {
+            "text": "Triple/Low-E",
+            "value": .42
+        }];
+
+        vm.step3SolarSkyLight = [{
+            "text": "Single",
+            "value": .98
+        }, {
+            "text": "Double",
+            "value": .56
+        }, {
+            "text": "Triple/Low-E",
+            "value": .42
+        }];
+
+        vm.step3SolarDoors = [{
+            "text": "Single Wood",
+            "value": .56
+        }, {
+            "text": "Insulated or Storm",
+            "value": .4
+        }];
+
+        vm.step3SolarNetWall = [{
+            "text": "No Insulation",
+            "value": .27
+        }, {
+            "text": "R-11",
+            "value": .08
+        }
+      , {
+          "text": "R-15",
+          "value": .07
+      }
+      , {
+          "text": "R-19",
+          "value": .06
+      }
+      , {
+          "text": "R-25",
+          "value": .042
+      }
+      , {
+          "text": "R-30",
+          "value": .033
+      }
+      , {
+          "text": "R-38",
+          "value": .026
+      }
+      , {
+          "text": "R-45",
+          "value": .022
+      },
+      {
+          "text": "R-55",
+          "value": .018
+      }];
+
+        vm.step3SolarCeiling = [{
+            "text": "No Insulation",
+            "value": .6
+        }, {
+            "text": "R-11",
+            "value": .09
+        }, {
+            "text": "R-19",
+            "value": .05
+        },
+     {
+         "text": "R-30",
+         "value": .033
+     },
+     {
+         "text": "R-38",
+         "value": .026
+     },
+     {
+         "text": "R-45",
+         "value": .022
+     },
+      {
+          "text": "R-55",
+          "value": .018
+      }];
+
+
+
+        vm.step3SolarGainFloors_OverCrawl = [{
+            "text": "No Insulation",
+            "value": .15
+        }, {
+            "text": "R-11",
+            "value": .08
+        }, {
+            "text": "R-19",
+            "value": .025
+        },
+        {
+            "text": "R-30",
+            "value": .02
+        },
+        {
+            "text": "R-38",
+            "value": .014
+        }];
+
+
+        vm.step3SolarGainFloors_OpenBeach = [{
+            "text": "No Insulation",
+            "value": .31
+        }, {
+            "text": "R-11",
+            "value": .08
+        }, {
+            "text": "R-19",
+            "value": .05
+        },
+     {
+         "text": "R-30",
+         "value": .04
+     },
+     {
+         "text": "R-38",
+         "value": .026
+     }];
+
+        vm.step3SolarGainFloors_Slab = [{
+            "text": "No Insulation",
+            "value": .8
+        }, {
+            "text": "R-5",
+            "value": .5
+        }, {
+            "text": "R-10",
+            "value": .04
+        },
+    {
+        "text": "R-15",
+        "value": .35
+    }];      
 
         $scope.calculate();
     }

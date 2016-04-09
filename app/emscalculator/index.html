@@ -598,7 +598,7 @@
             <h4>9. LOAD CALCULATION</h4>
         </div>
 
-        <div class="row">
+       <div class="row">
             <div class="col-md-12">
                 <table class="table">
                     <tr>
@@ -616,13 +616,13 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td><input class="form-control" disabled readonly value='11546' /></td>
+                        <td>{{vm.step2TotalSolarGain}}</td>
                         <td></td>
                     </tr>
                     <tr>
                         <td>GROSS WALL</td>
                         <td></td>
-                        <td><input class="form-control" value="1800" /></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step3Area_GrossWall" ng-model="vm.step3Area_GrossWall"></td>
                         <td><input class="form-control" disabled readonly value='' /></td>
                         <td><input class="form-control" disabled readonly value='' /></td>
                         <td><input class="form-control" disabled readonly value='' /></td>
@@ -631,106 +631,72 @@
                     <tr>
                         <td>GLASS 1</td>
                         <td>
-                            <select class="form-control">
-                                <option>Double</option>
-                                <option>Single</option>
-                                <option>Tripl or Low E</option>
-                            </select>
+                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step3SolarGlass1" ng-model="vm.step3SolarGlass1.selected"></select>
                         </td>
-                        <td><input class="form-control" value="204" /></td>
-                        <td><input class="form-control" disabled readonly value='.56' /></td>
-                        <td><input class="form-control" disabled readonly value='5712' /></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step3Area_Glass1" ng-model="vm.step3Area_Glass1"></td>
+                        <td><input class="form-control" disabled readonly value={{vm.step3SolarGlass1.selected}} /></td>
+                        <td>{{vm.step3HeatLossBTUH_Glass1}}</td>
                         <td><input class="form-control" disabled readonly value='' /></td>
                         <td></td>
                     </tr>
                     <tr>
                         <td>GLASS 2</td>
                         <td>
-                            <select class="form-control">
-                                <option>Double</option>
-                                <option>Single</option>
-                                <option>Tripl or Low E</option>
-                            </select>
+                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step3SolarGlass2" ng-model="vm.step3SolarGlass2.selected"></select>
                         </td>
-                        <td><input class="form-control" value="" /></td>
-                        <td><input class="form-control" disabled readonly value='' /></td>
-                        <td><input class="form-control" disabled readonly value='.56' /></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step3Area_Glass2" ng-model="vm.step3Area_Glass2"></td>
+                        <td><input class="form-control" disabled readonly value={{vm.step3SolarGlass2.selected}} /></td>
+                        <td>{{vm.step3HeatLossBTUH_Glass2}}</td>
                         <td><input class="form-control" disabled readonly value='0' /></td>
                         <td></td>
                     </tr>
                     <tr>
                         <td>SKYLIGHT</td>
                         <td>
-                            <select class="form-control">
-                                <option>Double</option>
-                                <option>Single</option>
-                                <option>Tripl or Low E</option>
-                            </select>
+                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step3SolarSkyLight" ng-model="vm.step3SolarSkyLight.selected"></select>
                         </td>
-                        <td><input class="form-control" value="" /></td>
-                        <td><input class="form-control" disabled readonly value='' /></td>
-                        <td><input class="form-control" disabled readonly value='.56' /></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step3Area_SolarSkyLight" ng-model="vm.step3Area_SolarSkyLight"></td>
+                        <td><input class="form-control" disabled readonly value={{vm.step3SolarSkyLight.selected}} /></td>
+                        <td>{{vm.step3HeatLossBTUH_SkyLight}}</td>
                         <td><input class="form-control" disabled readonly value='0' /></td>
                         <td></td>
                     </tr>
                     <tr>
                         <td>DOORS</td>
                         <td>
-                            <select class="form-control">
-                                <option>Insulated or Storm</option>
-                                <option>Single Wood</option>
-                            </select>
+                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step3SolarDoors" ng-model="vm.step3SolarDoors.selected"></select>
                         </td>
-                        <td><input class="form-control" value="42" /></td>
-                        <td><input class="form-control" disabled readonly value='.4' /></td>
-                        <td><input class="form-control" disabled readonly value='840' /></td>
-                        <td><input class="form-control" disabled readonly value='336' /></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step3Area_SolarDoors" ng-model="vm.step3Area_SolarDoors"></td>
+                        <td><input class="form-control" disabled readonly value={{vm.step3SolarDoors.selected}} /></td>
+                        <td>{{vm.step3HeatLossBTUH_Doors}}</td>
+                        <td>{{vm.step3HeatGainBTUH_Doors}}</td>
                         <td></td>
                     </tr>
                     <tr>
                         <td>NET WALL</td>
                         <td>
-                            <select class="form-control">
-                                <option>R-11</option>
-                                <option>R-15</option>
-                                <option>R-19</option>
-                                <option>R-25</option>
-                                <option>R-30</option>
-                                <option>R-38</option>
-                                <option>R-45</option>
-                                <option>R-55</option>
-                            </select>
+                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step3SolarNetWall" ng-model="vm.step3SolarNetWall.selected"></select>
                         </td>
-                        <td><input class="form-control" value="1554" /></td>
-                        <td><input class="form-control" disabled readonly value='.08' /></td>
-                        <td><input class="form-control" disabled readonly value='6216' /></td>
-                        <td><input class="form-control" disabled readonly value='2486.4' /></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step3Area_SolarNetWall" ng-model="vm.step3Area_SolarNetWall"></td>
+                        <td><input class="form-control" disabled readonly value={{vm.step3SolarNetWall.selected}} /></td>
+                        <td>{{vm.step3HeatLossBTUH_NetWall}}</td>
+                        <td>{{vm.step3HeatGainBTUH_NetWall}}</td>
                         <td></td>
                     </tr>
                     <tr>
                         <td>CEILING</td>
                         <td>
-                            <select class="form-control">
-                                <option>No Insulation</option>
-                                <option>R-11</option>
-                                <option>R-19</option>
-
-                                <option>R-30</option>
-                                <option>R-38</option>
-                                <option>R-45</option>
-                                <option>R-55</option>
-                                <option>Enter R Value</option>
-                            </select>
+                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step3SolarCeiling" ng-model="vm.step3SolarCeiling.selected"></select> 
                         </td>
-                        <td><input class="form-control" value="1554" /></td>
-                        <td><input class="form-control" disabled readonly value='.08' /></td>
-                        <td><input class="form-control" disabled readonly value='0' /></td>
-                        <td><input class="form-control" disabled readonly value='0' /></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step3Area_SolarCeiling" ng-model="vm.step3Area_SolarCeiling"></td>
+                        <td><input class="form-control" disabled readonly value={{vm.step3SolarCeiling.selected}} /></td>
+                        <td>{{vm.step3HeatLossBTUH_Ceiling}}</td>
+                        <td>{{vm.step3HeatGainBTUH_Ceiling}}</td>
                         <td></td>
                     </tr>
                     <tr>
                         <td>FLOOR</td>
-                        <td><input class="form-control" class="HIDEME" disabled readonly value='' /></td>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -740,65 +706,43 @@
                     <tr>
                         <td>OVER CRAWL OR UNHEATED BASEMENT</td>
                         <td>
-                            <select class="form-control">
-                                <option>No Insulation</option>
-                                <option>R-11</option>
-                                <option>R-19</option>
-
-                                <option>R-30</option>
-                                <option>R-38</option>
-                                <option>Enter R Value</option>
-                            </select>
+                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step3SolarGainFloors_OverCrawl" ng-model="vm.step3SolarGainFloors_OverCrawl.selected"></select> 
                         </td>
-                        <td><input class="form-control" value="1900" /></td>
-                        <td><input class="form-control" disabled readonly value='.025' /></td>
-                        <td><input class="form-control" disabled readonly value='2375' /></td>
-                        <td><input class="form-control" disabled readonly value='0' /></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step3Area_OverCrawl" ng-model="vm.step3Area_OverCrawl"></td>
+                        <td><input class="form-control" disabled readonly value={{vm.step3SolarGainFloors_OverCrawl.selected}} /></td>
+                        <td>{{vm.step3HeatLossBTUH_OverCrawl}}</td>
+                        <td>{{vm.step3HeatGainBTUH_OverCrawl}}</td>
                         <td></td>
                     </tr>
                     <tr>
                         <td>OPEN-BEACH HOUSE ABOVE CARPORT</td>
                         <td>
-                            <select class="form-control">
-                                <option>No Insulation</option>
-                                <option>R-11</option>
-                                <option>R-19</option>
-
-                                <option>R-30</option>
-                                <option>R-38</option>
-                                <option>Enter R Value</option>
-                            </select>
+                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step3SolarGainFloors_OpenBeach" ng-model="vm.step3SolarGainFloors_OpenBeach.selected"></select> 
                         </td>
-                        <td><input class="form-control" value="" /></td>
-                        <td><input class="form-control" disabled readonly value='.05' /></td>
-                        <td><input class="form-control" disabled readonly value='0' /></td>
-                        <td><input class="form-control" disabled readonly value='0' /></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step3Area_OpenBeach" ng-model="vm.step3Area_OpenBeach"></td>
+                        <td><input class="form-control" disabled readonly value={{vm.step3SolarGainFloors_OpenBeach.selected}} /></td>
+                        <td>{{vm.step3HeatLossBTUH_OpenBeach}}</td>
+                        <td>{{vm.step3HeatGainBTUH_OpenBeach}}</td>
                         <td></td>
                     </tr>
                     <tr>
                         <td>SLAB ON GRADE</td>
                         <td>
-                            <select class="form-control">
-                                <option>No Insulation</option>
-                                <option>R-5</option>
-                                <option>R-10</option>
-
-                                <option>R-15</option>
-                            </select>
+                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step3SolarGainFloors_Slab" ng-model="vm.step3SolarGainFloors_Slab.selected"></select> 
                         </td>
-                        <td><input class="form-control" value="" /></td>
-                        <td><input class="form-control" disabled readonly value='.8' /></td>
-                        <td><input class="form-control" disabled readonly value='0' /></td>
-                        <td><input class="form-control col-md-2" disabled readonly value='0' /></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step3Area_Slab" ng-model="vm.step3Area_Slab"></td>
+                        <td><input class="form-control" disabled readonly value={{vm.step3SolarGainFloors_Slab.selected}} /></td>
+                        <td>{{vm.step3HeatLossBTUH_Slab}}</td>
+                        <td>{{vm.step3HeatGainBTUH_Slab}}</td>
                         <td></td>
                     </tr>
                     <tr>
                         <td colspan="2">Infiltration-Enter cubit-ft of building</td>
                        
-                        <td><input class="form-control" value="17100" /></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.step3Infiltration" ng-model="vm.step3Infiltration"></td>
                         <td></td>
-                        <td><input class="form-control" disabled readonly value='11688' /></td>
-                        <td><input class="form-control col-md-2" disabled readonly value='2195' /></td>
+                        <td>{{vm.step3HeatLossBTUH_Infiltration}}</td>
+                        <td>{{vm.step3HeatGainBTUH_Infiltration}}</td>
                         <td><input class="form-control col-md-2" disabled readonly value='LATENT LOAD' /></td>
                     </tr>
                     <tr>
