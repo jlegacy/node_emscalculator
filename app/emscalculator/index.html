@@ -751,8 +751,8 @@
                         <td>PEOPLE</td>
                         <td></td>
                         <td></td>
-                        <td><input class="form-control" disabled readonly value='920' /></td>
-                        <td><input class="form-control col-md-2" disabled readonly value='800' /></td>
+                        <td>{{vm.step3HeatGainBTUH_People}}</td>
+                        <td>{{vm.step3HeatGainBTUH_People_Total}}</td>
                     </tr>
                     <tr>
                         <td></td>
@@ -760,7 +760,7 @@
                         <td>APPLIANCES</td>
                         <td></td>
                         <td></td>
-                        <td><input class="form-control" disabled readonly value='1200' /></td>
+                        <td>{{vm.step3HeatGainBTUH_Appliances}}</td>
                         <td><input class="form-control col-md-2" disabled readonly value='' /></td>
                     </tr>
                     <tr>
@@ -768,8 +768,8 @@
                         <td></td>
                         <td>SUB TOTAL</td>
                         <td></td>
-                        <td>26831</td>
-                        <td><input class="form-control" disabled readonly value='18783' /></td>
+                        <td>{{vm.step3HeatLossBTUH_Subtotal}}</td>
+                        <td>{{vm.step3HeatGainBTUH_Subtotal}}</td>
                         <td><input class="form-control col-md-2" disabled readonly value='' /></td>
                     </tr>
                     <tr>
@@ -777,17 +777,17 @@
                         <td></td>
                         <td>DUCT LOSS/GAIN</td>
                         <td></td>
-                        <td>0</td>
-                        <td><input class="form-control" disabled readonly value='2459' /></td>
-                        <td><input class="form-control col-md-2" disabled readonly value='1044' /></td>
+                        <td>{{vm.step3HeatLossBTUH_DuctGain}}</td>
+                        <td>{{vm.step3HeatGainBTUH_DuctGain}}</td>
+                        <td>{{vm.step3HeatGainBTUH_DuctGain_Total}}</td>
                     </tr>
                     <tr>
                         <td></td>
                         <td></td>
                         <td>TOTAL SENSIBLE LOAD</td>
                         <td></td>
-                        <td>26831</td>
-                        <td><input class="form-control" disabled readonly value='21242' /></td>
+                        <td>{{vm.step3HeatLossBTUH_TotalSensibleLoad}}</td>
+                        <td>{{vm.step3HeatGainBTUH_TotalSensibleLoad}}</td>
                         <td><input class="form-control col-md-2" disabled readonly value='' /></td>
                     </tr>
                     <tr>
@@ -797,7 +797,7 @@
                         <td></td>
                         <td></td>
                         <td><input class="form-control" disabled readonly value='' /></td>
-                        <td><input class="form-control col-md-2" disabled readonly value='4070' /></td>
+                        <td>{{vm.step3Total_LatentLoad}}</td>
                     </tr>
                     <tr>
                         <td></td>
@@ -806,7 +806,7 @@
                         <td></td>
                         <td></td>
                         <td><input class="form-control" disabled readonly value='' /></td>
-                        <td><input class="form-control col-md-2" disabled readonly value='5913' /></td>
+                        <td>{{vm.step3Total_LatentLoad_Total}}</td>
                     </tr>
 
                 </table>
@@ -831,11 +831,11 @@
                         <th>NOM TONS</th>
                     </tr>
                     <tr>
-                        <td>26831</td>
-                        <td>21242</td>
-                        <td>5913</td>
-                        <td>27155</td>
-                        <td>2.3</td>
+                        <td>{{vm.step3HeatLossBTUH_TotalSensibleLoad}}</td>
+                        <td>{{vm.step3HeatGainBTUH_TotalSensibleLoad}}</td>
+                        <td>{{vm.step3Total_LatentLoad_Total}}</td>
+                        <td>{{vm.step3HeatGainBTUH_TotalSensibleLoad + vm.step3Total_LatentLoad_Total}}</td>
+                        <td>{{vm.step3HeatGainBTUH_TotalSensibleLoad + vm.step3Total_LatentLoad_Total/12000}}</td>
                     </tr>
                 </table>
             </div>

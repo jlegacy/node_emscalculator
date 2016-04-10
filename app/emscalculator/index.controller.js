@@ -203,45 +203,45 @@
             vm.step3HeatGainBTUH_Infiltration = ((vm.step3Infiltration * vm.step1TightStructureSummer) / 60) * 1.1 * vm.step1SummerDiff;
 
             vm.step3HeatGainBTUH_People = vm.step1NumberOfOccupants * 230;
+            vm.step3HeatGainBTUH_People_Total = vm.step1NumberOfOccupants * 200;
+
             vm.step3HeatGainBTUH_Appliances = 1200;
 
-            vm.step3HeatLossBTUH_Subtotal = 
-                    vm.step3HeatLossBTUH_Glass1 +  
-                    vm.step3HeatLossBTUH_Glass2 +
-                    vm.step3HeatLossBTUH_SkyLight +
-                    vm.step3HeatLossBTUH_Doors  +
-                    vm.step3HeatLossBTUH_NetWall +
-                    vm.step3HeatLossBTUH_Ceiling +
-                    vm.step3HeatLossBTUH_OverCrawl +
-                    vm.step3HeatLossBTUH_OpenBeach +
-                    vm.step3HeatLossBTUH_Slab;
+            vm.step3HeatLossBTUH_Subtotal =
+                vm.step3HeatLossBTUH_Glass1 +
+                vm.step3HeatLossBTUH_Glass2 +
+                vm.step3HeatLossBTUH_SkyLight +
+                vm.step3HeatLossBTUH_Doors +
+                vm.step3HeatLossBTUH_NetWall +
+                vm.step3HeatLossBTUH_Ceiling +
+                vm.step3HeatLossBTUH_OverCrawl +
+                vm.step3HeatLossBTUH_OpenBeach +
+                vm.step3HeatLossBTUH_Slab +
+                vm.step3HeatLossBTUH_Infiltration;
 
-            vm.step3HeatGainBTUH_Subtotal = 
-                   vm.step3HeatGainBTUH_Glass1 +  
-                   vm.step3HeatGainBTUH_Glass2 +
-                   vm.step3HeatGainBTUH_SkyLight +
-                   vm.step3HeatGainBTUH_Doors  +
-                   vm.step3HeatGainBTUH_NetWall +
-                   vm.step3HeatGainBTUH_Ceiling +
-                   vm.step3HeatGainBTUH_OverCrawl +
-                   vm.step3HeatGainBTUH_OpenBeach +
-                   vm.step3HeatGainBTUH_Slab;
+            vm.step3HeatGainBTUH_Subtotal =
+                vm.step2TotalSolarGain +
+                vm.step3HeatGainBTUH_Doors +
+                vm.step3HeatGainBTUH_NetWall +
+                vm.step3HeatGainBTUH_Ceiling +
+                vm.step3HeatGainBTUH_OverCrawl +
+                vm.step3HeatGainBTUH_OpenBeach +
+                vm.step3HeatGainBTUH_Slab +
+                vm.step3HeatGainBTUH_Infiltration +
+                vm.step3HeatGainBTUH_People +
+                vm.step3HeatGainBTUH_Appliances;
 
-            //Stopped Here....
-            vm.step3HeatGainBTUH_DuctGain = vm.step3HeatGainBTUH_Subtotal
-            vm.step3HeatLossBTUH_DuctGain = vm.step3HeatLossBTUH_Subtotal
+            vm.step3HeatLossBTUH_DuctGain = vm.step3HeatLossBTUH_Subtotal * vm.step2DuctLoss_Heating;
+            vm.step3HeatGainBTUH_DuctGain = vm.step3HeatGainBTUH_Subtotal * vm.step2DuctGain_Cooling;
+            vm.step3HeatGainBTUH_DuctGain_Total = ((191 + (110 * ((vm.step1HumidityOptions.selected - 10) / 10)) * 1.65)) * (vm.totalConditionedArea / 2000);
 
+            
+            vm.step3HeatLossBTUH_TotalSensibleLoad = vm.step3HeatLossBTUH_Subtotal + vm.step3HeatLossBTUH_DuctGain;
+            vm.step3HeatGainBTUH_TotalSensibleLoad = vm.step3HeatGainBTUH_Subtotal + vm.step3HeatGainBTUH_DuctGain;
 
-            vm.step3HeatGainBTUH_TotalSensibleLoad = 1200;
+            vm.step3Total_LatentLoad = (vm.step1TightStructureSummer * vm.step3Infiltration / 60) * 0.68 * vm.step1HumidityOptions.selected;
 
-            vm.step3HeatLossBTUH_Subtotal = 1200;
-           
-            vm.step3HeatLossBTUH_TotalSensibleLoad = 1200;
-
-            vm.step3Total_People =
-            vm.step3Total_DuctLossGain =
-            vm.step3Total_LatentLoad =
-            vm.step3Total_LatentLoad_Total =
+            vm.step3Total_LatentLoad_Total = vm.step3HeatGainBTUH_DuctGain_Total + (vm.step1NumberOfOccupants * 200) + vm.step3Total_LatentLoad;
 
 
         }
