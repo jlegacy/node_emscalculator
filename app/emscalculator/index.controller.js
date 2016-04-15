@@ -7,52 +7,244 @@
 
     function controller($scope) {
         var vm = this;
-        vm.testValue = 1;
 
-        //scope data starting values//
-        vm.step1WinterIndoor = 70;
-        vm.step1SummerIndoor = 75;
-        vm.step1SummerOutdoor = 100;
-        vm.step1WinterOutdoor = 1;
+        $scope.prePopulate = function() {
+            vm.testValue = 1;
+            vm.step1WinterIndoor = 70;
+            vm.step1SummerIndoor = 75;
+            vm.step1SummerOutdoor = 100;
+            vm.step1WinterOutdoor = 1;
+            vm.totalConditionedArea = 1900;
+            vm.step1NumberOfOccupants = 4;
+            vm.step1TightStructure.selected = .7;
+            vm.step1FireplaceNumber.selected = 10;
+            vm.step1FacingOptions.selected = 30;
+            vm.step1Fireplace.selected = 33;
+            vm.step2ReflectiveCoating.selected = 1;
+            vm.step2TintTypes.selected = 70;
+            vm.frontOfBuildingFacing = "East";
+            vm.step2OverhangDistanceTop_East = 0.5;
+            vm.step2OverhangDistanceTop_West = 0.5;
+            vm.step2OverhangDistanceTop_South = 0.05;
+            vm.step2OverhangLength_East = 1.5;
+            vm.step2OverhangLength_West = 1.5;
+            vm.step2OverhangLength_South = 1.5;
+            vm.step2LinearFootAcrossTop_East = 10;
+            vm.step2LinearFootAcrossTop_West = 12;
+            vm.step2LinearFootAcrossTop_South = 10;
+            vm.step2SolarGainThroughGlassLat = 40;
+            vm.step2SolarGainUValue = 0.4;
+            vm.step2SolarSGHC = 0.35;
+            vm.step2DuctsPipesHeating.selected = 'Trunk and branches in attic';
+            vm.step2DuctsPipesCooling.selected = 'Trunk and branches in attic';
+            vm.step2DuctsPipesRValues.selected = .85;
+            vm.step2DuctLeakage.selected = 1;
+            vm.step2AtticTemperature.selected = 95;
+            vm.basementSolarGainThroughGlassLat = 40;
+            vm.basementSolarGainUValue = 0.4;
+            vm.basementSolarSGHC = 0.35;
+            vm.step2SolarGain_ShadedArea_North = 34;
+            vm.step2SolarGain_ShadedArea_NENW = 40;
+            vm.step2SolarGain_ShadedArea_South = 56;
+            vm.step2SolarGain_ShadedArea_SESW = 40;
+            vm.step2SolarGain_ShadedArea_East = 46;
+            vm.step2SolarGain_ShadedArea_West = 68;
+            vm.basementSolarGain_ShadedArea_North = 40;
+            vm.basementSolarGain_ShadedArea_NENW = 40;
+            vm.basementSolarGain_ShadedArea_South = 40;
+            vm.basementSolarGain_ShadedArea_SESW = 40;
+            vm.basementSolarGain_ShadedArea_East = 40;
+            vm.basementSolarGain_ShadedArea_West = 40;
 
-        vm.totalConditionedArea = 1900;
-        vm.step1NumberOfOccupants = 4;
+            vm.step2GlassCoefficients_North.selected = 24;
+            vm.step2GlassCoefficients_NENW.selected = 52;
+            vm.step2GlassCoefficients_South.selected = 40;
+            vm.step2GlassCoefficients_SESW.selected = 65;
+            vm.step2GlassCoefficients_East.selected = 75;
+            vm.step2GlassCoefficients_West.selected = 75;
 
-        vm.frontOfBuildingFacing = 'East';
+            vm.step1WinterDiff = 69;
+            vm.step1SummerDiff = 25;
+            vm.step1TightStructureWinter = 0.7;
+            vm.step1TightStructureSummer = 0.35;
+            vm.step1CFM = 43;
+            vm.step2HTM_North = 24;
+            vm.step2HTM_NENW = 52;
+            vm.step2HTM_South = 40;
+            vm.step2HTM_SESW = 65;
+            vm.step2HTM_East = 75;
+            vm.step2HTM_West = 75;
+            vm.basementHTM_North = 24;
+            vm.basementHTM_NENW = 52;
+            vm.basementHTM_South = 40;
+            vm.basementHTM_SESW = 65;
+            vm.basementHTM_East = 75;
+            vm.basementHTM_West = 75;
+            vm.step2ReflectiveCoatingValue = 1;
+            vm.step2TintTypesValue = 70;
+            vm.step2GlassShaded_NENW = 40;
+            vm.step2GlassShaded_South = 38.5;
+            vm.step2GlassShaded_SESW = 18.25;
+            vm.step2GlassShaded_East = 7.15;
+            vm.step2GlassShaded_West = 8.580000000000002;
+            vm.step2GlassShaded_North = 146.48000000000002;
+            vm.step2GlassUnShaded_North = -112.48000000000002;
+            vm.step2GlassUnShaded_NENW = 0;
+            vm.step2GlassUnShaded_South = 17.5;
+            vm.step2GlassUnShaded_SESW = 21.75;
+            vm.step2GlassUnShaded_East = 38.85;
+            vm.step2GlassUnShaded_West = 59.42;
+            vm.step2GlassBTUH_North = 3515.5200000000004;
+            vm.step2GlassBTUH_NENW = 0;
+            vm.step2GlassBTUH_South = 700;
+            vm.step2GlassBTUH_SESW = 1413.75;
+            vm.step2GlassBTUH_East = 2913.75;
+            vm.step2GlassBTUH_West = 4456.5;
+            vm.step2GlassBTUH_Total = 12999.52;
+            vm.step2SkyLight_Total = 700;
+            vm.step2TotalSolarGain = 13699.52;
+            vm.step2DuctGainLossConditionedArea_Cool = 0;
+            vm.step2DuctGainLossTrunkBranchAttic_Cool = 0.148;
+            vm.step2DuctGainLossRadialSpiderAttic_Cool = 0.08879999999999999;
+            vm.step2DuctGainLossUnderOpenFloor_Cool = 0.238;
+            vm.step2DuctGainLossEnclosedCrawl_Cool = 0.1071;
+            vm.step2DuctGainDuctSystemSlab_Cool = 0.3;
+            vm.step2DuctGainLossConditionedArea_Heat = 0;
+            vm.step2DuctGainLossTrunkBranchAttic_Heat = 0.172;
+            vm.step2DuctGainLossRadialSpiderAttic_Heat = 0.10319999999999999;
+            vm.step2DuctGainLossUnderOpenFloor_Heat = 0.2595;
+            vm.step2DuctGainLossEnclosedCrawl_Heat = 0.1038;
+            vm.step2DuctGainDuctSystemSlab_Heat = 0.060899999999999996;
+            vm.step2DuctLoss_Heating = 0.1462;
+            vm.step2DuctGain_Cooling = 0.1258;
+            vm.step3HeatLossBTUH_Glass1 = 10973.76;
+            vm.step3HeatLossBTUH_Glass2 = 666.54;
+            vm.step3HeatLossBTUH_SkyLight = 2299.08;
+            vm.step3HeatLossBTUH_Doors = 1622.88;
+            vm.step3HeatLossBTUH_NetWall = 3128.71875;
+            vm.step3HeatLossBTUH_Ceiling = 3048.837209302329;
+            vm.step3HeatLossBTUH_OverCrawl = 10488;
+            vm.step3HeatLossBTUH_OpenBeach = 3408.6;
+            vm.step3HeatLossBTUH_Slab = 0;
+            vm.step3HeatGainBTUH_Doors = 588;
+            vm.step3HeatGainBTUH_NetWall = 1133.59375;
+            vm.step3HeatGainBTUH_Ceiling = 1988.3720930232582;
+            vm.step3HeatGainBTUH_OverCrawl = 0;
+            vm.step3HeatGainBTUH_OpenBeach = 1235;
+            vm.step3HeatGainBTUH_Slab = 0;
+            vm.step3HeatLossBTUH_Infiltration = 18405.75;
+            vm.step3HeatGainBTUH_Infiltration = 2743.125;
+            vm.step3HeatGainBTUH_People = 920;
+            vm.step3HeatGainBTUH_People_Total = 800;
+            vm.step3HeatGainBTUH_Appliances = 1200;
+            vm.step3HeatLossBTUH_Subtotal = 54042.16595930233;
+            vm.step3HeatGainBTUH_Subtotal = 23507.61084302326;
+            vm.step3HeatLossBTUH_DuctGain = 7900.96466325;
+            vm.step3HeatGainBTUH_DuctGain = 2957.257444052326;
+            vm.step3HeatGainBTUH_DuctGain_Total = 698.725;
+            vm.step3HeatLossBTUH_TotalSensibleLoad = 61943.13062255233;
+            vm.step3HeatGainBTUH_TotalSensibleLoad = 26464.868287075587;
+            vm.step3Total_LatentLoad = 2713.2;
+            vm.step3Total_LatentLoad_Total = 4211.924999999999;
 
-        vm.step2OverhangDistanceTop_East = .5;
-        vm.step2OverhangDistanceTop_West = .5;
-        vm.step2OverhangDistanceTop_South = .05;
+            vm.step3SolarGlass1.selected = .56;
+            vm.step3SolarGlass2.selected = .42;
+            vm.step3SolarSkyLight.selected = .98;
+            vm.step3SolarDoors.selected = .56;
+            vm.step3SolarNetWall.selected = .03125;
+            vm.step3SolarCeiling.selected = 0.0232558139534884;
 
-        vm.step2OverhangLength_East = 1.5;
-        vm.step2OverhangLength_West = 1.5;
-        vm.step2OverhangLength_South = 1.5;
+            vm.step3SolarGainFloors_OverCrawl_Drop = .08;
+            vm.step3SolarGainFloors_OpenBeach_Drop = .026;
+            vm.step3SolarGainFloors_Slab.selected = .8;
+            vm.step3SolarGainFloors_OverCrawl.selected = .08;
+            vm.step3SolarGainFloors_OpenBeach.selected = .026;
 
-        vm.step2LinearFootAcrossTop_East = 10;
-        vm.step2LinearFootAcrossTop_West = 12;
-        vm.step2LinearFootAcrossTop_South = 10;
+            vm.basementGlassBTUH_North = 960;
+            vm.basementGlassBTUH_NENW = 2080;
+            vm.basementGlassBTUH_South = 1600;
+            vm.basementGlassBTUH_SESW = 2600;
+            vm.basementGlassBTUH_East = 3000;
+            vm.basementGlassBTUH_West = 3000;
+            vm.basementGlassBTUH_Total = 7944;
+            vm.basementTotalSolarGain = 7944;
+            vm.basementHeatLossBTUH_Floor_UValue = 0.024;
+            vm.basementHeatLossBTUH_Glass1 = 7100.099999999999;
+            vm.basementHeatLossBTUH_Glass2 = 1738.8000000000002;
+            vm.basementHeatLossBTUH_SkyLight = null;
+            vm.basementHeatLossBTUH_Doors = 811.44;
+            vm.basementHeatLossBTUH_NetWall_Above = 1270.03125;
+            vm.basementHeatLossBTUH_NetWall_Below = 3105;
+            vm.basementHeatGainBTUH_NetWall_Above = 460.15625;
+            vm.basementHeatGainBTUH_NetWall_Below = 1125;
+            vm.basementHeatLossBTUH_Ceiling = 12420;
+            vm.basementHeatLossBTUH_OverCrawl = null;
+            vm.basementHeatLossBTUH_OpenBeach = null;
+            vm.basementHeatLossBTUH_Slab = null;
+            vm.basementHeatGainBTUH_Doors = 294;
+            vm.basementHeatGainBTUH_Ceiling = 8100;
+            vm.basementHeatGainBTUH_OverCrawl = 0;
+            vm.basementHeatGainBTUH_OpenBeach = null;
+            vm.basementHeatGainBTUH_Slab = 0;
+        
+            vm.basementHeatGainBTUH_People = 690;
+            vm.basementHeatGainBTUH_People_Total = 600;
+         
+            vm.basementHeatGainBTUH_Floor = 0;
+            vm.basementHeatGainBTUH_Appliances = 1200;
+        
+            vm.step2SkyLightQty = "10";
+            vm.heatingFactor = 0.172;
+            vm.coolingFactor = 0.148;
+            vm.step2AreaDuctLocated = "1800";
+            vm.step3Area_GrossWall = "1800";
+            vm.step3SolarNetWall_Drop = 0;
+            vm.step3SolarCeiling_Drop = 0;
+            vm.step3Area_Glass1 = "284";
+            vm.step3Area_Glass2 = "23";
+            vm.step3Area_SolarSkyLight = "34";
+            vm.step3Area_SolarDoors = "42";
+            vm.step3Area_SolarNetWall = "1451";
+            vm.step3Area_SolarCeiling = "1900";
+            vm.step1HumidityOptions_Selected = 40;
+            vm.step3SolarGainFloors_OverCrawl_Drop = 0.08;
+            vm.step3SolarGainFloors_OpenBeach_Drop = 0.026;
+            vm.step3SolarGainFloors_Slab_Drop = 0.8;
+            vm.step3Area_OverCrawl = "1900";
+            vm.step3Area_OpenBeach = "1900";
+            vm.step3Infiltration = "17100";
+            vm.step3Area_Slab = "0";
+            vm.basementArea_GrossWall = "900";
+            vm.basementSolarNetWall_Above_Drop = 0;
+            vm.basementSolarNetWall_Below_Drop = 0.05;
+            vm.basementSolarCeiling_Drop = 0.09;
+            vm.basementArea_Glass1 = "245";
+            vm.basementArea_Glass2 = "45";
+            vm.basementArea_SolarDoors = "21";
+            vm.basementArea_SolarNetWall_Above = "589";
+            vm.basementArea_SolarNetWall_Below = "900";
+            vm.basementArea_SolarCeiling = "2000";
+            vm.basementArea_FloorSquareFeet = "1200";
+            vm.basementInfiltration = "17000";
+            vm.basementArea_People = 3;
 
-        vm.step2SolarGainThroughGlassLat = 40;
-        vm.step2SolarGainUValue = .40;
-        vm.step2SolarSGHC = .35;
+            vm.basementGlassCoefficients_North.selected = 24;
+            vm.basementGlassCoefficients_NENW.selected = 52;
+            vm.basementGlassCoefficients_South.selected = 40;
+            vm.basementGlassCoefficients_SESW.selected = 65;
+            vm.basementGlassCoefficients_East.selected = 75;
+            vm.basementGlassCoefficients_West.selected = 75;
 
-        vm.basementSolarGainThroughGlassLat = 40;
-        vm.basementSolarGainUValue = .40;
-        vm.basementSolarSGHC = .35;
+            vm.basementSolarGlass1.selected = .42;
+            vm.basementSolarGlass2.selected = .56;
+            vm.basementSolarDoors.selected = .56;
+            vm.basementSolarNetWall_Above.selected = .03125;
+            vm.basementSolarNetWall_Below.selected = .05;
+            vm.basementSolarCeiling.selected = 0.09;
 
-        vm.step2SolarGain_ShadedArea_North = 34;
-        vm.step2SolarGain_ShadedArea_NENW = 40;
-        vm.step2SolarGain_ShadedArea_South = 56;
-        vm.step2SolarGain_ShadedArea_SESW = 40;
-        vm.step2SolarGain_ShadedArea_East = 46;
-        vm.step2SolarGain_ShadedArea_West = 68;
+            vm.basementReflectiveCoating.selected = .6;
 
-        vm.basementSolarGain_ShadedArea_North = 40;
-        vm.basementSolarGain_ShadedArea_NENW = 40;
-        vm.basementSolarGain_ShadedArea_South = 40;
-        vm.basementSolarGain_ShadedArea_SESW = 40;
-        vm.basementSolarGain_ShadedArea_East = 40;
-        vm.basementSolarGain_ShadedArea_West = 40;
+        }
 
 
         $scope.calculate = function () {
@@ -72,12 +264,12 @@
                 vm.step2SolarGain_ShadedArea_East = 212.2;
                 vm.step2SolarGain_ShadedArea_West = 212.2;
 
-                vm.step2HTM_North = 15;
-                vm.step2HTM_NENW = 60;
-                vm.step2HTM_South = 21;
-                vm.step2HTM_SESW = 35;
-                vm.step2HTM_East = 40;
-                vm.step2HTM_West = 40;
+                vm.step2HTM_North = 17;
+                vm.step2HTM_NENW = 62;
+                vm.step2HTM_South = 23;
+                vm.step2HTM_SESW = 37;
+                vm.step2HTM_East = 42;
+                vm.step2HTM_West = 42;
             } else {
                 vm.step2HTM_North = vm.step2GlassCoefficients_North.selected;
                 vm.step2HTM_NENW = vm.step2GlassCoefficients_NENW.selected;
@@ -96,12 +288,12 @@
                 vm.basementSolarGain_ShadedArea_East = 212.2;
                 vm.basementSolarGain_ShadedArea_West = 212.2;
 
-                vm.basementHTM_North = 15;
-                vm.basementHTM_NENW = 60;
-                vm.basementHTM_South = 21;
-                vm.basementHTM_SESW = 35;
-                vm.basementHTM_East = 40;
-                vm.basementHTM_West = 40;
+                vm.basementHTM_North = 17;
+                vm.basementHTM_NENW = 62;
+                vm.basementHTM_South = 23;
+                vm.basementHTM_SESW = 37;
+                vm.basementHTM_East = 42;
+                vm.basementHTM_West = 42;
             } else {
                 vm.basementHTM_North = vm.basementGlassCoefficients_North.selected;
                 vm.basementHTM_NENW = vm.basementGlassCoefficients_NENW.selected;
@@ -185,7 +377,7 @@
                 case "Duct system in slab":
                     vm.coolingFactor = vm.step2DuctGainDuctSystemSlab_Cool;
                     break;
-              
+
             }
 
             switch (vm.step2DuctsPipesHeating.selected) {
@@ -268,13 +460,13 @@
 
             vm.step3HeatLossBTUH_DuctGain = vm.step3HeatLossBTUH_Subtotal * vm.step2DuctLoss_Heating;
             vm.step3HeatGainBTUH_DuctGain = vm.step3HeatGainBTUH_Subtotal * vm.step2DuctGain_Cooling;
-            vm.step3HeatGainBTUH_DuctGain_Total = ((191 + (110 * ((vm.step1HumidityOptions.selected - 10) / 10)) * 1.65)) * (vm.totalConditionedArea / 2000);
+            vm.step3HeatGainBTUH_DuctGain_Total = ((191 + (110 * ((vm.step1HumidityOptions_Selected - 10) / 10)) * 1.65)) * (vm.totalConditionedArea / 2000);
 
-            
+
             vm.step3HeatLossBTUH_TotalSensibleLoad = vm.step3HeatLossBTUH_Subtotal + vm.step3HeatLossBTUH_DuctGain;
             vm.step3HeatGainBTUH_TotalSensibleLoad = vm.step3HeatGainBTUH_Subtotal + vm.step3HeatGainBTUH_DuctGain;
 
-            vm.step3Total_LatentLoad = (vm.step1TightStructureSummer * vm.step3Infiltration / 60) * 0.68 * vm.step1HumidityOptions.selected;
+            vm.step3Total_LatentLoad = (vm.step1TightStructureSummer * vm.step3Infiltration / 60) * 0.68 * vm.step1HumidityOptions_Selected;
 
             vm.step3Total_LatentLoad_Total = vm.step3HeatGainBTUH_DuctGain_Total + (vm.step1NumberOfOccupants * 200) + vm.step3Total_LatentLoad;
 
@@ -356,31 +548,95 @@
             vm.basementHeatLossBTUH_TotalSensibleLoad = vm.basementHeatLossBTUH_Subtotal;
             vm.basementHeatGainBTUH_TotalSensibleLoad = vm.basementHeatGainBTUH_Subtotal;
 
-            vm.basementTotal_LatentLoad = .25 * (vm.basementInfiltration / 60) * 0.68 * vm.step1HumidityOptions.selected;
+            vm.basementTotal_LatentLoad = .25 * (vm.basementInfiltration / 60) * 0.68 * vm.step1HumidityOptions_Selected;
             vm.basementTotal_LatentLoad_Total = vm.basementTotal_LatentLoad + 300 + vm.basementHeatGainBTUH_People_Total;
 
         }
 
         $scope.update = function() {
             vm.step2DuctsPipesCooling.value = vm.step2DuctGainLossConditionedArea_Cool = 0;
-        }
+        };
 
-        $scope.setManSpecs = function () {
+        $scope.setManSpecs = function() {
 
             if (vm.specHasCheck) {
                 $scope.calculate();
             }
-        }
+        };
 
-        $scope.setManSpecsBasement = function () {
+        $scope.setManSpecsBasement = function() {
 
             if (vm.specHasCheckBasement) {
                 $scope.calculate();
             }
-        }
+        };
+
+        vm.step3SolarNetWall_SetSelected = function() {
+            if (vm.step3SolarNetWall_Drop > 0) {
+                vm.step3SolarNetWall.selected = vm.step3SolarNetWall_Drop;
+            }
+
+            $scope.calculate();
+        };
+
+        vm.step3SolarCeiling_SetSelected = function() {
+            if (vm.step3SolarCeiling_Drop > 0) {
+                vm.step3SolarCeiling.selected = vm.step3SolarCeiling_Drop;
+            }
+
+            $scope.calculate();
+        };
+
+        vm.step3SolarGainFloors_OverCrawl_SetSelected = function() {
+            if (vm.step3SolarGainFloors_OverCrawl_Drop > 0) {
+                vm.step3SolarGainFloors_OverCrawl.selected = vm.step3SolarGainFloors_OverCrawl_Drop;
+            }
+
+            $scope.calculate();
+        };
+
+        vm.step3SolarGainFloors_OpenBeach_SetSelected = function() {
+            if (vm.step3SolarGainFloors_OpenBeach_Drop > 0) {
+                vm.step3SolarGainFloors_OpenBeach.selected = vm.step3SolarGainFloors_OpenBeach_Drop;
+            }
+
+            $scope.calculate();
+        };
+
+        vm.step3SolarGainFloors_Slab_SetSelected = function() {
+            if (vm.step3SolarGainFloors_Slab_Drop > 0) {
+                vm.step3SolarGainFloors_Slab.selected = vm.step3SolarGainFloors_Slab_Drop;
+            }
+
+            $scope.calculate();
+        };
 
 
+        vm.basementSolarNetWall_Above_SetSelected = function() {
+            if (vm.basementSolarNetWall_Above_Drop > 0) {
+                vm.basementSolarNetWall_Above.selected = vm.basementSolarNetWall_Above_Drop;
+            }
 
+            $scope.calculate();
+        };
+
+        vm.basementSolarNetWall_Below_SetSelected = function() {
+            if (vm.basementSolarNetWall_Below_Drop > 0) {
+                vm.basementSolarNetWall_Below.selected = vm.basementSolarNetWall_Below_Drop;
+            }
+
+            $scope.calculate();
+        };
+
+        vm.basementSolarCeiling_SetSelected = function () {
+            if (vm.basementSolarCeiling_Drop > 0) {
+                vm.basementSolarCeiling.selected = vm.basementSolarCeiling_Drop;
+            }
+
+            $scope.calculate();
+        }; 
+
+       
 
         vm.step1HumidityOptions = [{
             "text": "Arid",
@@ -566,7 +822,7 @@
             "value": 70
         }];
 
-      
+
         vm.step2DuctsPipesHeating = [{
             "text": "Conditioned area",
             "value": "Conditioned area"
@@ -576,13 +832,13 @@
         }, {
             "text": "Radial or spider in attic",
             "value": "Radial or spider in attic"
-        },{
+        }, {
             "text": "Under an open floor",
             "value": "Under an open floor"
-        },{
+        }, {
             "text": "Enclosed crawl space or unheated basement",
             "value": "Enclosed crawl space or unheated basement"
-        },{
+        }, {
             "text": "Duct system in slab",
             "value": "Duct system in slab"
         }];
@@ -651,7 +907,7 @@
             "value": 150
         }];
 
-       
+
 
         vm.step3SolarGlass1 = [{
             "text": "Single",
@@ -700,35 +956,31 @@
         }, {
             "text": "R-11",
             "value": .08
-        }
-      , {
-          "text": "R-15",
-          "value": .07
-      }
-      , {
-          "text": "R-19",
-          "value": .06
-      }
-      , {
-          "text": "R-25",
-          "value": .042
-      }
-      , {
-          "text": "R-30",
-          "value": .033
-      }
-      , {
-          "text": "R-38",
-          "value": .026
-      }
-      , {
-          "text": "R-45",
-          "value": .022
-      },
-      {
-          "text": "R-55",
-          "value": .018
-      }];
+        }, {
+            "text": "R-15",
+            "value": .07
+        }, {
+            "text": "R-19",
+            "value": .06
+        }, {
+            "text": "R-25",
+            "value": .042
+        }, {
+            "text": "R-30",
+            "value": .033
+        }, {
+            "text": "R-38",
+            "value": .026
+        }, {
+            "text": "R-45",
+            "value": .022
+        }, {
+            "text": "R-55",
+            "value": .018
+        }, {
+            "text": "Enter R Value",
+            "value": 0
+        }];
 
         vm.step3SolarCeiling = [{
             "text": "No Insulation",
@@ -739,23 +991,22 @@
         }, {
             "text": "R-19",
             "value": .05
-        },
-     {
-         "text": "R-30",
-         "value": .033
-     },
-     {
-         "text": "R-38",
-         "value": .026
-     },
-     {
-         "text": "R-45",
-         "value": .022
-     },
-      {
-          "text": "R-55",
-          "value": .018
-      }];
+        }, {
+            "text": "R-30",
+            "value": .033
+        }, {
+            "text": "R-38",
+            "value": .026
+        }, {
+            "text": "R-45",
+            "value": .022
+        }, {
+            "text": "R-55",
+            "value": .018
+        },  {
+            "text": "Enter R Value",
+            "value": 0
+        }];
 
 
 
@@ -768,14 +1019,15 @@
         }, {
             "text": "R-19",
             "value": .025
-        },
-        {
+        }, {
             "text": "R-30",
             "value": .02
-        },
-        {
+        }, {
             "text": "R-38",
             "value": .014
+        }, {
+            "text": "Enter R Value",
+            "value": 0
         }];
 
 
@@ -788,15 +1040,16 @@
         }, {
             "text": "R-19",
             "value": .05
-        },
-     {
-         "text": "R-30",
-         "value": .04
-     },
-     {
-         "text": "R-38",
-         "value": .026
-     }];
+        }, {
+            "text": "R-30",
+            "value": .04
+        }, {
+            "text": "R-38",
+            "value": .026
+        },  {
+            "text": "Enter R Value",
+            "value": 0
+        }];
 
         vm.step3SolarGainFloors_Slab = [{
             "text": "No Insulation",
@@ -807,11 +1060,13 @@
         }, {
             "text": "R-10",
             "value": .04
-        },
-    {
-        "text": "R-15",
-        "value": .35
-    }];
+        }, {
+            "text": "R-15",
+            "value": .35
+        },  {
+            "text": "Enter R Value",
+            "value": 0
+        }];
 
 
         /*Basement*/
@@ -1043,60 +1298,57 @@
         }, {
             "text": "R-11",
             "value": .08
-        }
-      , {
-          "text": "R-15",
-          "value": .07
-      }
-      , {
-          "text": "R-19",
-          "value": .06
-      }
-      , {
-          "text": "R-25",
-          "value": .042
-      }
-      , {
-          "text": "R-30",
-          "value": .033
-      }
-      , {
-          "text": "R-38",
-          "value": .026
-      }
-      , {
-          "text": "R-45",
-          "value": .022
-      },
-      {
-          "text": "R-55",
-          "value": .018
-      }];
+        }, {
+            "text": "R-15",
+            "value": .07
+        }, {
+            "text": "R-19",
+            "value": .06
+        }, {
+            "text": "R-25",
+            "value": .042
+        }, {
+            "text": "R-30",
+            "value": .033
+        }, {
+            "text": "R-38",
+            "value": .026
+        }, {
+            "text": "R-45",
+            "value": .022
+        }, {
+            "text": "R-55",
+            "value": .018
+        },  {
+            "text": "Enter R Value",
+            "value": 0
+        }];
 
         vm.basementSolarNetWall_Below = [{
             "text": "No Insulation",
             "value": .125
-        },{
+        }, {
             "text": "R-5",
             "value": .07
         },
 
-        {
-            "text": "R-11",
-            "value": .05
-        }
-    , {
-        "text": "R-15",
-        "value": .04
-    }
-    , {
-        "text": "R-19",
-        "value": .03
-    }
-    , {
-        "text": "R-25",
-        "value": .025
-    }];
+            {
+                "text": "R-11",
+                "value": .05
+            }, {
+                "text": "R-15",
+                "value": .04
+            }, {
+                "text": "R-19",
+                "value": .03
+            }, {
+                "text": "R-25",
+                "value": .025
+            }, {
+                "text": "Enter R Value",
+                "value": 0
+            }
+        ];
 
         vm.basementSolarCeiling = [{
             "text": "No Insulation",
@@ -1107,23 +1359,22 @@
         }, {
             "text": "R-19",
             "value": .05
-        },
-     {
-         "text": "R-30",
-         "value": .033
-     },
-     {
-         "text": "R-38",
-         "value": .026
-     },
-     {
-         "text": "R-45",
-         "value": .022
-     },
-      {
-          "text": "R-55",
-          "value": .018
-      }];
+        }, {
+            "text": "R-30",
+            "value": .033
+        }, {
+            "text": "R-38",
+            "value": .026
+        }, {
+            "text": "R-45",
+            "value": .022
+        }, {
+            "text": "R-55",
+            "value": .018
+        }, {
+            "text": "Enter R Value",
+            "value": 0
+        }];
 
 
 
@@ -1136,14 +1387,15 @@
         }, {
             "text": "R-19",
             "value": .025
-        },
-        {
+        }, {
             "text": "R-30",
             "value": .02
-        },
-        {
+        }, {
             "text": "R-38",
             "value": .014
+        }, {
+            "text": "Enter R Value",
+            "value": 0
         }];
 
 
@@ -1156,15 +1408,16 @@
         }, {
             "text": "R-19",
             "value": .05
-        },
-     {
-         "text": "R-30",
-         "value": .04
-     },
-     {
-         "text": "R-38",
-         "value": .026
-     }];
+        }, {
+            "text": "R-30",
+            "value": .04
+        }, {
+            "text": "R-38",
+            "value": .026
+        }, {
+            "text": "Enter R Value",
+            "value": 0
+        }];
 
         vm.basementSolarGainFloors_Slab = [{
             "text": "No Insulation",
@@ -1175,13 +1428,15 @@
         }, {
             "text": "R-10",
             "value": .04
-        },
-    {
-        "text": "R-15",
-        "value": .35
-    }];
+        }, {
+            "text": "R-15",
+            "value": .35
+        }, {
+            "text": "Enter R Value",
+            "value": 0
+        }];
 
-
+        $scope.prePopulate();
         $scope.calculate();
     }
 

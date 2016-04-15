@@ -388,10 +388,10 @@
                     <tr>
                         <td>N/SHADED</td>
                         <td>
-                            <input class="form-control" ng-change="calculate()" value="vm.step2SolarGain_ShadedArea_North" ng-model="vm.step2SolarGain_ShadedArea_North">
+                            <input class="form-control" ng-change="calculate()" ng-disabled="(vm.specHasCheck === true)" value="vm.step2SolarGain_ShadedArea_North" ng-model="vm.step2SolarGain_ShadedArea_North">
                         </td>
                         <td>
-                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step2GlassCoefficients_North" ng-model="vm.step2GlassCoefficients_North.selected"></select>
+                            <select class="form-control" ng-change="calculate()" ng-disabled="(vm.specHasCheck === true)" ng-options="field.value as field.text for field in vm.step2GlassCoefficients_North" ng-model="vm.step2GlassCoefficients_North.selected"></select>
                         </td>
                         <td>{{vm.step2HTM_North}}</td>
 
@@ -406,9 +406,9 @@
 
 
                         <td>
-                            <input class="form-control" ng-change="calculate()" value="vm.step2SolarGain_ShadedArea_NENW" ng-model="vm.step2SolarGain_ShadedArea_NENW">
+                            <input class="form-control" ng-change="calculate()" ng-disabled="(vm.specHasCheck === true)" value="vm.step2SolarGain_ShadedArea_NENW" ng-model="vm.step2SolarGain_ShadedArea_NENW">
                         <td>
-                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step2GlassCoefficients_NENW" ng-model="vm.step2GlassCoefficients_NENW.selected"></select>
+                            <select class="form-control" ng-change="calculate()" ng-disabled="(vm.specHasCheck === true)"  ng-options="field.value as field.text for field in vm.step2GlassCoefficients_NENW" ng-model="vm.step2GlassCoefficients_NENW.selected"></select>
                         </td>
                         <td>{{vm.step2HTM_NENW}}</td>
                         <td><input class="form-control" ng-change="calculate()" value="vm.step2GlassUnShaded_NENW" ng-model="vm.step2GlassUnShaded_NENW"></td>
@@ -420,10 +420,10 @@
                         <td>SOUTH</td>
 
                         <td>
-                            <input class="form-control" ng-change="calculate()" value="vm.step2SolarGain_ShadedArea_South" ng-model="vm.step2SolarGain_ShadedArea_South">
+                            <input class="form-control" ng-change="calculate()" ng-disabled="(vm.specHasCheck === true)" ng-disabled="(vm.specHasCheck === true)" value="vm.step2SolarGain_ShadedArea_South" ng-model="vm.step2SolarGain_ShadedArea_South">
                         </td>
                         <td>
-                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step2GlassCoefficients_South" ng-model="vm.step2GlassCoefficients_South.selected"></select>
+                            <select class="form-control" ng-change="calculate()" ng-disabled="(vm.specHasCheck === true)"  ng-options="field.value as field.text for field in vm.step2GlassCoefficients_South" ng-model="vm.step2GlassCoefficients_South.selected"></select>
                         </td>
                         <td>{{vm.step2HTM_South}}</td>
                         <td><input class="form-control" ng-change="calculate()" value="vm.step2GlassUnShaded_South" ng-model="vm.step2GlassUnShaded_South"></td>
@@ -435,10 +435,10 @@
                         <td>SE/SW</td>
 
                         <td>
-                            <input class="form-control" ng-change="calculate()" value="vm.step2SolarGain_ShadedArea_SESW" ng-model="vm.step2SolarGain_ShadedArea_SESW">
+                            <input class="form-control" ng-change="calculate()" ng-disabled="(vm.specHasCheck === true)"  value="vm.step2SolarGain_ShadedArea_SESW" ng-model="vm.step2SolarGain_ShadedArea_SESW">
                         </td>
                         <td>
-                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step2GlassCoefficients_SESW" ng-model="vm.step2GlassCoefficients_SESW.selected"></select>
+                            <select class="form-control" ng-change="calculate()" ng-disabled="(vm.specHasCheck === true)" ng-options="field.value as field.text for field in vm.step2GlassCoefficients_SESW" ng-model="vm.step2GlassCoefficients_SESW.selected"></select>
                         </td>
                         <td>{{vm.step2HTM_SESW}}</td>
                         <td><input class="form-control" ng-change="calculate()" value="vm.step2GlassUnShaded_SESW" ng-model="vm.step2GlassUnShaded_SESW"></td>
@@ -450,10 +450,10 @@
                         <td>EAST</td>
 
                         <td>
-                            <input class="form-control" ng-change="calculate()" value="vm.step2SolarGain_ShadedArea_East" ng-model="vm.step2SolarGain_ShadedArea_East">
+                            <input class="form-control" ng-change="calculate()" ng-disabled="(vm.specHasCheck === true)" value="vm.step2SolarGain_ShadedArea_East" ng-model="vm.step2SolarGain_ShadedArea_East">
                         </td>
                         <td>
-                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step2GlassCoefficients_East" ng-model="vm.step2GlassCoefficients_East.selected"></select>
+                            <select class="form-control" ng-change="calculate()" ng-disabled="(vm.specHasCheck === true)" ng-options="field.value as field.text for field in vm.step2GlassCoefficients_East" ng-model="vm.step2GlassCoefficients_East.selected"></select>
                         </td>
                         <td>{{vm.step2HTM_East}}</td>
                         <td><input class="form-control" ng-change="calculate()" value="vm.step2GlassUnShaded_East" ng-model="vm.step2GlassUnShaded_East"></td>
@@ -465,10 +465,10 @@
                         <td>WEST</td>
 
                         <td>
-                            <input class="form-control" ng-change="calculate()" value="vm.step2SolarGain_ShadedArea_West" ng-model="vm.step2SolarGain_ShadedArea_West">
+                            <input class="form-control" ng-change="calculate()" ng-disabled="(vm.specHasCheck === true)" value="vm.step2SolarGain_ShadedArea_West" ng-model="vm.step2SolarGain_ShadedArea_West">
                         </td>
                         <td>
-                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step2GlassCoefficients_West" ng-model="vm.step2GlassCoefficients_West.selected"></select>
+                            <select class="form-control" ng-change="calculate()" ng-disabled="(vm.specHasCheck === true)" ng-options="field.value as field.text for field in vm.step2GlassCoefficients_West" ng-model="vm.step2GlassCoefficients_West.selected"></select>
                         </td>
                         <td>{{vm.step2HTM_West}}</td>
                         <td><input class="form-control" ng-change="calculate()" value="vm.step2GlassUnShaded_West" ng-model="vm.step2GlassUnShaded_West"></td>
@@ -912,10 +912,10 @@
                     <tr>
                         <td>N/SHADED</td>
                         <td>
-                            <input class="form-control" ng-change="calculate()" value="vm.basementSolarGain_ShadedArea_North" ng-model="vm.basementSolarGain_ShadedArea_North">
+                            <input class="form-control" ng-change="calculate()" ng-disabled="(vm.specHasCheckBasement === true)" value="vm.basementSolarGain_ShadedArea_North" ng-model="vm.basementSolarGain_ShadedArea_North">
                         </td>
                         <td>
-                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.basementGlassCoefficients_North" ng-model="vm.basementGlassCoefficients_North.selected"></select>
+                            <select class="form-control" ng-change="calculate()" ng-disabled="(vm.specHasCheckBasement === true)" ng-options="field.value as field.text for field in vm.basementGlassCoefficients_North" ng-model="vm.basementGlassCoefficients_North.selected"></select>
                         </td>
                         <td>{{vm.basementHTM_North}}</td>
 
@@ -928,9 +928,9 @@
 
 
                         <td>
-                            <input class="form-control" ng-change="calculate()" value="vm.basementSolarGain_ShadedArea_NENW" ng-model="vm.basementSolarGain_ShadedArea_NENW">
+                            <input class="form-control" ng-change="calculate()" ng-disabled="(vm.specHasCheckBasement === true)" value="vm.basementSolarGain_ShadedArea_NENW" ng-model="vm.basementSolarGain_ShadedArea_NENW">
                         <td>
-                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.basementGlassCoefficients_NENW" ng-model="vm.basementGlassCoefficients_NENW.selected"></select>
+                            <select class="form-control" ng-change="calculate()" ng-disabled="(vm.specHasCheckBasement === true)" ng-options="field.value as field.text for field in vm.basementGlassCoefficients_NENW" ng-model="vm.basementGlassCoefficients_NENW.selected"></select>
                         </td>
                         <td>{{vm.basementHTM_NENW}}</td>
                        
@@ -941,10 +941,10 @@
                         <td>SOUTH</td>
 
                         <td>
-                            <input class="form-control" ng-change="calculate()" value="vm.basementSolarGain_ShadedArea_South" ng-model="vm.basementSolarGain_ShadedArea_South">
+                            <input class="form-control" ng-change="calculate()" ng-disabled="(vm.specHasCheckBasement === true)" value="vm.basementSolarGain_ShadedArea_South" ng-model="vm.basementSolarGain_ShadedArea_South">
                         </td>
                         <td>
-                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.basementGlassCoefficients_South" ng-model="vm.basementGlassCoefficients_South.selected"></select>
+                            <select class="form-control" ng-change="calculate()" ng-disabled="(vm.specHasCheckBasement === true)" ng-options="field.value as field.text for field in vm.basementGlassCoefficients_South" ng-model="vm.basementGlassCoefficients_South.selected"></select>
                         </td>
                         <td>{{vm.basementHTM_South}}</td>
                      
@@ -955,10 +955,10 @@
                         <td>SE/SW</td>
 
                         <td>
-                            <input class="form-control" ng-change="calculate()" value="vm.basementSolarGain_ShadedArea_SESW" ng-model="vm.basementSolarGain_ShadedArea_SESW">
+                            <input class="form-control" ng-change="calculate()" ng-disabled="(vm.specHasCheckBasement === true)" value="vm.basementSolarGain_ShadedArea_SESW" ng-model="vm.basementSolarGain_ShadedArea_SESW">
                         </td>
                         <td>
-                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.basementGlassCoefficients_SESW" ng-model="vm.basementGlassCoefficients_SESW.selected"></select>
+                            <select class="form-control" ng-change="calculate()" ng-disabled="(vm.specHasCheckBasement === true)" ng-options="field.value as field.text for field in vm.basementGlassCoefficients_SESW" ng-model="vm.basementGlassCoefficients_SESW.selected"></select>
                         </td>
                         <td>{{vm.basementHTM_SESW}}</td>
                       
@@ -969,10 +969,10 @@
                         <td>EAST</td>
 
                         <td>
-                            <input class="form-control" ng-change="calculate()" value="vm.basementSolarGain_ShadedArea_East" ng-model="vm.basementSolarGain_ShadedArea_East">
+                            <input class="form-control" ng-change="calculate()" ng-disabled="(vm.specHasCheckBasement === true)" value="vm.basementSolarGain_ShadedArea_East" ng-model="vm.basementSolarGain_ShadedArea_East">
                         </td>
                         <td>
-                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.basementGlassCoefficients_East" ng-model="vm.basementGlassCoefficients_East.selected"></select>
+                            <select class="form-control" ng-change="calculate()" ng-disabled="(vm.specHasCheckBasement === true)" ng-options="field.value as field.text for field in vm.basementGlassCoefficients_East" ng-model="vm.basementGlassCoefficients_East.selected"></select>
                         </td>
                         <td>{{vm.basementHTM_East}}</td>
                      
@@ -983,10 +983,10 @@
                         <td>WEST</td>
 
                         <td>
-                            <input class="form-control" ng-change="calculate()" value="vm.basementSolarGain_ShadedArea_West" ng-model="vm.basementSolarGain_ShadedArea_West">
+                            <input class="form-control" ng-change="calculate()" ng-disabled="(vm.specHasCheckBasement === true)" value="vm.basementSolarGain_ShadedArea_West" ng-model="vm.basementSolarGain_ShadedArea_West">
                         </td>
                         <td>
-                            <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.basementGlassCoefficients_West" ng-model="vm.basementGlassCoefficients_West.selected"></select>
+                            <select class="form-control" ng-change="calculate()" ng-disabled="(vm.specHasCheckBasement === true)" ng-options="field.value as field.text for field in vm.basementGlassCoefficients_West" ng-model="vm.basementGlassCoefficients_West.selected"></select>
                         </td>
                         <td>{{vm.basementHTM_West}}</td>
                      
