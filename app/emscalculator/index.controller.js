@@ -193,39 +193,39 @@
             vm.basementHeatGainBTUH_Floor = 0;
             vm.basementHeatGainBTUH_Appliances = 1200;
         
-            vm.step2SkyLightQty = "10";
+            vm.step2SkyLightQty = 10;
             vm.heatingFactor = 0.172;
             vm.coolingFactor = 0.148;
-            vm.step2AreaDuctLocated = "1800";
-            vm.step3Area_GrossWall = "1800";
+            vm.step2AreaDuctLocated = 1800;
+            vm.step3Area_GrossWall = 1800;
             vm.step3SolarNetWall_Drop = 0;
             vm.step3SolarCeiling_Drop = 0;
-            vm.step3Area_Glass1 = "284";
-            vm.step3Area_Glass2 = "23";
-            vm.step3Area_SolarSkyLight = "34";
-            vm.step3Area_SolarDoors = "42";
-            vm.step3Area_SolarNetWall = "1451";
-            vm.step3Area_SolarCeiling = "1900";
+            vm.step3Area_Glass1 = 284;
+            vm.step3Area_Glass2 = 23;
+            vm.step3Area_SolarSkyLight = 34;
+            vm.step3Area_SolarDoors = 42;
+            vm.step3Area_SolarNetWall = 1451;
+            vm.step3Area_SolarCeiling = 1900;
             vm.step1HumidityOptions_Selected = 40;
             vm.step3SolarGainFloors_OverCrawl_Drop = 0.08;
             vm.step3SolarGainFloors_OpenBeach_Drop = 0.026;
             vm.step3SolarGainFloors_Slab_Drop = 0.8;
-            vm.step3Area_OverCrawl = "1900";
-            vm.step3Area_OpenBeach = "1900";
-            vm.step3Infiltration = "17100";
-            vm.step3Area_Slab = "0";
-            vm.basementArea_GrossWall = "900";
+            vm.step3Area_OverCrawl = 1900;
+            vm.step3Area_OpenBeach = 1900;
+            vm.step3Infiltration = 17100;
+            vm.step3Area_Slab = 0;
+            vm.basementArea_GrossWall = 900;
             vm.basementSolarNetWall_Above_Drop = 0;
             vm.basementSolarNetWall_Below_Drop = 0.05;
             vm.basementSolarCeiling_Drop = 0.09;
-            vm.basementArea_Glass1 = "245";
-            vm.basementArea_Glass2 = "45";
-            vm.basementArea_SolarDoors = "21";
-            vm.basementArea_SolarNetWall_Above = "589";
-            vm.basementArea_SolarNetWall_Below = "900";
-            vm.basementArea_SolarCeiling = "2000";
-            vm.basementArea_FloorSquareFeet = "1200";
-            vm.basementInfiltration = "17000";
+            vm.basementArea_Glass1 = 245;
+            vm.basementArea_Glass2 = 45;
+            vm.basementArea_SolarDoors = 21;
+            vm.basementArea_SolarNetWall_Above = 589;
+            vm.basementArea_SolarNetWall_Below = 900;
+            vm.basementArea_SolarCeiling = 2000;
+            vm.basementArea_FloorSquareFeet = 1200;
+            vm.basementInfiltration = 17000;
             vm.basementArea_People = 3;
 
             vm.basementGlassCoefficients_North.selected = 24;
@@ -314,14 +314,15 @@
                 vm.step2GlassShaded_South = vm.step2SolarGain_ShadedArea_South;
             }
 
+            
             vm.step2GlassShaded_SESW = (vm.step2OverhangLength_South * 1.25 * vm.step2LinearFootAcrossTop_South) - (vm.step2OverhangDistanceTop_South * vm.step2LinearFootAcrossTop_South);
             vm.step2GlassShaded_East = (vm.step2OverhangLength_East * .81 * vm.step2LinearFootAcrossTop_East) - (vm.step2OverhangDistanceTop_East * vm.step2LinearFootAcrossTop_East);
             vm.step2GlassShaded_West = (vm.step2OverhangLength_West * .81 * vm.step2LinearFootAcrossTop_West) - (vm.step2OverhangDistanceTop_West * vm.step2LinearFootAcrossTop_West);
-            vm.step2GlassShaded_North = vm.step2SolarGain_ShadedArea_North + vm.step2GlassShaded_NENW + vm.step2GlassShaded_South + vm.step2GlassShaded_SESW + vm.step2GlassShaded_East + vm.step2GlassShaded_West;
+            vm.step2GlassShaded_North = parseFloat(vm.step2SolarGain_ShadedArea_North) + parseFloat(vm.step2GlassShaded_NENW) + parseFloat(vm.step2GlassShaded_South) + parseFloat(vm.step2GlassShaded_SESW) + parseFloat(vm.step2GlassShaded_East) + parseFloat(vm.step2GlassShaded_West);
 
             //Step2 Unshaded
-            vm.step2GlassUnShaded_North = vm.step2SolarGain_ShadedArea_North - vm.step2GlassShaded_North;
-            vm.step2GlassUnShaded_NENW = vm.step2SolarGain_ShadedArea_NENW - vm.step2GlassShaded_NENW;
+            vm.step2GlassUnShaded_North = 0;
+            vm.step2GlassUnShaded_NENW = 0;
             vm.step2GlassUnShaded_South = vm.step2SolarGain_ShadedArea_South - vm.step2GlassShaded_South;
             vm.step2GlassUnShaded_SESW = vm.step2SolarGain_ShadedArea_SESW - vm.step2GlassShaded_SESW;
             vm.step2GlassUnShaded_East = vm.step2SolarGain_ShadedArea_East - vm.step2GlassShaded_East;
@@ -432,39 +433,37 @@
             vm.step3HeatGainBTUH_People = vm.step1NumberOfOccupants * 230;
             vm.step3HeatGainBTUH_People_Total = vm.step1NumberOfOccupants * 200;
 
-            vm.step3HeatGainBTUH_Appliances = 1200;
-
             vm.step3HeatLossBTUH_Subtotal =
-                vm.step3HeatLossBTUH_Glass1 +
-                vm.step3HeatLossBTUH_Glass2 +
-                vm.step3HeatLossBTUH_SkyLight +
-                vm.step3HeatLossBTUH_Doors +
-                vm.step3HeatLossBTUH_NetWall +
-                vm.step3HeatLossBTUH_Ceiling +
-                vm.step3HeatLossBTUH_OverCrawl +
-                vm.step3HeatLossBTUH_OpenBeach +
-                vm.step3HeatLossBTUH_Slab +
-                vm.step3HeatLossBTUH_Infiltration;
+                parseFloat(vm.step3HeatLossBTUH_Glass1) +
+                parseFloat(vm.step3HeatLossBTUH_Glass2) +
+                parseFloat(vm.step3HeatLossBTUH_SkyLight) +
+                parseFloat(vm.step3HeatLossBTUH_Doors) +
+                parseFloat(vm.step3HeatLossBTUH_NetWall) +
+                parseFloat(vm.step3HeatLossBTUH_Ceiling) +
+                parseFloat(vm.step3HeatLossBTUH_OverCrawl) +
+                parseFloat(vm.step3HeatLossBTUH_OpenBeach) +
+                parseFloat(vm.step3HeatLossBTUH_Slab) +
+                parseFloat(vm.step3HeatLossBTUH_Infiltration);
 
             vm.step3HeatGainBTUH_Subtotal =
-                vm.step2TotalSolarGain +
-                vm.step3HeatGainBTUH_Doors +
-                vm.step3HeatGainBTUH_NetWall +
-                vm.step3HeatGainBTUH_Ceiling +
-                vm.step3HeatGainBTUH_OverCrawl +
-                vm.step3HeatGainBTUH_OpenBeach +
-                vm.step3HeatGainBTUH_Slab +
-                vm.step3HeatGainBTUH_Infiltration +
-                vm.step3HeatGainBTUH_People +
-                vm.step3HeatGainBTUH_Appliances;
+                parseFloat(vm.step2TotalSolarGain) +
+                parseFloat(vm.step3HeatGainBTUH_Doors) +
+                parseFloat(vm.step3HeatGainBTUH_NetWall) +
+                parseFloat(vm.step3HeatGainBTUH_Ceiling) +
+                parseFloat(vm.step3HeatGainBTUH_OverCrawl) +
+                parseFloat(vm.step3HeatGainBTUH_OpenBeach) +
+                parseFloat(vm.step3HeatGainBTUH_Slab) +
+                parseFloat(vm.step3HeatGainBTUH_Infiltration) +
+                parseFloat(vm.step3HeatGainBTUH_People) +
+                parseFloat(vm.step3HeatGainBTUH_Appliances);
 
             vm.step3HeatLossBTUH_DuctGain = vm.step3HeatLossBTUH_Subtotal * vm.step2DuctLoss_Heating;
             vm.step3HeatGainBTUH_DuctGain = vm.step3HeatGainBTUH_Subtotal * vm.step2DuctGain_Cooling;
             vm.step3HeatGainBTUH_DuctGain_Total = ((191 + (110 * ((vm.step1HumidityOptions_Selected - 10) / 10)) * 1.65)) * (vm.totalConditionedArea / 2000);
 
 
-            vm.step3HeatLossBTUH_TotalSensibleLoad = vm.step3HeatLossBTUH_Subtotal + vm.step3HeatLossBTUH_DuctGain;
-            vm.step3HeatGainBTUH_TotalSensibleLoad = vm.step3HeatGainBTUH_Subtotal + vm.step3HeatGainBTUH_DuctGain;
+            vm.step3HeatLossBTUH_TotalSensibleLoad = parseFloat(vm.step3HeatLossBTUH_Subtotal) + parseFloat(vm.step3HeatLossBTUH_DuctGain);
+            vm.step3HeatGainBTUH_TotalSensibleLoad = parseFloat(vm.step3HeatGainBTUH_Subtotal) + parseFloat(vm.step3HeatGainBTUH_DuctGain);
 
             vm.step3Total_LatentLoad = (vm.step1TightStructureSummer * vm.step3Infiltration / 60) * 0.68 * vm.step1HumidityOptions_Selected;
 
@@ -480,7 +479,7 @@
             vm.basementGlassBTUH_East = vm.basementSolarGain_ShadedArea_East * vm.basementGlassCoefficients_East.selected;
             vm.basementGlassBTUH_West = vm.basementSolarGain_ShadedArea_West * vm.basementGlassCoefficients_West.selected;
 
-            vm.basementGlassBTUH_Total = (vm.basementGlassBTUH_North + vm.basementGlassBTUH_NENW + vm.basementGlassBTUH_South + vm.basementGlassBTUH_SESW + vm.basementGlassBTUH_East + vm.basementGlassBTUH_West) * vm.basementReflectiveCoating.selected;
+            vm.basementGlassBTUH_Total = (parseFloat(vm.basementGlassBTUH_North) + parseFloat(vm.basementGlassBTUH_NENW) + parseFloat(vm.basementGlassBTUH_South) + parseFloat(vm.basementGlassBTUH_SESW) + parseFloat(vm.basementGlassBTUH_East) + parseFloat(vm.basementGlassBTUH_West)) * vm.basementReflectiveCoating.selected;
 
 
             vm.basementTotalSolarGain = vm.basementGlassBTUH_Total;
@@ -523,33 +522,32 @@
             vm.basementHeatLossBTUH_Floor = vm.basementHeatLossBTUH_Floor_UValue * vm.basementArea_FloorSquareFeet * vm.step1WinterDiff;
             vm.basementHeatGainBTUH_Floor = 0;
 
-            vm.basementHeatGainBTUH_Appliances = 1200;
-
+         
             vm.basementHeatLossBTUH_Subtotal =
-                vm.basementHeatLossBTUH_Glass1 +
-                vm.basementHeatLossBTUH_Glass2 +
-                vm.basementHeatLossBTUH_Doors +
-                vm.basementHeatLossBTUH_NetWall_Above +
-                vm.basementHeatLossBTUH_NetWall_Below +
-                vm.basementHeatLossBTUH_Ceiling +
-                vm.basementHeatLossBTUH_Floor +
-                vm.basementHeatLossBTUH_Infiltration;
+                parseFloat(vm.basementHeatLossBTUH_Glass1) +
+                parseFloat(vm.basementHeatLossBTUH_Glass2) +
+                parseFloat(vm.basementHeatLossBTUH_Doors) +
+                parseFloat(vm.basementHeatLossBTUH_NetWall_Above) +
+                parseFloat(vm.basementHeatLossBTUH_NetWall_Below) +
+                parseFloat(vm.basementHeatLossBTUH_Ceiling) +
+                parseFloat(vm.basementHeatLossBTUH_Floor) +
+                parseFloat(vm.basementHeatLossBTUH_Infiltration);
 
             vm.basementHeatGainBTUH_Subtotal =
-                vm.basementTotalSolarGain +
-                vm.basementHeatGainBTUH_Doors +
-                vm.basementHeatGainBTUH_NetWall_Above +
-                vm.basementHeatGainBTUH_NetWall_Below +
-                vm.basementHeatGainBTUH_Ceiling +
-                vm.basementHeatGainBTUH_Infiltration +
-                vm.basementHeatGainBTUH_People +
-                vm.basementHeatGainBTUH_Appliances;
+                parseFloat(vm.basementTotalSolarGain) +
+                parseFloat(vm.basementHeatGainBTUH_Doors) +
+                parseFloat(vm.basementHeatGainBTUH_NetWall_Above) +
+                parseFloat(vm.basementHeatGainBTUH_NetWall_Below) +
+                parseFloat(vm.basementHeatGainBTUH_Ceiling) +
+                parseFloat(vm.basementHeatGainBTUH_Infiltration) +
+                parseFloat(vm.basementHeatGainBTUH_People) +
+                parseFloat(vm.basementHeatGainBTUH_Appliances);
 
             vm.basementHeatLossBTUH_TotalSensibleLoad = vm.basementHeatLossBTUH_Subtotal;
             vm.basementHeatGainBTUH_TotalSensibleLoad = vm.basementHeatGainBTUH_Subtotal;
 
             vm.basementTotal_LatentLoad = .25 * (vm.basementInfiltration / 60) * 0.68 * vm.step1HumidityOptions_Selected;
-            vm.basementTotal_LatentLoad_Total = vm.basementTotal_LatentLoad + 300 + vm.basementHeatGainBTUH_People_Total;
+            vm.basementTotal_LatentLoad_Total = parseFloat(vm.basementTotal_LatentLoad) + 300 + parseFloat(vm.basementHeatGainBTUH_People_Total);
 
         }
 
