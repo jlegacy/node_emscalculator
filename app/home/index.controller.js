@@ -1,4 +1,4 @@
-﻿(function () {
+(function() {
     'use strict';
 
     angular
@@ -14,7 +14,7 @@
 
         function initController() {
             // get current user
-            UserService.GetCurrent().then(function (user) {
+            UserService.GetCurrent().then(function(user) {
                 vm.user = user;
             });
         }

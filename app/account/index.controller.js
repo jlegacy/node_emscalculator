@@ -1,4 +1,4 @@
-﻿(function () {
+(function() {
     'use strict';
 
     angular
@@ -16,28 +16,28 @@
 
         function initController() {
             // get current user
-            UserService.GetCurrent().then(function (user) {
+            UserService.GetCurrent().then(function(user) {
                 vm.user = user;
             });
         }
 
         function saveUser() {
             UserService.Update(vm.user)
-                .then(function () {
+                .then(function() {
                     FlashService.Success('User updated');
                 })
-                .catch(function (error) {
+                .catch(function(error) {
                     FlashService.Error(error);
                 });
         }
 
         function deleteUser() {
             UserService.Delete(vm.user._id)
-                .then(function () {
+                .then(function() {
                     // log user out
                     $window.location = '/login';
                 })
-                .catch(function (error) {
+                .catch(function(error) {
                     FlashService.Error(error);
                 });
         }

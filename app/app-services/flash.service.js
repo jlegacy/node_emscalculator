@@ -1,4 +1,4 @@
-﻿(function () {
+(function() {
     'use strict';
 
     angular
@@ -16,7 +16,7 @@
         return service;
 
         function initService() {
-            $rootScope.$on('$locationChangeStart', function () {
+            $rootScope.$on('$locationChangeStart', function() {
                 clearFlashMessage();
             });
 
@@ -36,7 +36,7 @@
         function Success(message, keepAfterLocationChange) {
             $rootScope.flash = {
                 message: message,
-                type: 'success', 
+                type: 'success',
                 keepAfterLocationChange: keepAfterLocationChange
             };
         }

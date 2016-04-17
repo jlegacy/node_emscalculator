@@ -1,4 +1,4 @@
-﻿(function () {
+(function() {
     'use strict';
 
     angular
@@ -16,21 +16,27 @@
                 templateUrl: 'home/index.html',
                 controller: 'Home.IndexController',
                 controllerAs: 'vm',
-                data: { activeTab: 'home' }
+                data: {
+                    activeTab: 'home'
+                }
             })
             .state('account', {
                 url: '/account',
                 templateUrl: 'account/index.html',
                 controller: 'Account.IndexController',
                 controllerAs: 'vm',
-                data: { activeTab: 'account' }
+                data: {
+                    activeTab: 'account'
+                }
             })
-			 .state('emscalculator', {
+            .state('emscalculator', {
                 url: '/',
                 templateUrl: 'emscalculator/index.html',
                 controller: 'Emscalculator.IndexController',
                 controllerAs: 'vm',
-                data: { activeTab: 'emscalculator' }
+                data: {
+                    activeTab: 'emscalculator'
+                }
             });
     }
 
@@ -39,15 +45,15 @@
         $http.defaults.headers.common['Authorization'] = 'Bearer ' + $window.jwtToken;
 
         // update active tab on state change
-        $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+        $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
             $rootScope.activeTab = toState.data.activeTab;
         });
     }
 
     // manually bootstrap angular after the JWT token is retrieved from the server
-    $(function () {
+    $(function() {
         // get JWT token from server
-        $.get('/app/token', function (token) {
+        $.get('/app/token', function(token) {
             window.jwtToken = token;
 
             angular.bootstrap(document, ['app']);

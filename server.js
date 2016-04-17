@@ -22,6 +22,8 @@ app.use('/app', require('./controllers/app.controller'));
 app.use('/api/users', require('./controllers/api/users.controller'));
 app.use('/images', express.static(__dirname + '/images'));
 app.use('/styles', express.static(__dirname + '/styles'));
+app.use('/scripts', express.static(__dirname + '/scripts'));
+app.use('/fonts', express.static(__dirname + '/fonts'));
 
 // make '/app' default route
 app.get('/', function (req, res) {

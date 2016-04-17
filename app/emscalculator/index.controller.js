@@ -1,4 +1,4 @@
-﻿(function () {
+﻿(function() {
     'use strict';
 
     angular
@@ -7,6 +7,24 @@
 
     function controller($scope) {
         var vm = this;
+
+        $scope.EditRoom = function(roomName) {
+            alert('Edit: ' + roomName);
+        };
+
+        $scope.DeleteRoom = function(roomName) {
+            alert('Delete: ' + roomName);
+        };
+
+        $scope.AddRoom = function(roomName) {
+            ngDialog.open({
+                template: 'templates/popupTmpl.html',
+                className: 'ngdialog-theme-default'
+            });
+            alert('Add: ' + roomName);
+
+
+        };
 
         $scope.prePopulate = function() {
             vm.testValue = 1;
@@ -186,13 +204,13 @@
             vm.basementHeatGainBTUH_OverCrawl = 0;
             vm.basementHeatGainBTUH_OpenBeach = null;
             vm.basementHeatGainBTUH_Slab = 0;
-        
+
             vm.basementHeatGainBTUH_People = 690;
             vm.basementHeatGainBTUH_People_Total = 600;
-         
+
             vm.basementHeatGainBTUH_Floor = 0;
             vm.basementHeatGainBTUH_Appliances = 1200;
-        
+
             vm.step2SkyLightQty = 10;
             vm.heatingFactor = 0.172;
             vm.coolingFactor = 0.148;
@@ -247,7 +265,7 @@
         }
 
 
-        $scope.calculate = function () {
+        $scope.calculate = function() {
 
             vm.step1WinterDiff = vm.step1WinterIndoor - vm.step1WinterOutdoor;
             vm.step1SummerDiff = vm.step1SummerOutdoor - vm.step1SummerIndoor;
@@ -314,7 +332,7 @@
                 vm.step2GlassShaded_South = vm.step2SolarGain_ShadedArea_South;
             }
 
-            
+
             vm.step2GlassShaded_SESW = (vm.step2OverhangLength_South * 1.25 * vm.step2LinearFootAcrossTop_South) - (vm.step2OverhangDistanceTop_South * vm.step2LinearFootAcrossTop_South);
             vm.step2GlassShaded_East = (vm.step2OverhangLength_East * .81 * vm.step2LinearFootAcrossTop_East) - (vm.step2OverhangDistanceTop_East * vm.step2LinearFootAcrossTop_East);
             vm.step2GlassShaded_West = (vm.step2OverhangLength_West * .81 * vm.step2LinearFootAcrossTop_West) - (vm.step2OverhangDistanceTop_West * vm.step2LinearFootAcrossTop_West);
@@ -522,7 +540,7 @@
             vm.basementHeatLossBTUH_Floor = vm.basementHeatLossBTUH_Floor_UValue * vm.basementArea_FloorSquareFeet * vm.step1WinterDiff;
             vm.basementHeatGainBTUH_Floor = 0;
 
-         
+
             vm.basementHeatLossBTUH_Subtotal =
                 parseFloat(vm.basementHeatLossBTUH_Glass1) +
                 parseFloat(vm.basementHeatLossBTUH_Glass2) +
@@ -548,7 +566,6 @@
 
             vm.basementTotal_LatentLoad = .25 * (vm.basementInfiltration / 60) * 0.68 * vm.step1HumidityOptions_Selected;
             vm.basementTotal_LatentLoad_Total = parseFloat(vm.basementTotal_LatentLoad) + 300 + parseFloat(vm.basementHeatGainBTUH_People_Total);
-
         }
 
         $scope.update = function() {
@@ -626,15 +643,15 @@
             $scope.calculate();
         };
 
-        vm.basementSolarCeiling_SetSelected = function () {
+        vm.basementSolarCeiling_SetSelected = function() {
             if (vm.basementSolarCeiling_Drop > 0) {
                 vm.basementSolarCeiling.selected = vm.basementSolarCeiling_Drop;
             }
 
             $scope.calculate();
-        }; 
+        };
 
-       
+
 
         vm.step1HumidityOptions = [{
             "text": "Arid",
@@ -1001,7 +1018,7 @@
         }, {
             "text": "R-55",
             "value": .018
-        },  {
+        }, {
             "text": "Enter R Value",
             "value": 0
         }];
@@ -1044,7 +1061,7 @@
         }, {
             "text": "R-38",
             "value": .026
-        },  {
+        }, {
             "text": "Enter R Value",
             "value": 0
         }];
@@ -1061,7 +1078,7 @@
         }, {
             "text": "R-15",
             "value": .35
-        },  {
+        }, {
             "text": "Enter R Value",
             "value": 0
         }];
@@ -1317,18 +1334,18 @@
         }, {
             "text": "R-55",
             "value": .018
-        },  {
+        }, {
             "text": "Enter R Value",
             "value": 0
         }];
 
         vm.basementSolarNetWall_Below = [{
-            "text": "No Insulation",
-            "value": .125
-        }, {
-            "text": "R-5",
-            "value": .07
-        },
+                "text": "No Insulation",
+                "value": .125
+            }, {
+                "text": "R-5",
+                "value": .07
+            },
 
             {
                 "text": "R-11",
@@ -1432,6 +1449,65 @@
         }, {
             "text": "Enter R Value",
             "value": 0
+        }];
+
+        vm.roomArray = [{
+            "roomName": "Kitchen",
+            "area_GrossWall": 270,
+            "area_North": 20,
+            "area_NENW": 20,
+            "area_South": 20,
+            "area_SESW": 20,
+            "area_East": 20,
+            "area_West": 20,
+            "area_Skylight": 20,
+            "area_Doors": 20,
+            "area_NetWalls": 20,
+            "area_Ceiling": 20,
+            "area_FloorCrawl": 20,
+            "area_FloorOpen": 20,
+            "area_FloorSlab": 20,
+            "area_Infiltration": 20,
+            "people": 20,
+            "appliance": 20
+        }, {
+            "roomName": "Living",
+            "grossWallArea": 315,
+            "north": 20,
+            "NENW": 20,
+            "south": 20,
+            "SESW": 20,
+            "east": 20,
+            "west": 20,
+            "skylight": 20,
+            "doors": 20,
+            "netWalls": 20,
+            "ceiling": 20,
+            "floorCrawl": 20,
+            "floorOpen": 20,
+            "floorSlab": 20,
+            "infiltration": 20,
+            "people": 20,
+            "appliance": 20
+        }, {
+            "roomName": "Dining",
+            "grossWallArea": 270,
+            "north": 20,
+            "NENW": 20,
+            "south": 20,
+            "SESW": 20,
+            "east": 20,
+            "west": 20,
+            "skylight": 20,
+            "doors": 20,
+            "netWalls": 20,
+            "ceiling": 20,
+            "floorCrawl": 20,
+            "floorOpen": 20,
+            "floorSlab": 20,
+            "infiltration": 20,
+            "people": 20,
+            "appliance": 20
         }];
 
         $scope.prePopulate();
