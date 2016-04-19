@@ -1,0 +1,23 @@
+<table style="border-spacing:0px;">
+    <tr>
+        <td>
+            <span id="ofTimer">As of {{timeStamp | date:"dd-MMM-yyyy HH:mm"}} ET</span>
+        </td>
+        <td style="padding-left: 4px;">
+            <img ng-src="static/Images/refresh_final.png" ng-click="loadingIndicator?{}:refreshClick()"
+            ng-show="{{showRefresh !== false}}" class="imgRefresh" />
+        </td>
+        <td style="padding-left: 4px;">
+            <img ng-src="static/Images/print_final.png" ng-click="loadingIndicator?{}:printClick()"
+            class="imgPrint" />
+        </td>
+        <td style="padding-left: 4px;">
+            <img ng-src="static/Images/export_final.png" ng-click="loadingIndicator?{}:exportClick()"
+            ng-show="{{showExport !== false}}" class="imgExport" />
+        </td>
+        <td style="padding-left: 4px;">
+            <img ng-src="static/Images/pdf_final.png" ng-click="loadingIndicator?{}:pdfClick()"
+            ng-show="{{showPdf !== false}}" class="imgPdf" />
+        </td>
+    </tr>
+</table>

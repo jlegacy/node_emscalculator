@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Unit Tests - PTRS Results</title>
+    <style type="text/css">html,body{font-family:Arial,sans-serif;margin:0;padding:0;}body{padding:10px 40px;}h1{margin-bottom:0;}h2{margin-top:0;color:#999;}table{width:100%;margin-top:20px;margin-bottom:20px;table-layout:fixed;}tr.header{background:#ddd;font-weight:bold;border-bottom:none;}td{padding:7px;border-top:none;border-left:1px black solid;border-bottom:1px black solid;border-right:none;word-break:break-all;word-wrap:break-word;}tr.pass td{color:#003b07;background:#86e191;}tr.skip td{color:#7d3a00;background:#ffd24a;}tr.fail td{color:#5e0e00;background:#ff9c8a;}tr:first-child td{border-top:1px black solid;}td:last-child{border-right:1px black solid;}tr.overview{font-weight:bold;color:#777;}tr.overview td{padding-bottom:0px;border-bottom:none;}tr.system-out td{color:#777;}hr{height:2px;margin:30px 0;background:#000;border:none;}</style>
+  </head>
+  <body>
+    <h1>Unit Tests</h1>
+    <h2>PTRS Results</h2>
+    <table cellspacing="0" cellpadding="0" border="0">
+      <tr class="overview">
+        <td colspan="3" title="Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36">Browser: Chrome 43.0.2357 (Windows 7 0.0.0)</td>
+      </tr>
+      <tr class="overview">
+        <td colspan="3">Timestamp: 4/18/2016, 1:12:41 PM</td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          13 tests / 
+          0 errors / 
+          3 failures / 
+          0 skipped / 
+          runtime: 0.275s
+        </td>
+      </tr>
+      <tr class="header">
+        <td>Status</td>
+        <td>Spec</td>
+        <td>Suite / Results</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.073s</td>
+        <td>call $Scope.displayClick</td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.022s</td>
+        <td>call $Scope.unSetFilterSave</td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="fail">
+        <td>Failed</td>
+        <td>call $Scope.printClick </td>
+        <td>
+          BlockSummaryCtrl &raquo; BlockSummaryCtrl
+          <br />TypeError: Cannot read property 'registerPlugin' of undefined
+    at window.printGrid (C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/helpers.js:194:13)
+    at Scope.$scope.printClick (C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/Controllers/BlockSummaryCtrl.js:9:16919)
+    at Object.&lt;anonymous&gt; (C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/spec/spec.js:90:20)
+
+        </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.017s</td>
+        <td>call $Scope.pdfClick </td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.012s</td>
+        <td>call $Scope.resetClick </td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.015s</td>
+        <td>call $Scope.exportClick </td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.019s</td>
+        <td>call $Scope.exportClick </td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.019s</td>
+        <td>call $Scope.onRowClick </td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.023s</td>
+        <td>calls $Scope.showBlockMergeDialog </td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.013s</td>
+        <td>calls $scope.acctNumberWithDropLinkFormatter </td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.012s</td>
+        <td>calls $scope.acctNumberWithDropLinkFormatter </td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="fail">
+        <td>Failed</td>
+        <td>call $Scope.onRowClick </td>
+        <td>
+          BlockSummaryCtrl &raquo; BlockSummaryCtrl
+          <br />TypeError: Cannot read property 'style' of null
+    at gridDropMenu (C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/Controllers/BlockSummaryCtrl.js:9:13499)
+    at Scope.$scope.onRowClick (C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/Controllers/BlockSummaryCtrl.js:9:12587)
+    at Object.&lt;anonymous&gt; (C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/spec/spec.js:146:20)
+
+        </td>
+      </tr>
+      <tr class="fail">
+        <td>Failed</td>
+        <td>encountered a declaration exception</td>
+        <td>
+          BlockSummaryCtrl &raquo; BlockSummaryCtrl
+          <br />ReferenceError: parameters is not defined
+    at Suite.&lt;anonymous&gt; (C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/spec/spec.js:151:9)
+    at Suite.&lt;anonymous&gt; (C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/spec/spec.js:7:5)
+    at C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/spec/spec.js:1:1
+
+        </td>
+      </tr>
+      <tr class="system-out">
+        <td colspan="3"><strong>System output:</strong><br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: undefined
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) ALERT: 'not yet implemented'
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+</td>
+      </tr>
+    </table>
+    <hr/>
+    <table cellspacing="0" cellpadding="0" border="0">
+      <tr class="overview">
+        <td colspan="3" title="Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:46.0) Gecko/20100101 Firefox/46.0">Browser: Firefox 46.0.0 (Windows 7 0.0.0)</td>
+      </tr>
+      <tr class="overview">
+        <td colspan="3">Timestamp: 4/18/2016, 1:12:41 PM</td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          13 tests / 
+          0 errors / 
+          3 failures / 
+          0 skipped / 
+          runtime: 0.342s
+        </td>
+      </tr>
+      <tr class="header">
+        <td>Status</td>
+        <td>Spec</td>
+        <td>Suite / Results</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.07s</td>
+        <td>call $Scope.displayClick</td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.02s</td>
+        <td>call $Scope.unSetFilterSave</td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="fail">
+        <td>Failed</td>
+        <td>call $Scope.printClick </td>
+        <td>
+          BlockSummaryCtrl &raquo; BlockSummaryCtrl
+          <br />TypeError: pageGrid is undefined in C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/helpers.js (line 194)
+window.printGrid@C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/helpers.js:194:5
+$scope.printClick@C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/Controllers/BlockSummaryCtrl.js:9:16903
+@C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/spec/spec.js:90:13
+
+        </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.027s</td>
+        <td>call $Scope.pdfClick </td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.024s</td>
+        <td>call $Scope.resetClick </td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.028s</td>
+        <td>call $Scope.exportClick </td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.027s</td>
+        <td>call $Scope.exportClick </td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.012s</td>
+        <td>call $Scope.onRowClick </td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.018s</td>
+        <td>calls $Scope.showBlockMergeDialog </td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.013s</td>
+        <td>calls $scope.acctNumberWithDropLinkFormatter </td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.042s</td>
+        <td>calls $scope.acctNumberWithDropLinkFormatter </td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="fail">
+        <td>Failed</td>
+        <td>call $Scope.onRowClick </td>
+        <td>
+          BlockSummaryCtrl &raquo; BlockSummaryCtrl
+          <br />TypeError: menu is null in C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/Controllers/BlockSummaryCtrl.js (line 9)
+gridDropMenu@C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/Controllers/BlockSummaryCtrl.js:9:13495
+$scope.onRowClick@C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/Controllers/BlockSummaryCtrl.js:9:12587
+@C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/spec/spec.js:146:13
+
+        </td>
+      </tr>
+      <tr class="fail">
+        <td>Failed</td>
+        <td>encountered a declaration exception</td>
+        <td>
+          BlockSummaryCtrl &raquo; BlockSummaryCtrl
+          <br />ReferenceError: parameters is not defined in C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/spec/spec.js (line 151)
+@C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/spec/spec.js:151:9
+@C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/spec/spec.js:7:5
+@C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/spec/spec.js:1:1
+
+        </td>
+      </tr>
+      <tr class="system-out">
+        <td colspan="3"><strong>System output:</strong><br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: undefined
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) ALERT: 'not yet implemented'
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Firefox 46.0.0 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Firefox 46.0.0 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Firefox 46.0.0 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Firefox 46.0.0 (Windows 7 0.0.0) LOG: undefined
+<br />Firefox 46.0.0 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Firefox 46.0.0 (Windows 7 0.0.0) ALERT: 'not yet implemented'
+<br />Firefox 46.0.0 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Firefox 46.0.0 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Firefox 46.0.0 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Firefox 46.0.0 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Firefox 46.0.0 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Firefox 46.0.0 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Firefox 46.0.0 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Firefox 46.0.0 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />IE 11.0.0 (Windows 7 0.0.0) LOG: {allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />IE 11.0.0 (Windows 7 0.0.0) LOG: {allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />IE 11.0.0 (Windows 7 0.0.0) LOG: {allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />IE 11.0.0 (Windows 7 0.0.0) LOG: undefined
+<br />IE 11.0.0 (Windows 7 0.0.0) LOG: {allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />IE 11.0.0 (Windows 7 0.0.0) ALERT: 'not yet implemented'
+<br />IE 11.0.0 (Windows 7 0.0.0) LOG: {allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />IE 11.0.0 (Windows 7 0.0.0) LOG: {allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />IE 11.0.0 (Windows 7 0.0.0) LOG: {allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />IE 11.0.0 (Windows 7 0.0.0) LOG: {allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />IE 11.0.0 (Windows 7 0.0.0) LOG: {allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />IE 11.0.0 (Windows 7 0.0.0) LOG: {allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />IE 11.0.0 (Windows 7 0.0.0) LOG: {allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />IE 11.0.0 (Windows 7 0.0.0) LOG: {allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />IE 11.0.0 (Windows 7 0.0.0) LOG: {allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Firefox 46.0.0 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+</td>
+      </tr>
+    </table>
+    <hr/>
+    <table cellspacing="0" cellpadding="0" border="0">
+      <tr class="overview">
+        <td colspan="3" title="Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET4.0C; .NET4.0E; rv:11.0) like Gecko">Browser: IE 11.0.0 (Windows 7 0.0.0)</td>
+      </tr>
+      <tr class="overview">
+        <td colspan="3">Timestamp: 4/18/2016, 1:12:41 PM</td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          13 tests / 
+          0 errors / 
+          3 failures / 
+          0 skipped / 
+          runtime: 0.149s
+        </td>
+      </tr>
+      <tr class="header">
+        <td>Status</td>
+        <td>Spec</td>
+        <td>Suite / Results</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.023s</td>
+        <td>call $Scope.displayClick</td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.01s</td>
+        <td>call $Scope.unSetFilterSave</td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="fail">
+        <td>Failed</td>
+        <td>call $Scope.printClick </td>
+        <td>
+          BlockSummaryCtrl &raquo; BlockSummaryCtrl
+          <br />TypeError: Unable to get property 'registerPlugin' of undefined or null reference
+   at window.printGrid (C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/helpers.js:194:5)
+   at $scope.printClick (C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/Controllers/BlockSummaryCtrl.js:9:16903)
+   at Anonymous function (C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/spec/spec.js:90:13)
+
+        </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.009s</td>
+        <td>call $Scope.pdfClick </td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.013s</td>
+        <td>call $Scope.resetClick </td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.024s</td>
+        <td>call $Scope.exportClick </td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.008s</td>
+        <td>call $Scope.exportClick </td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.008s</td>
+        <td>call $Scope.onRowClick </td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.006s</td>
+        <td>calls $Scope.showBlockMergeDialog </td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.005s</td>
+        <td>calls $scope.acctNumberWithDropLinkFormatter </td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.004s</td>
+        <td>calls $scope.acctNumberWithDropLinkFormatter </td>
+        <td>BlockSummaryCtrl &raquo; BlockSummaryCtrl</td>
+      </tr>
+      <tr class="fail">
+        <td>Failed</td>
+        <td>call $Scope.onRowClick </td>
+        <td>
+          BlockSummaryCtrl &raquo; BlockSummaryCtrl
+          <br />TypeError: Unable to get property 'style' of undefined or null reference
+   at gridDropMenu (C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/Controllers/BlockSummaryCtrl.js:9:13495)
+   at $scope.onRowClick (C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/Controllers/BlockSummaryCtrl.js:9:12587)
+   at Anonymous function (C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/spec/spec.js:146:13)
+
+        </td>
+      </tr>
+      <tr class="fail">
+        <td>Failed</td>
+        <td>encountered a declaration exception</td>
+        <td>
+          BlockSummaryCtrl &raquo; BlockSummaryCtrl
+          <br />ReferenceError: 'parameters' is undefined
+   at Anonymous function (C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/spec/spec.js:151:9)
+   at Anonymous function (C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/spec/spec.js:7:5)
+   at Global code (C:/Users/a586295/Documents/ap115201-ptrs-portfolio/PTRS.WebUI/Static/Scripts/App/spec/spec.js:1:1)
+
+        </td>
+      </tr>
+      <tr class="system-out">
+        <td colspan="3"><strong>System output:</strong><br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: undefined
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) ALERT: 'not yet implemented'
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Chrome 43.0.2357 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Firefox 46.0.0 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Firefox 46.0.0 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Firefox 46.0.0 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Firefox 46.0.0 (Windows 7 0.0.0) LOG: undefined
+<br />Firefox 46.0.0 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Firefox 46.0.0 (Windows 7 0.0.0) ALERT: 'not yet implemented'
+<br />Firefox 46.0.0 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Firefox 46.0.0 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Firefox 46.0.0 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Firefox 46.0.0 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Firefox 46.0.0 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Firefox 46.0.0 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Firefox 46.0.0 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />Firefox 46.0.0 (Windows 7 0.0.0) LOG: Object{allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [Object{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />IE 11.0.0 (Windows 7 0.0.0) LOG: {allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />IE 11.0.0 (Windows 7 0.0.0) LOG: {allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />IE 11.0.0 (Windows 7 0.0.0) LOG: {allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />IE 11.0.0 (Windows 7 0.0.0) LOG: undefined
+<br />IE 11.0.0 (Windows 7 0.0.0) LOG: {allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />IE 11.0.0 (Windows 7 0.0.0) ALERT: 'not yet implemented'
+<br />IE 11.0.0 (Windows 7 0.0.0) LOG: {allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />IE 11.0.0 (Windows 7 0.0.0) LOG: {allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />IE 11.0.0 (Windows 7 0.0.0) LOG: {allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />IE 11.0.0 (Windows 7 0.0.0) LOG: {allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />IE 11.0.0 (Windows 7 0.0.0) LOG: {allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />IE 11.0.0 (Windows 7 0.0.0) LOG: {allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />IE 11.0.0 (Windows 7 0.0.0) LOG: {allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />IE 11.0.0 (Windows 7 0.0.0) LOG: {allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+<br />IE 11.0.0 (Windows 7 0.0.0) LOG: {allocSelectedTotal: '2,561,696', principalTotal: '2,631,147,437', diffTotal: '10,111,936 C', data: [{rowID: ..., accountNumber: ..., shortName: ..., rep: ..., symbol: ..., CUSIP: ..., action: ..., blockName: ..., activeExecQty: ..., pendingExecQty: ..., activeAllocQty: ..., pendingAllocQty: ..., activeErrorQty: ..., pendingErrorQty: ..., avgPrice: ..., $difference: ..., tradeDate: ..., status: ...}]}
+</td>
+      </tr>
+    </table>
+    <hr/>
+  </body>
+</html>

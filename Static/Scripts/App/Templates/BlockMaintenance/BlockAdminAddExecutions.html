@@ -1,0 +1,51 @@
+<style>
+.slick-row.odd {
+    background: #ffffff;
+}
+.slick-row.even {
+    border-bottom: 0 solid #cccccc;
+}
+.slick-row.ui-widget-content,
+.slick-row.ui-state-active {
+    border-color: #cccccc;
+    border-style: solid;
+    border-width: 0px 0 1px 0;
+}
+.mgtRptActionButtonsStyle input[type='button'] {
+    width: 100px;
+}
+</style>
+<div class="appTitle">Add Executions(s)</div>
+<!-- search form -->
+<div id="blockAdminAddExecutions">
+    <div id="gridMode" class="col-md-6 blockAdd" tab-copy-paste-grid-directive radio-group="radioGroup"
+    radio-value="radioValue" add-rows="false" tab-mode="tabMode" copy-mode="copyMode"
+    multi-mode="multiMode" set-multi-select="setMultiSelect()" add-multi-select="addMultiSelect"
+    add-copy-paste="addCopyPaste" add-row="addRow()" set-tab="setTab()" add-tab="addTab"
+    set-copy-paste="setCopyPaste()" undo-copy-paste="undoCopyPaste()"></div>
+    <div id="gridOptions">
+        <div class="row">
+            <div class="col-xs-12 divActions">
+                <div id="gridMsg" class="{{msg !==''?severity:''}}" data-ng-bind="msg"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Grid Section -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="gridStyle" slick-grid data-grid-height="350px" data-grid-width="100%"></div>
+            <div grid-loading-indicator data-ng-show="loadingIndicator"></div>
+        </div>
+    </div>
+    <!-- End Grid Section -->
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="pull-left">
+                <span>Results: <span style="font-weight: bold" data-ng-bind="recordsCount"></span></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 text-center">
+        <button id="buttonSave" ng-click="blockSave()" class="btn btn-primary btn-xs">Block Save</button>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="float-left">
+    <label ng-show="tabMode" class="medium">Grid Mode:</label>
+    <label ng-show="tabMode">Tabs:&nbsp;</label>
+    <input ng-show="tabMode" name={{radioGroup}} ng-model="radioValue" ng-click="callSetTab()"
+    value="tab" type="radio">
+    <label ng-show="copyMode" class="separator">&nbsp;|&nbsp;</label>
+    <label ng-show="copyMode">Copy/Paste:&nbsp;</label>
+    <input ng-show="copyMode" name={{radioGroup}} ng-model="radioValue" ng-click="callSetCopyPaste()"
+    value="copy" type="radio">
+    <label ng-show="multiMode" class="separator">&nbsp;|&nbsp;</label>
+    <label ng-show="multiMode">MultiSelect:&nbsp;</label>
+    <input ng-show="multiMode" name={{radioGroup}} ng-model="radioValue" ng-click="callSetMultiSelect()"
+    value="multi" type="radio">
+</div>
+<div class="float-left">
+    <button ng-click="callAddRow()" ng-show="addRows" class="btn btn-info btn-xs">Add Row</button>
+    <button ng-click="callUndoCopyPaste()" ng-show="addCopyPaste" class="btn btn-info btn-xs">Undo Copy/Paste</button>
+</div>

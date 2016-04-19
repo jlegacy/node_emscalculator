@@ -1,0 +1,167 @@
+<style>
+.slick-row.odd {
+    background: #ffffff;
+}
+.slick-row.even {
+    border-bottom: 0 solid #cccccc;
+}
+.slick-row.ui-widget-content,
+.slick-row.ui-state-active {
+    border-color: #cccccc;
+    border-style: solid;
+    border-width: 0px 0 1px 0;
+}
+.mgtRptActionButtonsStyle input[type='button'] {
+    width: 100px;
+}
+</style>
+<div class="row">
+    <div class="col-xs-12">
+        <!-- search form -->
+        <div class="row">
+            <div class="col-xs-12">
+                <form ng-submit="displayClick()" ng-enter="displayClick()">
+                    <div ng-form="formMgtReport">
+                        <table style="margin-left: -2px;">
+                            <tr>
+                                <td>
+                                    <table class="tblSearch table">
+                                        <tr>
+                                            <td class="labelStyle"><span class="required">*</span>Trade
+                                                Date From</td>
+                                            <td class="divInput">
+                                                <input name="txtTradeDt" type="text" class="date" ng-model="TradeDate" jq-date-picker
+                                                style="width:85px;" />
+                                            </td>
+                                            <td class="labelStyle"><span class="required">*</span>Master
+                                                Account#
+                                            </td>
+                                            <td class="divInput">
+                                                <input name="txtMasterAcctFirst" type="text" id="txtMasterAcctFirst" maxlength="8"
+                                                style="width:80px;">
+                                                <input name="txtMasterAcctSecond" type="text" id="txtMasterAcctSecond" maxlength="8"
+                                                style="width:80px;">
+                                                <select data-ng-model="masterAcctLast.selected" data-ng-change="rptTypeChange()">
+                                                    <option data-ng-repeat="option in ::masterAcctLast.options" value="{{option.value}}"
+                                                    title="{{option.title}}" data-ng-selected="{{masterAcctLast.selected == option.value}}">
+                                                        {{option.title}}
+                                                    </option>
+                                                </select>
+                                            </td>
+                                            <td class="labelStyle"><span class="required">*</span>Symbol</td>
+                                            <td class="divInput">
+                                                <input name="txtSymbol" type="text" id="txtSymbol" maxlength="8" style="width:80px;">
+                                            </td>
+                                            <td class="labelStyle">$ Diff</td>
+                                            <td class="controls">
+                                                <select data-ng-model="moneyDiff.selected" data-ng-change="rptTypeChange()">
+                                                    <option data-ng-repeat="option in ::moneyDiff.options" value="{{option.value}}"
+                                                    title="{{option.title}}" data-ng-selected="{{moneyDiff.selected == option.value}}">
+                                                        {{option.title}}
+                                                    </option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="labelStyle"><span class="required">*</span>Settle
+                                                Date
+                                            </td>
+                                            <td class="divInput">
+                                                <input type="text" class="date" ng-model="SettleDate" jq-date-picker style="width:85px;"
+                                                />
+                                            </td>
+                                            <td class="labelStyle">Short Name</td>
+                                            <td class="divInput">
+                                                <input name="txtShortName" type="text" id="txtShortName" maxlength="8" style="width:80px;">
+                                            </td>
+                                            <td class="labelStyle"><span class="required">*</span>CUSIP</td>
+                                            <td class="divInput">
+                                                <input name="txtCusip" type="text" id="txtCusip" maxlength="8" style="width:80px;">
+                                            </td>
+                                            <td class="labelStyle">Capacity</td>
+                                            <td class="divInput">
+                                                <input name="txtCapacity" type="text" maxlength="8" style="width:80px;">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="labelStyle" style="width: 76px;"><span class="required">*</span>Action</td>
+                                            <td class="controls">
+                                                <select data-ng-model="actions.selected" data-ng-change="rptTypeChange()">
+                                                    <option data-ng-repeat="option in ::actions.options" value="{{option.value}}" title="{{option.title}}"
+                                                    data-ng-selected="{{actions.selected == option.value}}">{{option.title}}</option>
+                                                </select>
+                                            </td>
+                                            <td class="labelStyle">Security Group</td>
+                                            <td class="controls">
+                                                <select data-ng-model="securityGroup.selected" data-ng-change="rptTypeChange()">
+                                                    <option data-ng-repeat="option in ::securityGroup.options" value="{{option.value}}"
+                                                    title="{{option.title}}" data-ng-selected="{{securityGroup.selected == option.value}}">
+                                                        {{option.title}}
+                                                    </option>
+                                                </select>
+                                            </td>
+                                            <td class="labelStyle">Block Name</td>
+                                            <td class="divInput">
+                                                <input name="txtBlockName" type="text" id="txtBlockName" maxlength="8" style="width:80px;">
+                                            </td>
+                                            <td class="labelStyle">Major Exec Bkr</td>
+                                            <td class="divInput">
+                                                <input name="txtMjrExecBkr" type="text" maxlength="8" style="width:80px;">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- end search form -->
+        <div id="gridMode" class="col-md-6 blockAdd" tab-copy-paste-grid-directive radio-value="radioValue"
+        add-rows="false" tab-mode="tabMode" copy-mode="copyMode" multi-mode="multiMode"
+        set-multi-select="setMultiSelect()" add-multi-select="addMultiSelect" add-copy-paste="addCopyPaste"
+        add-row="addRow()" set-tab="setTab()" add-tab="addTab" set-copy-paste="setCopyPaste()"
+        undo-copy-paste="undoCopyPaste()"></div>
+        <div id="gridOptions">
+            <div class="row">
+                <div class="col-xs-12 divActions">
+                    <div id="gridMsg" class="{{msg !==''?severity:''}}" data-ng-bind="msg"></div>
+                    <div>
+                        <span style="color: #178A00; font-weight: bold;" data-ng-bind="processStatusDescription"></span>
+                        <span data-ng-show="showPendingApproval">
+                            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                        <span class="spanBold">
+                                <img style="margin-bottom: -3px;" data-ng-src="static/Images/warning_icon.png" />
+                                Pending Approvals:
+                            </span>
+                        <span style="color: #C00; font-weight: bold;" data-ng-bind="pendingApprovalCount"></span>
+                        </span>
+                        <div id="divImgs" class="pull-right" action-images time-stamp="timeStamp" refresh-click="displayClick()"
+                        print-click="printClick()" export-click="exportClick()"
+                        pdf-click="pdfClick()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Grid Section -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="gridStyle" slick-grid data-grid-height="400px" data-grid-width="100%"></div>
+                <div grid-loading-indicator data-ng-show="loadingIndicator"></div>
+            </div>
+        </div>
+        <!-- End Grid Section -->
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="pull-left">
+                    <span>Results: <span style="font-weight: bold" data-ng-bind="recordsCount"></span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 text-center">
+        <button class="btn btn-primary btn-xs">Block Save</button>
+    </div>
+</div>

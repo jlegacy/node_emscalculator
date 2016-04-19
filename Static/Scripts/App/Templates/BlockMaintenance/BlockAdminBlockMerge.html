@@ -1,0 +1,65 @@
+<style>
+.slick-row.odd {
+    background: #ffffff;
+}
+.slick-row.even {
+    border-bottom: 0 solid #cccccc;
+}
+.slick-row.ui-widget-content,
+.slick-row.ui-state-active {
+    border-color: #cccccc;
+    border-style: solid;
+    border-width: 0px 0 1px 0;
+}
+.mgtRptActionButtonsStyle input[type='button'] {
+    width: 100px;
+}
+</style>
+<div class="appTitle">BlockMerge</div>
+<div id="blockAdminMerge">
+    <div class="col-md-12">
+        <hr class="startLinePos" style="color: black; height: 1px; background-color:black;"
+        />
+        <div class="divActions">
+            <span style="color: #178A00; font-weight: bold;" data-ng-bind="processStatusDescription"></span>
+            <div id="divImgs" class="pull-right" action-images time-stamp="timeStamp" show-refresh="showRefresh"
+            show-export="showExport" show-pdf="showPdf" refresh-click="displayClick()"
+            print-click="printClick()" export-click="exportClick()" pdf-click="pdfClick()">
+            </div>
+        </div>
+        <hr class="endLinePos" style="color: black; height: 1px; background-color:black;"
+        />
+    </div>
+    <div>
+        <span>
+            <label>Blocks:</label>&nbsp;{{totalBlocks}}<span class="separator">&nbsp;|&nbsp;</span>
+        <label>Orders:</label>&nbsp;{{totalOrders}}<span class="separator">&nbsp;|&nbsp;</span>
+        <label>TradeDate:</label>&nbsp;{{tradeDate}}<span class="separator">&nbsp;|&nbsp;</span>
+        <label>CUSIP:</label>&nbsp;{{CUSIP}}<span class="separator">&nbsp;|&nbsp;</span>
+        <label>Buy/Sell:</label>&nbsp;{{buySell}}<span class="separator">&nbsp;|&nbsp;</span>
+        <label>Master Acct:</label>&nbsp;{{masterAccount}}<span class="separator">&nbsp;|&nbsp;</span>
+        <label>Short Name:</label>&nbsp;{{shortName}}<span class="separator">&nbsp;|&nbsp;</span>
+        <label>Symbol:</label>&nbsp;{{symbol}}
+        </span>
+        <div id="gridMsg" class="{{msg !==''?severity:''}}" data-ng-bind="msg">test</div>
+        <div class="col-md-12">
+            <span><label class="orderAllocHeaderPos">Order/Allocation</label></span>
+            <span><label class="orderBlockSummaryPos">Block Summary</label></span>
+        </div>
+        <div>
+            <div class="gridStyle" slick-grid data-grid-height="350px" data-grid-width="100%"></div>
+        </div>
+        <!-- End Grid Section -->
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="pull-left">
+                    <span>Results: <span style="font-weight: bold" data-ng-bind="recordsCount"></span></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 text-center">
+            <button id="buttonSave" ng-click="blockSave()" class="btn btn-primary btn-xs">Block Save</button>
+            <button id="buttonSave" ng-click="blockMassMerge()" class="btn btn-primary btn-xs">Mass Merge Orders</button>
+        </div>
+    </div>
+</div>

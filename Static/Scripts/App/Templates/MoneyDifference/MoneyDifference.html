@@ -1,0 +1,166 @@
+<style>
+.slick-row.odd {
+    background: #ffffff;
+}
+.slick-row.even {
+    border-bottom: 0 solid #cccccc;
+}
+.slick-row.ui-widget-content,
+.slick-row.ui-state-active {
+    border-color: #cccccc;
+    border-style: solid;
+    border-width: 0px 0 1px 0;
+}
+.mgtRptActionButtonsStyle input[type='button'] {
+    width: 100px;
+}
+</style>
+<div grid-loading-indicator data-ng-show="loadingIndicator"></div>
+<div class="row col-md-12">
+    <div class="row">
+        <div class="col-md-12">
+            <div ng-model="accountName">{{accountName}}</div>
+        </div>
+    </div>
+</div>
+<div class="row col-md-12">
+    <form ng-submit="displayClick()" ng-enter="displayClick()">
+        <div ng-form="formMgtReport">
+            <table style="margin-left: -2px;">
+                <tr>
+                    <td>
+                        <table class="tblSearch table">
+                            <tr>
+                                <!---jq-date-picker style="width:85px;"-->
+                                <td class="labelStyle"><span class="required">*</span>$ diff Account</td>
+                                <td class="divInput">
+                                    <input name="diffAcctFirst" type="text" value="{{diffAcctFirst}}" size='3' maxlength='3'
+                                    ng-model="diffAcctFirst" />
+                                    <input name="diffAcctMid" type="text" value="{{diffAcctMid}}" size='6' maxlength='6'
+                                    ng-model="diffAcctMid" />
+                                </td>
+                                <td class="labelStyle">Trade Date</td>
+                                <td class="divInput">
+                                    <input ng-model="tradeDate" value="{{tradeDate}}" type="text" maxlength="8" jq-date-picker
+                                    style="width:85px;">
+                                </td>
+                                <td class="labelStyle"><span class="required"></span>Master Accounts</td>
+                                <td class="divInput">
+                                    <input name="mastAcctFirst" size='3' maxlength='3' type="text" value="{{mastAcctFirst}}"
+                                    class="date" ng-model="mastAcctFirst" />
+                                    <input name="mastAcctMid" size='6' maxlength='6' type="text" value="{{mastAcctMid}}"
+                                    class="date" ng-model="mastAcctMid" />
+                                </td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="labelStyle"><span class="required"></span>Journal Date From</td>
+                                <td class="divInput">
+                                    <input type="text" class="date" ng-model="frmJournalDate" value={{frmJournalDate}}
+                                    jq-date-picker style="width:85px;" />
+                                </td>
+                                <td class="labelStyle"><span class="required"></span>Settle Date</td>
+                                <td class="divInput">
+                                    <input type="text" class="date" ng-model="settleDate" value={{settleDate}} jq-date-picker
+                                    style="width:85px;" />
+                                </td>
+                                <td class="labelStyle"><span class="required"></span>Block Name</td>
+                                <td class="divInput">
+                                    <input ng-model="blockName" type="text" value="{{blockName}}" maxlength="8" style="width:80px;">
+                                </td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="labelStyle"><span class="required"></span>To</td>
+                                <td class="divInput">
+                                    <input type="text" class="date" ng-model="toJournalDate" value={{toJournalDate}}
+                                    jq-date-picker style="width:85px;" />
+                                </td>
+                                <td class="labelStyle">Action</td>
+                                <td class="divInput">
+                                    <select data-ng-model="actions.selected">
+                                        <option data-ng-repeat="option in ::actions.options" value="{{option.value}}" title="{{option.title}}"
+                                        data-ng-selected="{{actions.selected == option.value}}">
+                                            {{option.title}}
+                                        </option>
+                                    </select>
+                                </td>
+                                <td class="labelStyle">Security ID</td>
+                                <td class="divInput">
+                                    <input ng-model="securityID" value="{{securityID}}" type="text" maxlength="8" style="width:80px;">
+                                </td>
+                                <td>
+                                    <button type="button" ng-click="resetClick()" class="btn btn-xs btn-link">Reset</button>
+                                </td>
+                                <td>
+                                    <button type="button" ng-click="newDisplay()" class="btn btn-xs btn-primary">Display</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <!-- search form -->
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="ng-scope">
+                    <span class="appTitle ng-binding" data-ng-class="appTitleColor()" data-ng-bind="appTitle">Portfolio Trade Rebalance System</span>
+                </div>
+            </div>
+        </div>
+        <!-- end search form -->
+        <div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                        <table style="margin-left: -2px;">
+                            <tr>
+                                <td>
+                                    <table class="table">
+                                        <tr>
+                                            <td class="labelStyle"><strong>Total $ diff</strong></td>
+                                            <td class="controls">{{totalDollardiff}} <span class="separator">|</span></td>
+                                            <td class="labelStyle"><strong>Total Markup</strong></td>
+                                            <td class="divInput">{{totalMarkup}}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Grid Section -->
+    </div>
+</div>
+<div id="gridOptions">
+    <div class="col-md-12 divActions pull-right">
+        <div id="gridMsg" class="{{msg !==''?severity:''}}" data-ng-bind="msg"></div>
+        <div>
+            <div id="divImgs" class="pull-right" action-images time-stamp="timeStamp" refresh-click="displayClick()"
+            print-click="printClick()" export-click="exportClick()" pdf-click="pdfClick()">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="gridStyle" data-grid-height="300" slick-grid></div>
+<div class="col-md-4">
+    <div class="pull-left">
+        <span>Results: <span style="font-weight: bold" data-ng-bind="recordsCount"></span></span>
+    </div>
+</div>
+<div id="gridDropMenu">
+    <ul>
+        <li><a data-ng-click="jumpToPage('bre')">block Report-Executions</a></li>
+        <li><a data-ng-click="jumpToPage('bra')">block Report-Allocations</a></li>
+        <li><a data-ng-click="jumpToPage('bm')">block Management</a></li>
+    </ul>
+</div>

@@ -1,0 +1,174 @@
+<style>
+.slick-row.odd {
+    background: #ffffff;
+}
+.slick-row.even {
+    border-bottom: 0 solid #cccccc;
+}
+.slick-row.ui-widget-content,
+.slick-row.ui-state-active {
+    border-color: #cccccc;
+    border-style: solid;
+    border-width: 0px 0 1px 0;
+}
+.mgtRptActionButtonsStyle input[type='button'] {
+    width: 100px;
+}
+</style>
+<div grid-loading-indicator data-ng-show="loadingIndicator"></div>
+<div class="row">
+    <div class="col-md-12">
+        <!-- search form -->
+        <div class="row">
+            <div class="col-md-12">
+                <form ng-submit="displayClick()" ng-enter="displayClick()">
+                    <div ng-form="formMgtReport">
+                        <table style="margin-left: -2px;">
+                            <tr>
+                                <td>
+                                    <table class="tblSearch table">
+                                        <tr>
+                                            <td class="labelStyle"><span class="required">*</span>Trade
+                                                Date From</td>
+                                            <td class="divInput">
+                                                <input name="txtTradeDtFrom" type="text" class="date" ng-model="fromTargetDate"
+                                                jq-date-picker style="width:85px;"
+                                                />
+                                            </td>
+                                            <td class="labelStyle">Super</td>
+                                            <td class="divInput">
+                                                <input name="txtSuper" type="text" ng-model="super" maxlength="8" class="medium">
+                                            </td>
+                                            <td class="labelStyle">Security Id</td>
+                                            <td class="divInput">
+                                                <input name="txtSecurityId" type="text" ng-model="securityID" maxlength="8" class="medium">
+                                            </td>
+                                            <td class="labelStyle">Reg Rep</td>
+                                            <td class="divInput">
+                                                <input name="txtRegRep" type="text" ng-model="regRep" maxlength="8" class="medium">
+                                            </td>
+                                            <td class="labelStyle">Status</td>
+                                            <td class="controls">
+                                                <select data-ng-model="status.selected">
+                                                    <option data-ng-repeat="option in ::status.options" value="{{option.value}}" title="{{option.title}}"
+                                                    data-ng-selected="{{status.selected == option.value}}">
+                                                        {{option.title}}
+                                                    </option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="labelStyle">Trade Date To</td>
+                                            <td class="divInput">
+                                                <input name="txtTradeDtTo" type="text" class="date" ng-model="toTargetDate" jq-date-picker
+                                                style="width:85px;" />
+                                            </td>
+                                            <td class="labelStyle">Master Account#</td>
+                                            <td class="divInput">
+                                                <input name="txtMasterAcctFirst" type="text" ng-model="masterAcctFirst" maxlength="8"
+                                                class="medium">
+                                                <input name="txtMasterAcctSecond" type="text" ng-model="masterAcctSecond" maxlength="8"
+                                                class="medium">
+                                                <select data-ng-model="masterAcctLast.selected">
+                                                    <option data-ng-repeat="option in ::masterAcctLast.options" value="{{option.value}}"
+                                                    title="{{option.title}}" data-ng-selected="{{masterAcctLast.selected == option.value}}">
+                                                        {{option.title}}
+                                                    </option>
+                                                </select>
+                                            </td>
+                                            <td class="labelStyle">Block Name</td>
+                                            <td class="divInput">
+                                                <input name="txtBlockName" ng-model="blockName" type="text" maxlength="8" class="medium">
+                                            </td>
+                                            <td class="labelStyle">Pay to Rep</td>
+                                            <td class="divInput">
+                                                <input name="txtPayToRep" ng-model="payToRep" type="text" maxlength="8" class="medium">
+                                            </td>
+                                            <td class="labelStyle">Money Diff</td>
+                                            <td class="controls">
+                                                <select data-ng-model="moneyDiff.selected">
+                                                    <option data-ng-repeat="option in ::moneyDiff.options" value="{{option.value}}"
+                                                    title="{{option.title}}" data-ng-selected="{{moneyDiff.selected == option.value}}">
+                                                        {{option.title}}
+                                                    </option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="labelStyle" style="width: 76px;">Action</td>
+                                            <td class="controls">
+                                                <select data-ng-model="actions.selected">
+                                                    <option data-ng-repeat="option in ::actions.options" value="{{option.value}}" title="{{option.title}}"
+                                                    data-ng-selected="{{actions.selected == option.value}}">{{option.title}}</option>
+                                                </select>
+                                            </td>
+                                            <td class="labelStyle">Short Name</td>
+                                            <td class="divInput">
+                                                <input name="txtShortName" ng-model="shortName" type="text" maxlength="8" class="medium">
+                                            </td>
+                                            <td class="labelStyle">Security Group</td>
+                                            <td class="controls">
+                                                <select data-ng-model="securityGroup.selected">
+                                                    <option data-ng-repeat="option in ::securityGroup.options" value="{{option.value}}"
+                                                    title="{{option.title}}" data-ng-selected="{{securityGroup.selected == option.value}}">
+                                                        {{option.title}}
+                                                    </option>
+                                                </select>
+                                            </td>
+                                            <td class="display"><span ng-click="resetClick()">Reset</span></td>
+                                            <td class="divInput">
+                                                <button type="button" ng-click="newDisplay()" class="btn btn-primary btn-xs" ng-disabled="loadingIndicator">Display</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- end search form -->
+        <div class="row">
+            <div class="col-xs-12 divActions">
+                <div id="gridMsg" class="{{msg !==''?severity:''}}" data-ng-bind="msg"></div>
+                <div>
+                    <span><label>Alloc Selected:</label>&nbsp;{{allocSelectedTotal}}<span class="separator">&nbsp;|&nbsp;</span>
+                    <label>Principal:</label>&nbsp;{{principalTotal}}<span class="separator">&nbsp;|&nbsp;</span>
+                    <label>$ Diff:</label>&nbsp;{{diffTotal}}</span>
+                    <span style="color: #178A00; font-weight: bold;" data-ng-bind="processStatusDescription"></span>
+                    <span data-ng-show="showPendingApproval"><span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                    <span class="spanBold">
+                                <img style="margin-bottom: -3px;" data-ng-src="static/Images/warning_icon.png" />
+                                Pending Approvals:</span>
+                    <span style="color: #C00; font-weight: bold;" data-ng-bind="pendingApprovalCount"></span>
+                    </span>
+                    <div id="divImgs" class="pull-right" action-images time-stamp="timeStamp" refresh-click="displayClick()"
+                    print-click="printClick()" export-click="exportClick()" pdf-click="pdfClick()">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Grid Section -->
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="gridStyle" slick-grid data-grid-width="100%" data-grid-height="300"></div>
+            </div>
+        </div>
+        <!-- End Grid Section -->
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="pull-left">
+                    <span>Results: <span style="font-weight: bold" data-ng-bind="recordsCount"></span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="gridDropMenu">
+    <ul>
+        <li><a data-ng-click="jumpToPage('bre')">Block Admin-Executions</a></li>
+        <li><a data-ng-click="jumpToPage('bra')">Block Admin-Allocations</a></li>
+        <li><a data-ng-click="showBlockMergeDialog()">Block Merge</a></li>
+    </ul>
+</div>

@@ -1,0 +1,21 @@
+services.service("sharedDataSvc2", function() {
+    "use strict";
+    var sharedDataSvc2 = this;
+    sharedDataSvc2.accountNumber = '';
+    sharedDataSvc2.executions = [];
+    sharedDataSvc2.fromTargetDate = null;
+    sharedDataSvc2.toTargetDate = null;
+    sharedDataSvc2.super = '';
+    sharedDataSvc2.securityID = '';
+    sharedDataSvc2.regRep = '';
+    sharedDataSvc2.status = '';
+    sharedDataSvc2.masterAcctFirst = '';
+    sharedDataSvc2.masterAcctSecond = '';
+    sharedDataSvc2.masterAcctLast = null;
+    sharedDataSvc2.blockName = '';
+    sharedDataSvc2.payToRep = '';
+    sharedDataSvc2.moneyDiff = '';
+    sharedDataSvc2.actions = null;
+    sharedDataSvc2.securityGroup = null;
+    sharedDataSvc2.shortName = '';
+});

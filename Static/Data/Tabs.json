@@ -1,0 +1,45 @@
+﻿{
+  "ActiveTab": "PTRS",
+  "ActiveSubTab": "BlockSummary",
+  "Tabs": {
+
+    "PTRS": {
+      "title": "PTRS - Domestic",
+      "isTabActive": true,
+      "subTabs": {
+        "BlockSummary": {
+          "title": "Block Summary",
+          "isTabActive": true
+        },
+        "BlockAdmin": {
+          "title": "Block Admin",
+          "isTabActive": false
+        },
+        "MoneyDifference": {
+          "title": "Money Difference",
+          "isTabActive": false
+        }
+      }
+    },
+     "PTRS2": {
+      "title": "PTRS - International",
+      "isTabActive": false,
+      "subTabs": {
+        "BlockSummary": {
+          "title": "Block Summary",
+          "isTabActive": true
+        },
+        "BlockMaintenance": {
+          "title": "Block Maintenance",
+          "isTabActive": false
+        },
+         "MoneyDifference": {
+          "title": "Money Difference",
+          "isTabActive": false
+        }
+      }
+    }
+
+  }
+
+}

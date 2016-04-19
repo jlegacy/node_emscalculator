@@ -1,0 +1,555 @@
+<style>
+.slick-row.odd {
+    background: #ffffff;
+}
+.slick-row.even {
+    border-bottom: 0 solid #cccccc;
+}
+.slick-row.ui-widget-content,
+.slick-row.ui-state-active {
+    border-color: #cccccc;
+    border-style: solid;
+    border-width: 0px 0 1px 0;
+}
+.mgtRptActionButtonsStyle input[type='button'] {
+    width: 100px;
+}
+</style>
+<div class="add-new-block-pos">
+    <button class="btn btn-link pull-right btn-xs" ng-click="addBlock()">Add Block</button>
+</div>
+<div class="container expandable pull-left outline">
+    <div ng-show="!(showHeader)">
+        <div class="row col-md-12">
+            <div class="col-md-3">
+                <span style="margin-left:0px" ng-click="showHeaderSummary(true)" class="slick-group-toggle expanded rightClick"></span>                Collapse Block Information
+            </div>
+        </div>
+        <div class="row col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <div ng-model="accountName">{{accountName}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="row col-md-12">
+            <form ng-submit="displayClick()" ng-enter="displayClick()">
+                <div ng-form="formMgtReport">
+                    <table style="margin-left: -2px;">
+                        <tr>
+                            <td>
+                                <table class="tblSearch table">
+                                    <tr>
+                                        <td class="labelStyle"><span class="required">*</span>Trade Date
+                                            From
+                                        </td>
+                                        <td class="divInput">
+                                            <input name="txtTradeDt" type="text" value="{{tradeDate}}" class="date" ng-model="tradeDate"
+                                            jq-date-picker style="width:85px;"
+                                            />
+                                        </td>
+                                        <td class="labelStyle"><span class="required">*</span>Master Account#</td>
+                                        <td class="divInput">
+                                            <input ng-model="masterAcctFirst" value="{{masterAcctFirst}}" type="text" maxlength="8"
+                                            style="width:80px;">
+                                            <input ng-model="masterAcctSecond" value="{{masterAcctSecond}}" type="text" maxlength="8"
+                                            style="width:80px;">
+                                            <select data-ng-model="masterAcctLast.selected" data-ng-change="rptTypeChange()">
+                                                <option data-ng-repeat="option in ::masterAcctLast.options" value="{{option.value}}"
+                                                title="{{option.title}}" data-ng-selected="{{masterAcctLast.selected == option.value}}">
+                                                    {{option.title}}
+                                                </option>
+                                            </select>
+                                        </td>
+                                        <td class="labelStyle"><span class="required">*</span>Symbol</td>
+                                        <td class="divInput">
+                                            <input ng-model="symbol" type="text" value="{{symbol}}" maxlength="8" style="width:80px;">
+                                        </td>
+                                        <td class="labelStyle">$ Diff</td>
+                                        <td class="divInput">{{dollarDiff}} &nbsp;&nbsp;{{dollarDiffType}}
+                                    </tr>
+                                    <tr>
+                                        <td class="labelStyle"><span class="required">*</span>Settle Date</td>
+                                        <td class="divInput">
+                                            <input type="text" class="date" ng-model="settleDate" value={{settleDate}} jq-date-picker
+                                            style="width:85px;" />
+                                        </td>
+                                        <td class="labelStyle">Short Name</td>
+                                        <td class="divInput">
+                                            {{shortName}}
+                                        </td>
+                                        <td class="labelStyle"><span class="required">*</span>CUSIP</td>
+                                        <td class="divInput">
+                                            <input ng-model="cusip" type="text" value="{{cusip}}" maxlength="8" style="width:80px;">
+                                        </td>
+                                        <td class="labelStyle">Capacity</td>
+                                        <td class="divInput">{{capacity}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="labelStyle" style="width: 76px;"><span class="required">*</span>Action</td>
+                                        <td class="controls">
+                                            <select data-ng-model="actions.selected" data-ng-change="rptTypeChange()">
+                                                <option data-ng-repeat="option in ::actions.options" value="{{option.value}}" title="{{option.title}}"
+                                                data-ng-selected="{{actions.selected == option.value}}">
+                                                    {{option.title}}
+                                                </option>
+                                            </select>
+                                        </td>
+                                        <td class="labelStyle">Security Group</td>
+                                        <td class="divInput">
+                                            {{securityGroup}}
+                                        </td>
+                                        <td class="labelStyle">Block Name</td>
+                                        <td class="divInput">
+                                            <input ng-model="blockName" value="{{blockName}}" type="text" maxlength="8" style="width:80px;">
+                                        </td>
+                                        <td class="labelStyle">Major Exec Bkr</td>
+                                        <td class="divInput">
+                                            {{majorExecBkr}}
+                                        </td>
+                                    </tr>
+                                </table>
+                                </td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- search form -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="ng-scope">
+                            <span class="appTitle ng-binding" data-ng-class="appTitleColor()" data-ng-bind="appTitle">Portfolio Trade Rebalance System</span>
+                            <div id="GridTabs">
+                                <ul>
+                                    <li ng-click="setActiveTab('executions')" data-ng-class="{active: blockAdminActiveTab === 'executions'}">
+                                        <a>Executions</a>
+                                    </li>
+                                    <li ng-click="setActiveTab('allocations')" data-ng-class="{active: blockAdminActiveTab === 'allocations'}">
+                                        <a>Allocations</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="alloctionExecutionTabs">
+                            <div ng-show="blockAdminActiveTab === 'executions'">
+                                <table style="margin-left: -2px;">
+                                    <tr>
+                                        <td>
+                                            <table class="tblSearch table">
+                                                <tr>
+                                                    <td class="labelStyle">Principal</td>
+                                                    <td class="divInput">
+                                                        {{principal}}
+                                                    </td>
+                                                    <td class="mediumInput"></td>
+                                                    <td class="labelStyle">Active Qty</td>
+                                                    <td>
+                                                        {{activeQty}}
+                                                    </td>
+                                                    <td class="mediumInput"></td>
+                                                    <td class="labelStyle">Commission/Code</td>
+                                                    <td class="divInput">
+                                                        <input class="mediumInput" ng-model="commCodeFirst" value="{{commCodeFirst}}" />
+                                                        <select data-ng-model="commCodeSecond.selected">
+                                                            <option data-ng-repeat="option in ::commCodeSecond.options" value="{{option.value}}"
+                                                            title="{{option.title}}"
+                                                            data-ng-selected="{{commCodeSecond.selected == option.value}}">
+                                                                {{option.title}}
+                                                            </option>
+                                                        </select>
+                                                    </td>
+                                                    <td class="mediumInput"></td>
+                                                    <td class="labelStyle">VAS</td>
+                                                    <td class="divInput">
+                                                        <input class="smallInput" ng-model="vas" value="{{vas}}" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="labelStyle">Avg Price</td>
+                                                    <td class="divInput">
+                                                        {{avgPrice}}
+                                                    </td>
+                                                    <td class="mediumInput"></td>
+                                                    <td class="labelStyle">Other Qty</td>
+                                                    <td class="divInput">
+                                                        {{otherQty}}
+                                                    </td>
+                                                    <td class="mediumInput"></td>
+                                                    <td class="labelStyle">Legend</td>
+                                                    <td>
+                                                        <input class="smallInput" ng-model="lg1" value="{{lg1}}" />
+                                                        <input class="smallInput" ng-model="lg2" value="{{lg2}}" />
+                                                        <input class="smallInput" ng-model="lg3" value="{{lg3}}" />
+                                                        <input class="smallInput" ng-model="lg4" value="{{lg4}}" />
+                                                        <input class="smallInput" ng-model="lg5" value="{{lg5}}" />
+                                                        <input class="smallInput" ng-model="lg6" value="{{lg6}}" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div ng-show="blockAdminActiveTab === 'allocations'">
+                                <table style="margin-left: -2px;">
+                                    <tr>
+                                        <td>
+                                            <table class="tblSearch table">
+                                                <tr>
+                                                    <td class="labelStyle">Principal</td>
+                                                    <td class="divInput">
+                                                        {{principal}}
+                                                    </td>
+                                                    <td class="labelStyle">Active Qty</td>
+                                                    <td class="divInput">
+                                                        {{activeQty}}
+                                                    </td>
+                                                    <td class="labelStyle">Commission Code</td>
+                                                    <td class="divInput">
+                                                        <input ng-model="commCode" type="text" value="{{commCode}}" maxlength="8" style="width:80px;">
+                                                        <select data-ng-model="commCodeLast.selected" data-ng-change="rptTypeChange()">
+                                                            <option data-ng-repeat="option in ::commCodeLast.options" value="{{option.value}}"
+                                                            title="{{option.title}}"
+                                                            data-ng-selected="{{commCodeLast.selected == option.value}}">
+                                                                {{option.title}}
+                                                            </option>
+                                                        </select>
+                                                    </td>
+                                                    <td class="labelStyle">Reg Rep</td>
+                                                    <td class="divInput">
+                                                        <input ng-model="regRep" type="text" value="{{regRep}}" maxlength="8" style="width:80px;">
+                                                    </td>
+                                                    <td class="labelStyle">Active Count</td>
+                                                    <td class="controls">{{activeCount}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="labelStyle">Alloc Price</td>
+                                                    <td class="divInput">
+                                                        <input ng-model="allocPrice" type="text" value="{{allocPrice}}" maxlength="8" style="width:80px;">
+                                                    </td>
+                                                    <td class="labelStyle">Other Qty</td>
+                                                    <td class="divInput">
+                                                        <input ng-model="otherQty" type="text" value="{{otherQty}}" maxlength="8" style="width:80px;">
+                                                    </td>
+                                                    <td class="labelStyle">Legend</td>
+                                                    <td class="divInput">
+                                                        <input ng-model="lg1" type="text" value="{{lg1}}" maxlength="1" style="width:20px;">
+                                                        <input ng-model="lg2" type="text" value="{{lg2}}" maxlength="1" style="width:20px;">
+                                                        <input ng-model="lg3" type="text" value="{{lg3}}" maxlength="1" style="width:20px;">
+                                                        <input ng-model="lg4" type="text" value="{{lg4}}" maxlength="1" style="width:20px;">
+                                                        <input ng-model="lg5" type="text" value="{{lg5}}" maxlength="1" style="width:20px;">
+                                                        <input ng-model="lg6" type="text" value="{{lg6}}" maxlength="1" style="width:20px;">
+                                                    </td>
+                                                    <td class="labelStyle">Pay to Rep</td>
+                                                    <td class="divInput">
+                                                        <input ng-model="payToRep" type="text" value="{{payToRep}}" maxlength="8" style="width:80px;">
+                                                    </td>
+                                                    <td class="labelStyle">Other Count</td>
+                                                    <td class="controls">{{otherCount}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="labelStyle" style="width: 76px;">Markup</td>
+                                                    <td class="controls">
+                                                        <input ng-model="markup" type="text" value="{{markup}}" maxlength="8" style="width:80px;">
+                                                    </td>
+                                                    <td class="labelStyle">Pending Alloc</td>
+                                                    <td class="divInput">
+                                                        {{pendingAlloc}}
+                                                    </td>
+                                                    <td class="labelStyle">Fee</td>
+                                                    <td class="controls">
+                                                        <input ng-model="fee" type="text" value="{{fee}}" maxlength="8" style="width:80px;">
+                                                    </td>
+                                                    <td class="labelStyle">Memo</td>
+                                                    <td class="divInput">
+                                                        <input ng-model="memo" type="text" value="{{memo}}" maxlength="8" style="width:80px;">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end search form -->
+                <div ng-show="blockAdminActiveTab === 'allocations'">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <table style="margin-left: -2px;">
+                                    <tr>
+                                        <td>
+                                            <table class="table">
+                                                <tr>
+                                                    <td class="labelStyle">Executions: <span class="separator">|</span></td>
+                                                    <td class="labelStyle">Principal</td>
+                                                    <td class="controls">{{executionSummary.principal}}
+                                                        <span class="separator">|</span></td>
+                                                    <td class="labelStyle">Avg Price</td>
+                                                    <td class="divInput">{{executionSummary.avgPrice}}
+                                                        <span class="separator">|</span></td>
+                                                    <td class="labelStyle">Active Qty</td>
+                                                    <td class="divInput">{{executionSummary.activeQty}}</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div allocation-execution-block-save block-reset="blockReset(tabType)" block-save="blockSave(tabType)"
+                            block-send="blockSend(tabType)" block-cancel="blockCancel(tabType)"
+                            class="col-md-6 pull-right"></div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="blockAdminActiveTab === 'executions'">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <table style="margin-left: -2px;">
+                                    <tr>
+                                        <td>
+                                            <table class="table">
+                                                <tr>
+                                                    <td class="labelStyle">Allocations: <span class="separator">|</span></td>
+                                                    <td class="labelStyle">Price</td>
+                                                    <td class="controls">{{allocationSummary.price}}
+                                                        <span class="separator">|</span></td>
+                                                    <td class="labelStyle">Avg Qty</td>
+                                                    <td class="divInput">{{allocationSummary.activeQty}}
+                                                        <span class="separator">|</span></td>
+                                                    <td class="labelStyle">Other Qty</td>
+                                                    <td class="divInput">{{allocationSummary.otherQty}}
+                                                        <span class="separator">|</span></td>
+                                                    <td class="labelStyle">Pending Alloc</td>
+                                                    <td class="divInput">{{allocationSummary.pendingAlloc}}</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div allocation-execution-block-save block-reset="blockReset(tabType)" block-save="blockSave(tabType)"
+                            block-send="blockSend(tabType)" block-cancel="blockCancel(tabType)"
+                            class="col-md-6 pull-right"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Grid Section -->
+            </div>
+        </div>
+    </div>
+    <div class="showHeader" ng-show="showHeader">
+        <div class="row col-md-12">
+            <div class="col-md-3">
+                <span style="margin-left:0px" ng-click="showHeaderSummary(false)" class="slick-group-toggle collapsed rightClick"></span>                Expand Block Information
+            </div>
+            <div class="col-md-8 col-md-offset-1">
+                <span class="headerRow">Trade Date:</span>{{tradeDate}}
+                <span class="separator">|</span>
+                <span class="headerRow">Action: </span>{{actions.selected}}
+                <span class="separator">|</span>
+                <span class="headerRow">Master Acct: </span>{{masterAcctFirst}}
+                <span class="separator">|</span>
+                <span class="headerRow">Symbol: </span>{{symbol}}
+                <span class="separator">|</span>
+                <span class="headerRow">CUSIP: </span>{{cusip}}
+                <span class="separator">|</span>
+                <span class="headerRow">Block Name: </span>{{blockName}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="margin-top-10" ng-show="blockAdminActiveTab === 'executions'">
+    <div class="col-md-12">
+        <label>Executions</label>
+    </div>
+    <div class="col-md-12">
+        <table>
+            <tr>
+                <td>
+                    <table class="tblSearch table">
+                        <tr>
+                            <td class="labelStyle">Qty</td>
+                            <td class="divInput">
+                                <input type="text" class="date" ng-model="filterQty" value="{{filterQty}}" style="width:85px;"
+                                />
+                            </td>
+                            <td class="labelStyle">Price</td>
+                            <td class="divInput">
+                                <input type="text" ng-model="filterPrice" value={{filterPrice}} maxlength="8" class="medium">
+                            </td>
+                            <td class="labelStyle">MIEB</td>
+                            <td class="divInput">
+                                <input type="text" ng-model="filterMIEB" value={{filterMIEB}} maxlength="8" class="medium">
+                            </td>
+                            <td class="labelStyle">MICB</td>
+                            <td class="divInput">
+                                <input type="text" ng-model="filterMICB" value={{filterMICB}} maxlength="8" class="medium">
+                            </td>
+                            <td class="labelStyle">Principal</td>
+                            <td class="divInput">
+                                <input type="text" ng-model="filterPrincipal" value={{filterPrincipal}} maxlength="8"
+                                class="medium">
+                            </td>
+                            <td class="labelStyle">Off Acct</td>
+                            <td class="divInput">
+                                <input type="text" ng-model="filterOfAcctFirst" value={{filterOfAcctFirst}} maxlength="8"
+                                class="medium">
+                                <input type="text" ng-model="filterOfAcctSecond" value={{filterOfAcctSecond}} maxlength="8"
+                                class="medium">
+                            </td>
+                            <td class="labelStyle">Ex</td>
+                            <td>
+                                <select data-ng-model="filterEx.selected">
+                                    <option data-ng-repeat="option in ::filterEx.options" value="{{option.value}}"
+                                    title="{{option.title}}" data-ng-selected="{{filterEx.selected == option.value}}">
+                                        {{option.title}}
+                                    </option>
+                                </select>
+                            </td>
+                            <td class="labelStyle">Status</td>
+                            <td>
+                                <select data-ng-model="filterStatus.selected">
+                                    <option data-ng-repeat="option in ::filterStatus.options" value="{{option.value}}"
+                                    title="{{option.title}}" data-ng-selected="{{filterStatus.selected == option.value}}">
+                                        {{option.title}}
+                                    </option>
+                                </select>
+                            </td>
+                            <td>
+                                <button type="button" ng-click="callExecutionFilterReset()" class="btn btn-xs btn-link">Reset</button>
+                            </td>
+                            <td>
+                                <button type="button" ng-click="applyExecutionFilter()" class="btn btn-xs btn-primary">Display</button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="allocationgGridBlock" class="sectionDiv">
+        <div class="float-left" ng-show="addMultiSelect">
+            <label>Action</label>
+            <select name="execActionSelect" id="execActionSelect" class="ng-pristine ng-valid ng-touched"
+            ng-model="execActionSelect.singleSelect">
+                <option value="">---Please select---</option>
+                <!-- not selected / blank option -->
+                <option value="{{execActionSelect.option1}}">{{execActionSelect.option1}}</option>
+                <option value="{{execActionSelect.option2}}">{{execActionSelect.option2}}</option>
+            </select>
+        </div>
+        <div class="float-left">
+            <div class="float-left">
+                <button ng-click="showAddExecutions();" class="btn btn-xs btn-primary">Add Executions(s)</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="margin-top-10" ng-show="blockAdminActiveTab === 'allocations'">
+    <div class="col-md-12">
+        <label>Allocations</label>
+    </div>
+    <div class="col-md-12">
+        <table>
+            <tr>
+                <td>
+                    <table class="tblSearch table">
+                        <tr>
+                            <td class="labelStyle">Account</td>
+                            <td class="divInput">
+                                <input type="text" class="date" ng-model="filterAcctFirst" value="{{filterAcctFirst}}"
+                                style="width:85px;" />
+                                <input type="text" class="date" ng-model="filterAcctMid" value="{{filterAcctMid}}"
+                                style="width:85px;" />
+                                <select data-ng-model="masterAcctLast.selected">
+                                    <option data-ng-repeat="option in ::masterAcctLast.options" value="{{option.value}}"
+                                    title="{{option.title}}" data-ng-selected="{{filterAcctLast.selected == option.value}}">
+                                        {{option.title}}
+                                    </option>
+                                </select>
+                            </td>
+                            <td class="labelStyle">Short Name</td>
+                            <td class="divInput">
+                                <input type="text" ng-model="filterShortName" value={{filterShortname}} maxlength="8"
+                                class="medium">
+                            </td>
+                            <td class="labelStyle">Qty</td>
+                            <td class="divInput">
+                                <input type="text" ng-model="filterQty" value={{filterQty}} maxlength="8" class="medium">
+                            </td>
+                            <td class="labelStyle">Status</td>
+                            <td class="divInput">
+                                <select data-ng-model="filterStatus.selected">
+                                    <option data-ng-repeat="option in ::filterStatus.options" value="{{option.value}}"
+                                    title="{{option.title}}" data-ng-selected="{{filterStatus.selected == option.value}}">
+                                        {{option.title}}
+                                    </option>
+                                </select>
+                            </td>
+                            <td>
+                                <button type="button" ng-click="alert('Reset Allocation Filter')" class="btn btn-xs btn-link">Reset</button>
+                            </td>
+                            <td>
+                                <button type="button" ng-click="alert('Re-apply Allocation Grid Filter')" class="btn btn-xs btn-primary">Display</button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="allocationgGridBlock" class="sectionDiv">
+        <div class="float-left" ng-show="addMultiSelect">
+            <label>Action</label>
+            <select name="allocActionSelect" id="allocActionSelect" class="ng-pristine ng-valid ng-touched"
+            ng-model="allocActionSelect.singleSelect">
+                <option value="">---Please select---</option>
+                <!-- not selected / blank option -->
+                <option value="{{allocActionSelect.option1}}">{{allocActionSelect.option1}}</option>
+                <option value="{{allocActionSelect.option2}}">{{allocActionSelect.option2}}</option>
+            </select>
+        </div>
+        <div class="float-left">
+            <div class="float-left">
+                <button ng-click="showAddAllocations();" class="btn btn-xs btn-primary">Add Allocation(s)</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="float-left blockAdmin" id="gridMode" tab-copy-paste-grid-directive
+radio-group="radioGroup" radio-value="radioValue" add-rows="false" tab-mode="tabMode"
+copy-mode="copyMode" multi-mode="multiMode" set-multi-select="setMultiSelect()"
+add-multi-select="addMultiSelect" add-copy-paste="addCopyPaste" add-row="addRow()"
+set-tab="setTab()" add-tab="addTab" set-copy-paste="setCopyPaste()" undo-copy-paste="undoCopyPaste()"></div>
+<div id="gridOptions">
+    <div class="col-md-12 divActions pull-right">
+        <div id="gridMsg" class="{{msg !==''?severity:''}}" data-ng-bind="msg"></div>
+        <div>
+            <div id="divImgs" class="pull-right" action-images time-stamp="timeStamp" refresh-click="displayClick()"
+            print-click="printClick()" export-click="exportClick()" pdf-click="pdfClick()">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="gridStyle" data-grid-height="300" slick-grid></div>
+<div grid-loading-indicator data-ng-show="loadingIndicator"></div>
+<div class="col-md-4">
+    <div class="pull-left">
+        <span>Results: <span style="font-weight: bold" data-ng-bind="recordsCount"></span></span>
+    </div>
+</div>
+<div id="gridDropMenu">
+    <ul>
+        <li><a data-ng-click="jumpToPage('bre')">Block Report-Executions</a></li>
+        <li><a data-ng-click="jumpToPage('bra')">Block Report-Allocations</a></li>
+    </ul>
+</div>

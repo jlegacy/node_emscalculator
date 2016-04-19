@@ -1,0 +1,23 @@
+<form ng-submit="confirm()" ng-enter="confirm()">
+    <div id="divngdialog" ng-form="formDialogAlert">
+        <div id="divTitle">
+            <span ng-bind="alertSeverity"></span>
+        </div>
+        <div id="divBody">
+            <table>
+                <tr>
+                    <td>
+                        <span ng-class="alertSeverity" ng-bind="alertMsg"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <button type="submit" ng-disabled="loadingIndicator">Confirm</button>
+                        <input type="button" value="Cancel" ng-click="loadingIndicator?{}:closeThisDialog()"
+                        />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</form>
