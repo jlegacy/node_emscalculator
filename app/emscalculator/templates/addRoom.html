@@ -1,109 +1,116 @@
-﻿<table class="table tableStripped">
+﻿<div class="col-md-12">
+   <button type="button" ng-click="AddRoom()" class="btn btn-primary" aria-label="Left Align">Add</button>
+   <button type="button" ng-click="ExitRoom()" class="btn btn-danger" aria-label="Left Align">Cancel</button>
+    
+</div>
+<table class="table table-striped">
+
     <tr>
-        <td>Room Name</td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr> 
+        <th></th>
+        <th>Area</th>
+        <th>btu Heat</th>
+        <th>btu cool</th>
+    </tr>
+    
     <tr>
+        <td>Room Name:</td>
+        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Name required ng-model=vm.addRoom_Name></td>
         <td></td>
-        <td>Area</td>
-        <td>btu Heat</td>
-        <td>btu cool</td>
-    </tr> 
+        <td></td>
+    </tr>
     <tr>
         <td>Gross Wall</td>
-        <td>0</td>
+        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_GrossWall required ng-model=vm.addRoom_GrossWall></td>
         <td></td>
         <td></td>
-    </tr> 
+    </tr>
     <tr>
         <td>Windows</td>
         <td></td>
         <td></td>
         <td></td>
-    </tr> 
+    </tr>
     <tr>
         <td>North</td>
-        <td>20</td>
+        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Area_North required ng-model=vm.addRoom_Area_North></td>
         <td>560</td>
         <td>288</td>
-    </tr> 
+    </tr>
     <tr>
         <td>NE/NW</td>
-        <td>20</td>
+        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Area_NENW required ng-model=vm.addRoom_Area_NENW></td>
         <td>560</td>
         <td>288</td>
     </tr>
     <tr>
         <td>South</td>
-        <td>20</td>
+        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Area_South required ng-model=vm.addRoom_Area_South></td>
         <td>560</td>
         <td>288</td>
-    </tr> 
+    </tr>
     <tr>
         <td>East</td>
-        <td>20</td>
+        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Area_East required ng-model=vm.addRoom_Area_East></td>
         <td>560</td>
         <td>288</td>
     </tr>
     <tr>
         <td>West</td>
-        <td>20</td>
+        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Area_West required ng-model=vm.addRoom_Area_West></td>
         <td>560</td>
         <td>288</td>
-    </tr>  
+    </tr>
     <tr>
         <td>SkyLight</td>
-        <td>20</td>
+        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Area_SkyLight required ng-model=vm.addRoom_Area_SkyLight></td>
         <td>560</td>
         <td>288</td>
-    </tr>  
+    </tr>
     <tr>
         <td>Doors</td>
-        <td>20</td>
+        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Area_Doors required ng-model=vm.addRoom_Area_Doors></td>
         <td>560</td>
         <td>288</td>
-    </tr> 
+    </tr>
     <tr>
         <td>Net Walls</td>
-        <td>20</td>
+        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Area_NetWalls required ng-model=vm.addRoom_Area_NetWalls></td>
         <td>560</td>
         <td>288</td>
-    </tr> 
+    </tr>
     <tr>
         <td>Ceiling</td>
-        <td>20</td>
+        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Area_Ceiling required ng-model=vm.addRoom_Area_Ceiling></td>
         <td>560</td>
         <td>288</td>
-    </tr> 
+    </tr>
     <tr>
         <td>Floor-crawl</td>
-        <td>20</td>
+        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Area_FloorCrawl required ng-model=vm.addRoom_Area_FloorCrawl></td>
         <td>560</td>
         <td>288</td>
-    </tr> 
+    </tr>
     <tr>
         <td>Floor-open</td>
-        <td>20</td>
+        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Area_FloorOpen required ng-model=vm.addRoom_Area_FloorOpen></td>
         <td>560</td>
         <td>288</td>
-    </tr> 
+    </tr>
     <tr>
         <td>Floor-slab</td>
-        <td>20</td>
+        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Area_FloorSlab required ng-model=vm.addRoom_Area_FloorSlab></td>
         <td>560</td>
         <td>288</td>
-    </tr> 
+    </tr>
     <tr>
         <td>Insulation</td>
-        <td>20</td>
+        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Area_Insulation required ng-model=vm.addRoom_Area_Insulation></td>
         <td>560</td>
         <td>288</td>
-    </tr> 
+    </tr>
     <tr>
         <td>People</td>
-        <td>1</td>
+        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_People required ng-model=vm.addRoom_People></td>
         <td></td>
         <td></td>
     </tr>
@@ -111,13 +118,13 @@
         <td>Applicance</td>
         <td></td>
         <td></td>
-        <td>0</td>
-    </tr> 
+        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Appliance required ng-model=vm.addRoom_Appliance></td>
+    </tr>
     <tr>
         <td>Duct loss/gain</td>
         <td></td>
         <td>1283</td>
         <td>2752</td>
-    </tr> 
+    </tr>
 
 </table>

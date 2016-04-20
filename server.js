@@ -24,6 +24,7 @@ app.use('/images', express.static(__dirname + '/images'));
 app.use('/styles', express.static(__dirname + '/styles'));
 app.use('/scripts', express.static(__dirname + '/scripts'));
 app.use('/fonts', express.static(__dirname + '/fonts'));
+app.use('/app/emscalculator/templates', express.static(__dirname + '/app/emscalculator/templates'));
 
 // make '/app' default route
 app.get('/', function (req, res) {

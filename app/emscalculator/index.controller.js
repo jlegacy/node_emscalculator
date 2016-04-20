@@ -5,7 +5,7 @@
         .module('app')
         .controller('Emscalculator.IndexController', controller);
 
-    function controller($scope) {
+    function controller($scope, ngDialog) {
         var vm = this;
 
         $scope.EditRoom = function(roomName) {
@@ -18,10 +18,10 @@
 
         $scope.AddRoom = function(roomName) {
             ngDialog.open({
-                template: 'templates/popupTmpl.html',
+                template: '/app/emscalculator/templates/addRoom.html',
                 className: 'ngdialog-theme-default'
             });
-            alert('Add: ' + roomName);
+         //   alert('Add: ' + roomName);
 
 
         };
