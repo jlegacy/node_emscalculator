@@ -14,13 +14,13 @@
     
     <tr>
         <td>Room Name:</td>
-        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Name required ng-model=vm.addRoom_Name></td>
+        <td><input class="form-control" ng-change="calculateRoom()" value=vm.addRoom_Name required ng-model=vm.addRoom_Name></td>
         <td></td>
         <td></td>
     </tr>
     <tr>
         <td>Gross Wall</td>
-        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_GrossWall required ng-model=vm.addRoom_GrossWall></td>
+        <td><input class="form-control" ng-change="calculateRoom()" value=vm.addRoom_GrossWall required ng-model=vm.addRoom_GrossWall></td>
         <td></td>
         <td></td>
     </tr>
@@ -32,85 +32,85 @@
     </tr>
     <tr>
         <td>North</td>
-        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Area_North required ng-model=vm.addRoom_Area_North></td>
-        <td>560</td>
-        <td>288</td>
+        <td><input class="form-control" ng-change="calculateRoom()" value=vm.addRoom_Area_North required ng-model=vm.addRoom_Area_North></td>
+        <td>{{vm.addRoom_Area_Btu_Heat_North}}</td>
+        <td>{{vm.addRoom_Area_Btu_Cool_North}}</td>
     </tr>
     <tr>
         <td>NE/NW</td>
-        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Area_NENW required ng-model=vm.addRoom_Area_NENW></td>
-        <td>560</td>
-        <td>288</td>
+        <td><input class="form-control" ng-change="calculateRoom()" value=vm.addRoom_Area_NENW required ng-model=vm.addRoom_Area_NENW></td>
+        <td>{{vm.addRoom_Area_Btu_Heat_NENW}}</td>
+        <td>{{vm.addRoom_Area_Btu_Cool_NENW}}</td>
     </tr>
     <tr>
         <td>South</td>
-        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Area_South required ng-model=vm.addRoom_Area_South></td>
-        <td>560</td>
-        <td>288</td>
+        <td><input class="form-control" ng-change="calculateRoom()" value=vm.addRoom_Area_South required ng-model=vm.addRoom_Area_South></td>
+        <td>{{vm.addRoom_Area_Btu_Heat_South}}</td>
+        <td>{{vm.addRoom_Area_Btu_Cool_South}}</td>
     </tr>
     <tr>
         <td>East</td>
-        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Area_East required ng-model=vm.addRoom_Area_East></td>
-        <td>560</td>
-        <td>288</td>
+        <td><input class="form-control" ng-change="calculateRoom()" value=vm.addRoom_Area_East required ng-model=vm.addRoom_Area_East></td>
+        <td>{{vm.addRoom_Area_Btu_Heat_East}}</td>
+        <td>{{vm.addRoom_Area_Btu_Cool_East}}</td>
     </tr>
     <tr>
         <td>West</td>
-        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Area_West required ng-model=vm.addRoom_Area_West></td>
-        <td>560</td>
-        <td>288</td>
+        <td><input class="form-control" ng-change="calculateRoom()" value=vm.addRoom_Area_West required ng-model=vm.addRoom_Area_West></td>
+        <td>{{vm.addRoom_Area_Btu_Heat_West}}</td>
+        <td>{{vm.addRoom_Area_Btu_Cool_West}}</td>
     </tr>
     <tr>
         <td>SkyLight</td>
-        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Area_SkyLight required ng-model=vm.addRoom_Area_SkyLight></td>
-        <td>560</td>
-        <td>288</td>
+        <td><input class="form-control" ng-change="calculateRoom()" value=vm.addRoom_Area_SkyLight required ng-model=vm.addRoom_Area_SkyLight></td>
+        <td>{{vm.addRoom_Area_Btu_Heat_SkyLight}}</td>
+        <td>{{vm.addRoom_Area_Btu_Cool_SkyLight}}</td>
     </tr>
     <tr>
         <td>Doors</td>
-        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Area_Doors required ng-model=vm.addRoom_Area_Doors></td>
-        <td>560</td>
-        <td>288</td>
+        <td><input class="form-control" ng-change="calculateRoom()" value=vm.addRoom_Area_Doors required ng-model=vm.addRoom_Area_Doors></td>
+        <td>{{vm.addRoom_Area_Btu_Heat_Doors}}</td>
+        <td>{{vm.addRoom_Area_Btu_Cool_Doors}}</td>
     </tr>
     <tr>
         <td>Net Walls</td>
-        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Area_NetWalls required ng-model=vm.addRoom_Area_NetWalls></td>
-        <td>560</td>
-        <td>288</td>
+        <td><input class="form-control" ng-change="calculateRoom()" value=vm.addRoom_Area_NetWalls required ng-model=vm.addRoom_Area_NetWalls></td>
+        <td>{{vm.addRoom_Area_Btu_Heat_NetWalls}}</td>
+        <td>{{vm.addRoom_Area_Btu_Cool_NetWalls}}</td>
     </tr>
     <tr>
         <td>Ceiling</td>
-        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Area_Ceiling required ng-model=vm.addRoom_Area_Ceiling></td>
-        <td>560</td>
-        <td>288</td>
+        <td><input class="form-control" ng-change="calculateRoom()" value=vm.addRoom_Area_Ceiling required ng-model=vm.addRoom_Area_Ceiling></td>
+        <td>{{vm.addRoom_Area_Btu_Heat_Ceiling}}</td>
+        <td>{{vm.addRoom_Area_Btu_Cool_Ceiling}}</td>
     </tr>
     <tr>
         <td>Floor-crawl</td>
-        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Area_FloorCrawl required ng-model=vm.addRoom_Area_FloorCrawl></td>
-        <td>560</td>
-        <td>288</td>
+        <td><input class="form-control" ng-change="calculateRoom()" value=vm.addRoom_Area_FloorCrawl required ng-model=vm.addRoom_Area_FloorCrawl></td>
+        <td>{{vm.addRoom_Area_Btu_Heat_FloorCrawl}}</td>
+        <td>{{vm.addRoom_Area_Btu_Cool_FloorCrawl}}</td>
     </tr>
     <tr>
         <td>Floor-open</td>
-        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Area_FloorOpen required ng-model=vm.addRoom_Area_FloorOpen></td>
-        <td>560</td>
-        <td>288</td>
+        <td><input class="form-control" ng-change="calculateRoom()" value=vm.addRoom_Area_FloorOpen required ng-model=vm.addRoom_Area_FloorOpen></td>
+        <td>{{vm.addRoom_Area_Btu_Heat_FloorOpen}}</td>
+        <td>{{vm.addRoom_Area_Btu_Cool_FloorOpen}}</td>
     </tr>
     <tr>
         <td>Floor-slab</td>
-        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Area_FloorSlab required ng-model=vm.addRoom_Area_FloorSlab></td>
-        <td>560</td>
-        <td>288</td>
+        <td><input class="form-control" ng-change="calculateRoom()" value=vm.addRoom_Area_FloorSlab required ng-model=vm.addRoom_Area_FloorSlab></td>
+        <td>{{vm.addRoom_Area_Btu_Heat_FloorSlab}}</td>
+        <td>{{vm.addRoom_Area_Btu_Cool_FloorSlab}}</td>
     </tr>
     <tr>
         <td>Insulation</td>
-        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Area_Insulation required ng-model=vm.addRoom_Area_Insulation></td>
-        <td>560</td>
-        <td>288</td>
+        <td><input class="form-control" ng-change="calculateRoom()" value=vm.addRoom_Area_Insulation required ng-model=vm.addRoom_Area_Insulation></td>
+        <td>{{vm.addRoom_Area_Btu_Heat_Insulation}}</td>
+        <td>{{vm.addRoom_Area_Btu_Cool_Insulation}}</td>
     </tr>
     <tr>
         <td>People</td>
-        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_People required ng-model=vm.addRoom_People></td>
+        <td><input class="form-control" ng-change="calculateRoom()" value=vm.addRoom_People required ng-model=vm.addRoom_People></td>
         <td></td>
         <td></td>
     </tr>
@@ -118,7 +118,7 @@
         <td>Applicance</td>
         <td></td>
         <td></td>
-        <td><input class="form-control" ng-change="calculate()" value=vm.addRoom_Appliance required ng-model=vm.addRoom_Appliance></td>
+        <td><input class="form-control" ng-change="calculateRoom()" value=vm.addRoom_Appliance required ng-model=vm.addRoom_Appliance></td>
     </tr>
     <tr>
         <td>Duct loss/gain</td>

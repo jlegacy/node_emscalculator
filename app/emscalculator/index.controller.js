@@ -19,7 +19,8 @@
         $scope.AddRoom = function(roomName) {
             ngDialog.open({
                 template: '/app/emscalculator/templates/addRoom.html',
-                className: 'ngdialog-theme-default'
+                className: 'ngdialog-theme-default',
+                scope: $scope
             });
          //   alert('Add: ' + roomName);
 
@@ -31,7 +32,7 @@
             vm.step1WinterIndoor = 70;
             vm.step1SummerIndoor = 75;
             vm.step1SummerOutdoor = 100;
-            vm.step1WinterOutdoor = 1;
+            vm.step1WinterOutdoor = 20;
             vm.totalConditionedArea = 1900;
             vm.step1NumberOfOccupants = 4;
             vm.step1TightStructure.selected = .7;
@@ -264,6 +265,53 @@
 
         }
 
+        $scope.calculateRoom = function () {
+
+            vm.addRoom_Area_Btu_Heat_North = vm.addRoom_Area_North * vm.step3SolarGlass1.selected * vm.step1WinterDiff;
+            vm.addRoom_Area_Btu_Cool_North = vm.addRoom_Area_North * vm.step2HTM_North * vm.step2ReflectiveCoatingValue;
+
+            vm.addRoom_Area_Btu_Heat_NENW = vm.addRoom_Area_NENW * vm.step3SolarGlass1.selected * vm.step1WinterDiff;
+            vm.addRoom_Area_Btu_Cool_NENW = vm.addRoom_Area_NENW * vm.step2HTM_NENW * vm.step2ReflectiveCoatingValue;
+
+            vm.addRoom_Area_Btu_Heat_South = vm.addRoom_Area_South * vm.step3SolarGlass1.selected * vm.step1WinterDiff;
+            vm.addRoom_Area_Btu_Cool_South = vm.addRoom_Area_South * vm.step2HTM_South * vm.step2ReflectiveCoatingValue;
+
+            vm.addRoom_Area_Btu_Heat_SESW = vm.addRoom_Area_SESW * vm.step3SolarGlass1.selected * vm.step1WinterDiff;
+            vm.addRoom_Area_Btu_Cool_SESW = vm.addRoom_Area_SESW * vm.step2HTM_SESW * vm.step2ReflectiveCoatingValue;
+
+            vm.addRoom_Area_Btu_Heat_East = vm.addRoom_Area_East * vm.step3SolarGlass1.selected * vm.step1WinterDiff;
+            vm.addRoom_Area_Btu_Cool_East = vm.addRoom_Area_East * vm.step2HTM_East * vm.step2ReflectiveCoatingValue;
+
+            vm.addRoom_Area_Btu_Heat_West = vm.addRoom_Area_West * vm.step3SolarGlass1.selected * vm.step1WinterDiff;
+            vm.addRoom_Area_Btu_Cool_West = vm.addRoom_Area_West * vm.step2HTM_West * vm.step2ReflectiveCoatingValue;
+
+            vm.addRoom_Area_Btu_Heat_SkyLight = vm.addRoom_Area_SkyLight * vm.step3SolarSkyLight.selected * vm.step1WinterDiff;
+            vm.addRoom_Area_Btu_Cool_SkyLight = vm.addRoom_Area_SkyLight * vm.step2TintTypesValue;
+
+            vm.addRoom_Area_Btu_Heat_Doors = vm.addRoom_Area_Doors * vm.step3SolarDoors.selected * vm.step1WinterDiff;
+            vm.addRoom_Area_Btu_Cool_Doors = vm.addRoom_Area_Doors * vm.step3SolarDoors.selected * vm.step1SummerDiff;
+
+           
+            vm.addRoom_Area_Btu_Heat_NetWalls = vm.addRoom_Area_NetWalls * vm.step3SolarNetWall.selected * vm.step1WinterDiff;
+            vm.addRoom_Area_Btu_Cool_NetWalls = vm.addRoom_Area_NetWalls * vm.step3SolarNetWall.selected * vm.step1SummerDiff;
+         
+            vm.addRoom_Area_Btu_Heat_Ceiling = vm.addRoom_Area_Ceiling * vm.step3SolarCeiling.selected * vm.step1WinterDiff;
+            vm.addRoom_Area_Btu_Cool_Ceiling = vm.addRoom_Area_Ceiling * vm.step3SolarCeiling.selected * 45;
+
+            vm.addRoom_Area_Btu_Heat_FloorCrawl = (vm.addRoom_Area_FloorCrawl * vm.step3SolarGainFloors_OverCrawl.selected * vm.step1WinterDiff)/2;
+            vm.addRoom_Area_Btu_Cool_FloorCrawl = 0;
+
+            vm.addRoom_Area_Btu_Heat_FloorOpen = vm.addRoom_Area_FloorOpen * vm.step3SolarGainFloors_OpenBeach.selected * vm.step1WinterDiff;
+            vm.addRoom_Area_Btu_Cool_FloorOpen = vm.addRoom_Area_FloorOpen * vm.step3SolarGainFloors_OverCrawl.selected * vm.step1SummerDiff;
+
+            vm.addRoom_Area_Btu_Heat_FloorSlab = vm.addRoom_Area_FloorSlab * vm.step3SolarGainFloors_Slab.selected * vm.step1WinterDiff;
+            vm.addRoom_Area_Btu_Cool_FloorSlab = 0;
+           
+            vm.addRoom_Area_Btu_Heat_Infiltration = (vm.addRoom_Area_Infiltration / (vm.step3Area_Glass1 + vm.step3Area_Glass2 + vm.step3Area_SolarDoors + vm.basementArea_Glass1 + vm.basementArea_Glass2 + vm.basementArea_SolarDoors )) * (vm.basementHeatLossBTUH_Infiltration + vm.step3HeatLossBTUH_Infiltration);
+            vm.addRoom_Area_Btu_Cool_Infiltration = (vm.addRoom_Area_Infiltration / (vm.step3Area_Glass1 + vm.step3Area_Glass2 + vm.step3Area_SolarDoors + vm.basementArea_Glass1 + vm.basementArea_Glass2 + vm.basementArea_SolarDoors )) * (vm.step3HeatGainBTUH_TotalSensibleLoad + vm.step3HeatGainBTUH_TotalSensibleLoad + vm.basementHeatGainBTUH_TotalSensibleLoad);
+       
+}
+  
 
         $scope.calculate = function() {
 
