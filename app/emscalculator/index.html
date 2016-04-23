@@ -17,6 +17,7 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
         <script src="../../scripts/ngDialog.min.js"></script>
+        <script src="../../scripts/underscore-1-8-3.min.js"></script>
     </head>
     <body>
         {{vm.testValue}}
@@ -1279,7 +1280,7 @@
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>72058</td>
+                                <td>{{vm.step3HeatLossBTUH_TotalSensibleLoad + vm.basementHeatLossBTUH_TotalSensibleLoad}}</td>
                             </tr>
                         </table>
                     </div>
@@ -1292,7 +1293,7 @@
                                 <td>Sensible Heat Gain</td>
                             </tr>
                             <tr>
-                                <td>72058</td>
+                                <td>{{vm.step3HeatGainBTUH_TotalSensibleLoad + vm.basementHeatGainBTUH_TotalSensibleLoad}}</td>
                             </tr>
                         </table>
                     </div>
@@ -1306,8 +1307,8 @@
                                 <td>Heating</td>
                             </tr>
                             <tr>
-                                <td>1400</td>
-                                <td>1200</td>
+                                <td><input class="form-control" ng-change="calculateRoom()" ng-model="vm.addRoom_CFM_Cooling"></td>
+                                <td><input class="form-control" ng-change="calculateRoom()"  ng-model="vm.addRoom_CFM_Heating"></td>
                             </tr>
                         </table>
                     </div>
@@ -1332,25 +1333,26 @@
                                     <span class="glyphicon glyphicon-plus" aria-hidden="true">Add-Room</span>
                                 </button>
                             </td>
-                            <td>HeatLoss</td>
-                            <td>HeatGain</td>
-                            <td>CFM_Heat</td>
-                            <td>CFM_Cool</td>
+                            <th>Room Name</th>
+                            <th>HeatLoss</th>
+                            <th>HeatGain</th>
+                            <th>CFM_Heat</th>
+                            <th>CFM_Cool</th>
                         </tr>
                         <tr ng-repeat="row in vm.roomArray">
                             <td>
-                                <button type="button" ng-click="EditRoom(row.roomName)" class="btn btn-success" aria-label="Left Align">
+                                <button type="button" ng-click="EditRoom(row.addRoom_Name)" class="btn btn-success" aria-label="Left Align">
                                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                 </button>
-                                <button type="button" ng-click="DeleteRoom(row.roomName)" class="btn btn-danger" aria-label="Left Align">
+                                <button type="button" ng-click="DeleteRoom(row.addRoom_Name)" class="btn btn-danger" aria-label="Left Align">
                                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                                 </button>
-                                {{row.roomName}}
                             </td>
-                            <td>zzzz</td>
-                            <td>zzz</td>
-                            <td>zzz</td>
-                            <td>zzzz</td>
+                            <td>{{row.addRoom_Name}}</td>
+                            <td>{{row.addRoom_Heat_Loss_Room_Total}}</td>
+                            <td>{{row.addRoom_Heat_Gain_Room_Total}}</td>
+                            <td>{{row.addRoom_Heat_CFM_Room_Total}}</td>
+                            <td>{{row.addRoom_Cool_CFM_Room_Total}}</td>
                         </tr>
                     </table>
                 </div>
