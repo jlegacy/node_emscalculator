@@ -505,7 +505,7 @@
                             <td>{{vm.step2GlassBTUH_Total}}</td>
                         </tr>
                         <tr>
-                            <td>SKYLIGHT</td>
+                            <td>SkyLight</td>
                             <td>
                                 <td>
                                     <input class="form-control" ng-change="calculate()" value="vm.step2SkyLightQty" ng-model="vm.step2SkyLightQty">
@@ -670,7 +670,7 @@
                             <td></td>
                         </tr>
                         <tr>
-                            <td>SKYLIGHT</td>
+                            <td>SkyLight</td>
                             <td>
                                 <select class="form-control" ng-change="calculate()" ng-options="field.value as field.text for field in vm.step3SolarSkyLight" ng-model="vm.step3SolarSkyLight.selected"></select>
                             </td>
@@ -1263,100 +1263,122 @@
         </div>
         <!--Room by Room-->
         <div class="container well">
-            <div class="row">
-                <h4>ROOM BY ROOM LOAD CALCULATION</h4>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="col-md-3">
-                        <table class="table">
-                            <tr>
-                                <td></td>
-                                <td>Total</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>Heat Loss</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>{{vm.step3HeatLossBTUH_TotalSensibleLoad + vm.basementHeatLossBTUH_TotalSensibleLoad}}</td>
-                            </tr>
-                        </table>
+            <form name="doorForm" novalidate>
+                <div class="row">
+                    <h4>ROOM BY ROOM LOAD CALCULATION</h4>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-3">
+                            <table class="table">
+                                <tr>
+                                    <td></td>
+                                    <td>Total</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Heat Loss</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>{{vm.step3HeatLossBTUH_TotalSensibleLoad + vm.basementHeatLossBTUH_TotalSensibleLoad}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-3">
+                            <table class="table">
+                                <tr>
+                                    <td>Total</td>
+                                </tr>
+                                <tr>
+                                    <td>Sensible Heat Gain</td>
+                                </tr>
+                                <tr>
+                                    <td>{{vm.step3HeatGainBTUH_TotalSensibleLoad + vm.basementHeatGainBTUH_TotalSensibleLoad}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-3">
+                            <table>
+                                <tr>
+                                    <td colspan="2">System CFM</td>
+                                </tr>
+                                <tr>
+                                    <td>Cooling</td>
+                                    <td>Heating</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input class="form-control" ng-change="calculateRoom()" required ng-model="vm.addRoom_CFM_Cooling">
+                                    </td>
+                                    <td>
+                                        <input class="form-control" ng-change="calculateRoom()" required ng-model="vm.addRoom_CFM_Heating">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-3">
+                            <table>
+                                <tr>
+                                    <td>Check Calculation</td>
+                                    <td>
+                                        <input type="checkbox" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                        <table class="table">
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-striped">
                             <tr>
-                                <td>Total</td>
-                            </tr>
-                            <tr>
-                                <td>Sensible Heat Gain</td>
-                            </tr>
-                            <tr>
-                                <td>{{vm.step3HeatGainBTUH_TotalSensibleLoad + vm.basementHeatGainBTUH_TotalSensibleLoad}}</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="col-md-3">
-                        <table>
-                            <tr>
-                                <td colspan="2">System CFM</td>
-                            </tr>
-                            <tr>
-                                <td>Cooling</td>
-                                <td>Heating</td>
-                            </tr>
-                            <tr>
-                                <td><input class="form-control" ng-change="calculateRoom()" ng-model="vm.addRoom_CFM_Cooling"></td>
-                                <td><input class="form-control" ng-change="calculateRoom()"  ng-model="vm.addRoom_CFM_Heating"></td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="col-md-3">
-                        <table>
-                            <tr>
-                                <td>Check Calculation</td>
                                 <td>
-                                    <input type="checkbox" />
+                                    <button type="button" ng-click="AddRoom()" ng-disabled="doorForm.$invalid" class="btn btn-primary" aria-label="Left Align">
+                                        <span class="glyphicon glyphicon-plus" aria-hidden="true">Add-Room</span>
+                                    </button>
                                 </td>
+                                <th>Room Name</th>
+                                <th>HeatLoss</th>
+                                <th>HeatGain</th>
+                                <th>CFM_Heat</th>
+                                <th>CFM_Cool</th>
+                            </tr>
+                            <tr ng-repeat="row in vm.roomArray">
+                                <td>
+                                    <button type="button" ng-click="EditRoom(row.addRoom_Name)" ng-disabled="doorForm.$invalid" class="btn btn-success" aria-label="Left Align">
+                                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                    </button>
+                                    <button type="button" ng-click="DeleteRoom(row.addRoom_Name)" ng-disabled="doorForm.$invalid" class="btn btn-danger" aria-label="Left Align">
+                                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                    </button>
+                                </td>
+                                <td>{{row.addRoom_Name}}</td>
+                                <td>{{row.addRoom_Heat_Loss_Room_Total}}</td>
+                                <td>{{row.addRoom_Heat_Gain_Room_Total}}</td>
+                                <td>{{row.addRoom_Heat_CFM_Room_Total}}</td>
+                                <td>{{row.addRoom_Cool_CFM_Room_Total}}</td>
+                            </tr>
+                            <tr>
+                                <th>Totals:</th>
+                                <td></td>
+                                <th>{{vm.addRoom_Heat_Loss_Room_RunningTotal}}</th>
+                                <th>{{vm.addRoom_Heat_Gain_Room_RunningTotal}}</th>
+                                <th>{{vm.addRoom_Heat_CFM_Room_RunningTotal}}</th>
+                                <th>{{vm.addRoom_Cool_CFM_Room_RunningTotal}}</th>
+                            </tr>
+                            <tr>
+                                <th>Percent Of Original:</th>
+                                <td></td>
+                                <th>{{vm.addRoom_Heat_Loss_Room_RunningTotal_Percentage}}%</th>
+                                <th>{{vm.addRoom_Heat_Gain_Room_RunningTotal_Percentage}}%</th>
+                                <th>{{vm.addRoom_Heat_CFM_Room_RunningTotal_Percentage}}%</th>
+                                <th>{{vm.addRoom_Cool_CFM_Room_RunningTotal_Percentage}}%</th>
                             </tr>
                         </table>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <table class="table table-striped">
-                        <tr>
-                            <td>
-                                <button type="button" ng-click="AddRoom()" class="btn btn-primary" aria-label="Left Align">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true">Add-Room</span>
-                                </button>
-                            </td>
-                            <th>Room Name</th>
-                            <th>HeatLoss</th>
-                            <th>HeatGain</th>
-                            <th>CFM_Heat</th>
-                            <th>CFM_Cool</th>
-                        </tr>
-                        <tr ng-repeat="row in vm.roomArray">
-                            <td>
-                                <button type="button" ng-click="EditRoom(row.addRoom_Name)" class="btn btn-success" aria-label="Left Align">
-                                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                                </button>
-                                <button type="button" ng-click="DeleteRoom(row.addRoom_Name)" class="btn btn-danger" aria-label="Left Align">
-                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                                </button>
-                            </td>
-                            <td>{{row.addRoom_Name}}</td>
-                            <td>{{row.addRoom_Heat_Loss_Room_Total}}</td>
-                            <td>{{row.addRoom_Heat_Gain_Room_Total}}</td>
-                            <td>{{row.addRoom_Heat_CFM_Room_Total}}</td>
-                            <td>{{row.addRoom_Cool_CFM_Room_Total}}</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
+            </form>
         </div>
     </body>
 </html>
