@@ -1079,7 +1079,7 @@
                                 <input class="form-control" disabled readonly value={{vm.basementSolarGlass1.selected}} />
                             </td>
                             <td>
-                                <input class="form-control" ng-change="calculate()" value="vm.basementArea_Glass1" ng-model="vm.basementArea_Glass1">
+                                {{vm.basementArea_Glass1}}
                             </td>
                             <td>{{vm.basementHeatLossBTUH_Glass1}}</td>
                             <td></td>
@@ -1124,7 +1124,7 @@
                                 <input class="form-control" ng-change="calculate()" ng-disabled="vm.basementSolarNetWall_Above_Drop > 0" ng-readonly="vm.basementSolarNetWall_Above_Drop > 0" ng-model="vm.basementSolarNetWall_Above.selected" value="vm.basementSolarNetWall_Above.selected" />
                             </td>
                             <td>
-                                <input class="form-control" ng-change="calculate()" value="vm.basementArea_SolarNetWall_Above" ng-model="vm.basementArea_SolarNetWall_Above">
+                                {{vm.basementArea_SolarNetWall_Above}}
                             </td>
                             <td>{{vm.basementHeatLossBTUH_NetWall_Above}}</td>
                             <td>{{vm.basementHeatGainBTUH_NetWall_Above}}</td>
@@ -1164,9 +1164,11 @@
                             <td>FLOOR</td>
                             <td></td>
                             <td>
+                                {{vm.basementHeatLossBTUH_Floor_UValue}}
+                            </td>
+                            <td>
                                 <input class="form-control" ng-change="calculate()" value="vm.basementArea_FloorSquareFeet" ng-model="vm.basementArea_FloorSquareFeet">
                             </td>
-                            <td>{{vm.basementHeatLossBTUH_Floor_UValue}}</td>
                             <td>{{vm.basementHeatLossBTUH_Floor}}</td>
                             <td>{{vm.basementHeatLossBTUH_Floor}}</td>
                             <td></td>
@@ -1174,9 +1176,9 @@
                         <tr>
                             <td colspan="2">Infiltration-Enter cubit-ft of building</td>
                             <td>
-                                <input class="form-control" ng-change="calculate()" value="vm.basementInfiltration" ng-model="vm.basementInfiltration">
+                                
                             </td>
-                            <td></td>
+                            <td><input class="form-control" ng-change="calculate()" value="vm.basementInfiltration" ng-model="vm.basementInfiltration"></td>
                             <td>{{vm.basementHeatLossBTUH_Infiltration}}</td>
                             <td>{{vm.basementHeatGainBTUH_Infiltration}}</td>
                             <td>
@@ -1187,9 +1189,9 @@
                             <td>People</td>
                             <td></td>
                             <td>
-                                <input class="form-control" ng-change="calculate()" value="vm.basementArea_People" ng-model="vm.basementArea_People">
+                                
                             </td>
-                            <td></td>
+                            <td><input class="form-control" ng-change="calculate()" value="vm.basementArea_People" ng-model="vm.basementArea_People"></td>
                             <td></td>
                             <td>{{vm.basementHeatGainBTUH_People}}</td>
                             <td>{{vm.basementHeatGainBTUH_People_Total}}</td>
@@ -1309,15 +1311,15 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input class="form-control" ng-change="calculateRoom()" required ng-model="vm.addRoom_CFM_Cooling">
+                                        <input class="form-control" ng-change="reCalcRooms()" required ng-model="vm.addRoom_CFM_Cooling">
                                     </td>
                                     <td>
-                                        <input class="form-control" ng-change="calculateRoom()" required ng-model="vm.addRoom_CFM_Heating">
+                                        <input class="form-control" ng-change="reCalcRooms()" required ng-model="vm.addRoom_CFM_Heating">
                                     </td>
                                 </tr>
                             </table>
                         </div>
-                        <div class="col-md-3">
+                        <!--<div class="col-md-3">
                             <table>
                                 <tr>
                                     <td>Check Calculation</td>
@@ -1326,7 +1328,7 @@
                                     </td>
                                 </tr>
                             </table>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
                 <div class="row">
@@ -1354,28 +1356,41 @@
                                     </button>
                                 </td>
                                 <td>{{row.addRoom_Name}}</td>
-                                <td>{{row.addRoom_Heat_Loss_Room_Total}}</td>
-                                <td>{{row.addRoom_Heat_Gain_Room_Total}}</td>
-                                <td>{{row.addRoom_Heat_CFM_Room_Total}}</td>
-                                <td>{{row.addRoom_Cool_CFM_Room_Total}}</td>
+                                <td>{{row.addRoom_Heat_Loss_Room_Total | number:2}}</td>
+                                <td>{{row.addRoom_Heat_Gain_Room_Total | number:2}}</td>
+                                <td>{{row.addRoom_Heat_CFM_Room_Total | number:2}}</td>
+                                <td>{{row.addRoom_Cool_CFM_Room_Total | number:2}}</td>
                             </tr>
                             <tr>
                                 <th>Totals:</th>
                                 <td></td>
-                                <th>{{vm.addRoom_Heat_Loss_Room_RunningTotal}}</th>
-                                <th>{{vm.addRoom_Heat_Gain_Room_RunningTotal}}</th>
-                                <th>{{vm.addRoom_Heat_CFM_Room_RunningTotal}}</th>
-                                <th>{{vm.addRoom_Cool_CFM_Room_RunningTotal}}</th>
+                                <th>{{vm.addRoom_Heat_Loss_Room_RunningTotal | number:2}}</th>
+                                <th>{{vm.addRoom_Heat_Gain_Room_RunningTotal | number:2}}</th>
+                                <th>{{vm.addRoom_Heat_CFM_Room_RunningTotal | number:2}}</th>
+                                <th>{{vm.addRoom_Cool_CFM_Room_RunningTotal | number:2}}</th>
                             </tr>
                             <tr>
                                 <th>Percent Of Original:</th>
                                 <td></td>
-                                <th>{{vm.addRoom_Heat_Loss_Room_RunningTotal_Percentage}}%</th>
-                                <th>{{vm.addRoom_Heat_Gain_Room_RunningTotal_Percentage}}%</th>
-                                <th>{{vm.addRoom_Heat_CFM_Room_RunningTotal_Percentage}}%</th>
-                                <th>{{vm.addRoom_Cool_CFM_Room_RunningTotal_Percentage}}%</th>
+                                <th ng-class="vm.addRoom_Heat_Loss_Room_RunningTotal_Percentage < 95  || vm.addRoom_Heat_Loss_Room_RunningTotal_Percentage > 105 ? 'percentWarning' : 'percentSuccess'">{{vm.addRoom_Heat_Loss_Room_RunningTotal_Percentage}}%</th>
+                                <th ng-class="vm.addRoom_Heat_Gain_Room_RunningTotal_Percentage < 95  || vm.addRoom_Heat_Gain_Room_RunningTotal_Percentage > 105 ? 'percentWarning' : 'percentSuccess'">{{vm.addRoom_Heat_Gain_Room_RunningTotal_Percentage}}%</th>
+                                <th></th>
+                                <th></th>
                             </tr>
                         </table>
+                    </div>
+                    
+                    <div class="col-md-4 pull-right">
+                        <div class="well percentWarning" ng-if="vm.addRoom_Heat_Loss_Room_RunningTotal_Percentage < 95  || vm.addRoom_Heat_Loss_Room_RunningTotal_Percentage > 105
+                             && vm.addRoom_Heat_Gain_Room_RunningTotal_Percentage < 95  || vm.addRoom_Heat_Gain_Room_RunningTotal_Percentage > 105">
+                            The difference between the total heating load and the room-by-room load is greater than 5%. Check your figures.
+                        </div>
+                        
+                        <div class="well percentSuccess" ng-if="vm.addRoom_Heat_Loss_Room_RunningTotal_Percentage >= 95  && vm.addRoom_Heat_Loss_Room_RunningTotal_Percentage <= 105
+                             && vm.addRoom_Heat_Gain_Room_RunningTotal_Percentage >= 95  && vm.addRoom_Heat_Gain_Room_RunningTotal_Percentage <= 105">
+                            Success! You are within 5% of total heating load
+                        </div>
+
                     </div>
                 </div>
             </form>

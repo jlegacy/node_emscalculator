@@ -28,7 +28,7 @@
                 x.addRoom_Area_West = vm.addRoom_Area_West;
                 x.addRoom_Area_SkyLight = vm.addRoom_Area_SkyLight;
                 x.addRoom_Area_Doors = vm.addRoom_Area_Doors;
-               // x.addRoom_Area_Netwalls = vm.addRoom_Area_Netwalls;
+
                 x.addRoom_Area_Ceiling = vm.addRoom_Area_Ceiling;
                 x.addRoom_Area_FloorCrawl = vm.addRoom_Area_FloorCrawl;
                 x.addRoom_Area_FloorOpen = vm.addRoom_Area_FloorOpen;
@@ -89,8 +89,98 @@
 
             $scope.calculate();
 
-
         };
+
+        $scope.reCalcRooms = function () {
+
+            _.each(vm.roomArray, function (x) {
+
+                vm.addRoom_Name = x.addRoom_Name;
+                vm.addRoom_GrossWall = x.addRoom_GrossWall;
+                vm.addRoom_Area_North = x.addRoom_Area_North;
+                vm.addRoom_Area_NENW = x.addRoom_Area_NENW;
+                vm.addRoom_Area_South = x.addRoom_Area_South;
+                vm.addRoom_Area_SESW = x.addRoom_Area_SESW;
+                vm.addRoom_Area_East = x.addRoom_Area_East;
+                vm.addRoom_Area_West = x.addRoom_Area_West;
+                vm.addRoom_Area_SkyLight = x.addRoom_Area_SkyLight;
+                vm.addRoom_Area_Doors = x.addRoom_Area_Doors;
+                vm.addRoom_Area_Netwalls = x.addRoom_Area_Netwalls;
+                vm.addRoom_Area_Ceiling = x.addRoom_Area_Ceiling;
+                vm.addRoom_Area_FloorCrawl = x.addRoom_Area_FloorCrawl;
+                vm.addRoom_Area_FloorOpen = x.addRoom_Area_FloorOpen;
+                vm.addRoom_Area_FloorSlab = x.addRoom_Area_FloorSlab;
+                vm.addRoom_Area_Infiltration = x.addRoom_Area_Infiltration;
+                vm.addRoom_People = x.addRoom_People;
+                vm.addRoom_Appliance = x.addRoom_Appliance;
+                vm.addRoom_Heat_Loss_Room_Total = x.addRoom_Heat_Loss_Room_Total;
+                vm.addRoom_Heat_Gain_Room_Total = x.addRoom_Heat_Gain_Room_Total;
+                vm.addRoom_Heat_CFM_Room_Total = x.addRoom_Heat_CFM_Room_Total;
+                vm.addRoom_Cool_CFM_Room_Total = x.addRoom_Cool_CFM_Room_Total;
+
+                vm.addRoom_Area_NetWalls =
+                    x.addRoom_GrossWall - x.addRoom_Area_North -
+                    x.addRoom_Area_NENW - x.addRoom_Area_South - x.addRoom_Area_SESW -
+                    x.addRoom_Area_East - x.addRoom_Area_West - x.addRoom_Area_SkyLight -
+                    x.addRoom_Area_Doors;
+
+                vm.addRoom_Area_Infiltration =
+                    parseFloat(x.addRoom_Area_North) +
+                    parseFloat(x.addRoom_Area_NENW) +
+                    parseFloat(x.addRoom_Area_South) +
+                    parseFloat(x.addRoom_Area_SESW) +
+                    parseFloat(x.addRoom_Area_East) +
+                    parseFloat(x.addRoom_Area_West) +
+                    parseFloat(x.addRoom_Area_Doors);
+
+                $scope.calculateRoom();
+
+                x.addRoom_Name = vm.addRoom_Name;
+                x.addRoom_GrossWall = vm.addRoom_GrossWall;
+                x.addRoom_Area_North = vm.addRoom_Area_North;
+                x.addRoom_Area_NENW = vm.addRoom_Area_NENW;
+                x.addRoom_Area_South = vm.addRoom_Area_South;
+                x.addRoom_Area_SESW = vm.addRoom_Area_SESW;
+                x.addRoom_Area_East = vm.addRoom_Area_East;
+                x.addRoom_Area_West = vm.addRoom_Area_West;
+                x.addRoom_Area_SkyLight = vm.addRoom_Area_SkyLight;
+                x.addRoom_Area_Doors = vm.addRoom_Area_Doors;
+
+                x.addRoom_Area_Ceiling = vm.addRoom_Area_Ceiling;
+                x.addRoom_Area_FloorCrawl = vm.addRoom_Area_FloorCrawl;
+                x.addRoom_Area_FloorOpen = vm.addRoom_Area_FloorOpen;
+                x.addRoom_Area_FloorSlab = vm.addRoom_Area_FloorSlab;
+                x.addRoom_Area_Infiltration = vm.addRoom_Area_Infiltration;
+                x.addRoom_People = vm.addRoom_People;
+                x.addRoom_Appliance = vm.addRoom_Appliance;
+
+                x.addRoom_Heat_Loss_Room_Total = vm.addRoom_Heat_Loss_Room_Total;
+                x.addRoom_Heat_Gain_Room_Total = vm.addRoom_Heat_Gain_Room_Total;
+                x.addRoom_Heat_CFM_Room_Total = vm.addRoom_Heat_CFM_Room_Total;
+                x.addRoom_Cool_CFM_Room_Total = vm.addRoom_Cool_CFM_Room_Total; 
+
+                x.addRoom_Area_NetWalls =
+                  vm.addRoom_GrossWall - vm.addRoom_Area_North -
+                  vm.addRoom_Area_NENW - vm.addRoom_Area_South - vm.addRoom_Area_SESW -
+                  vm.addRoom_Area_East - vm.addRoom_Area_West - vm.addRoom_Area_SkyLight -
+                  vm.addRoom_Area_Doors;
+
+                x.addRoom_Area_Infiltration =
+                    parseFloat(vm.addRoom_Area_North) +
+                    parseFloat(vm.addRoom_Area_NENW) +
+        parseFloat(vm.addRoom_Area_South) +
+        parseFloat(vm.addRoom_Area_SESW) +
+        parseFloat(vm.addRoom_Area_East) +
+        parseFloat(vm.addRoom_Area_West) +
+        parseFloat(vm.addRoom_Area_Doors);
+
+
+            });
+
+            $scope.calculate();
+
+          
+        }
 
         $scope.EditRoom = function (roomName) {
           
@@ -172,7 +262,37 @@
 
         };
 
-        $scope.AddRoom = function(roomName) {
+        $scope.AddRoom = function () {
+
+            vm.addRoom_Name = "";
+            vm.addRoom_GrossWall = 0;
+            vm.addRoom_Area_North = 0;
+            vm.addRoom_Area_NENW = 0;
+            vm.addRoom_Area_South = 0;
+            vm.addRoom_Area_SESW = 0;
+            vm.addRoom_Area_East = 0;
+            vm.addRoom_Area_West =  0;
+            vm.addRoom_Area_SkyLight  = 0;
+            vm.addRoom_Area_Doors = 0;
+            vm.addRoom_Area_Netwalls = 0;
+            vm.addRoom_Area_Ceiling = 0;
+            vm.addRoom_Area_FloorCrawl = 0;
+            vm.addRoom_Area_FloorOpen = 0;
+            vm.addRoom_Area_FloorSlab = 0;
+            vm.addRoom_Area_Infiltration = 0;
+            vm.addRoom_People = 0;
+            vm.addRoom_Appliance = 0;
+            vm.addRoom_Heat_Loss_Room_Total = 0;
+            vm.addRoom_Heat_Gain_Room_Total = 0;
+            vm.addRoom_Heat_CFM_Room_Total =  0;
+            vm.addRoom_Cool_CFM_Room_Total = 0;
+
+            vm.addRoom_Area_NetWalls = 0;
+
+            vm.addRoom_Area_Infiltration = 0;
+
+            $scope.calculateRoom();
+
             ngDialog.open({
                 template: '/app/emscalculator/templates/addRoom.html',
                 className: 'ngdialog-theme-default',
@@ -180,7 +300,10 @@
             });
         };
 
-        $scope.prePopulate = function() {
+        $scope.prePopulate = function () {
+            vm.addRoom_CFM_Cooling = 1400;
+            vm.addRoom_CFM_Heating = 1200;
+
             vm.testValue = 1;
             vm.step1WinterIndoor = 70;
             vm.step1SummerIndoor = 75;
@@ -197,7 +320,7 @@
             vm.frontOfBuildingFacing = "East";
             vm.step2OverhangDistanceTop_East = 0.5;
             vm.step2OverhangDistanceTop_West = 0.5;
-            vm.step2OverhangDistanceTop_South = 0.05;
+            vm.step2OverhangDistanceTop_South = 0.5;
             vm.step2OverhangLength_East = 1.5;
             vm.step2OverhangLength_West = 1.5;
             vm.step2OverhangLength_South = 1.5;
@@ -390,7 +513,7 @@
             vm.basementSolarNetWall_Above_Drop = 0;
             vm.basementSolarNetWall_Below_Drop = 0.05;
             vm.basementSolarCeiling_Drop = 0.09;
-            vm.basementArea_Glass1 = 245;
+            vm.basementArea_Glass1 = 240;
             vm.basementArea_Glass2 = 45;
             vm.basementArea_SolarDoors = 21;
             vm.basementArea_SolarNetWall_Above = 589;
@@ -626,8 +749,14 @@
                 vm.step2GlassShaded_South = vm.step2SolarGain_ShadedArea_South;
             }
 
+            if (vm.step2SolarGain_ShadedArea_SESW - ((vm.step2OverhangLength_South * 2.6 * vm.step2LinearFootAcrossTop_South) - (vm.step2OverhangLength_South * vm.step2LinearFootAcrossTop_South)) > 0) {
+                vm.step2GlassShaded_SESW = ((vm.step2OverhangLength_South * 2.6 * vm.step2LinearFootAcrossTop_South) - (vm.step2OverhangDistanceTop_South * vm.step2LinearFootAcrossTop_South));
+            } else {
+                vm.step2GlassShaded_SESW = vm.step2SolarGain_ShadedArea_South;
+            }
 
-            vm.step2GlassShaded_SESW = (vm.step2OverhangLength_South * 1.25 * vm.step2LinearFootAcrossTop_South) - (vm.step2OverhangDistanceTop_South * vm.step2LinearFootAcrossTop_South);
+
+           // vm.step2GlassShaded_SESW = (vm.step2OverhangLength_South * 1.25 * vm.step2LinearFootAcrossTop_South) - (vm.step2OverhangDistanceTop_South * vm.step2LinearFootAcrossTop_South);
             vm.step2GlassShaded_East = (vm.step2OverhangLength_East * .81 * vm.step2LinearFootAcrossTop_East) - (vm.step2OverhangDistanceTop_East * vm.step2LinearFootAcrossTop_East);
             vm.step2GlassShaded_West = (vm.step2OverhangLength_West * .81 * vm.step2LinearFootAcrossTop_West) - (vm.step2OverhangDistanceTop_West * vm.step2LinearFootAcrossTop_West);
             vm.step2GlassShaded_North = parseFloat(vm.step2SolarGain_ShadedArea_North) + parseFloat(vm.step2GlassShaded_NENW) + parseFloat(vm.step2GlassShaded_South) + parseFloat(vm.step2GlassShaded_SESW) + parseFloat(vm.step2GlassShaded_East) + parseFloat(vm.step2GlassShaded_West);
@@ -860,6 +989,11 @@
 
             vm.basementTotal_LatentLoad = .25 * (vm.basementInfiltration / 60) * 0.68 * vm.step1HumidityOptions_Selected;
             vm.basementTotal_LatentLoad_Total = parseFloat(vm.basementTotal_LatentLoad) + 300 + parseFloat(vm.basementHeatGainBTUH_People_Total);
+
+            vm.basementArea_Glass1 = vm.basementSolarGain_ShadedArea_North + vm.basementSolarGain_ShadedArea_NENW + vm.basementSolarGain_ShadedArea_South + vm.basementSolarGain_ShadedArea_SESW +
+                vm.basementSolarGain_ShadedArea_East + vm.basementSolarGain_ShadedArea_West;
+ 
+            vm.basementArea_SolarNetWall_Above = vm.basementArea_GrossWall - (parseFloat(vm.basementArea_Glass1) + parseFloat(vm.basementArea_Glass2) + parseFloat(vm.basementArea_SolarDoors));
 
             //calculate Room Running Totals
             vm.addRoom_Heat_Loss_Room_RunningTotal = 0;
@@ -1784,10 +1918,10 @@
             "addRoom_Area_Infiltration": 20,
             "addRoom_People": 1,
             "addRoom_Appliance": 1500,
-            "addRoom_Heat_Loss_Room_Total": 5937.827033229974,
-            "addRoom_Heat_Gain_Room_Total" : 8151.526533591732,
-            "addRoom_Heat_CFM_Room_Total" : 111.54036074770455,
-            "addRoom_Cool_CFM_Room_Total" : 247.1380377599306
+            "addRoom_Heat_Loss_Room_Total": 10745.20,
+            "addRoom_Heat_Gain_Room_Total" : 10587.29,
+            "addRoom_Heat_CFM_Room_Total": 201.85,
+            "addRoom_Cool_CFM_Room_Total": 320.99
         }, {
             "addRoom_Name": "Dining",
             "addRoom_GrossWall": 270,
@@ -1807,10 +1941,10 @@
             "addRoom_Area_Infiltration": 20,
             "addRoom_People": 2,
             "addRoom_Appliance": 1000,
-            "addRoom_Heat_Loss_Room_Total": 5937.827033229974,
-            "addRoom_Heat_Gain_Room_Total": 8410.460533591731,
-            "addRoom_Heat_CFM_Room_Total": 111.54036074770455,
-            "addRoom_Cool_CFM_Room_Total": 254.9884005607658
+            "addRoom_Heat_Loss_Room_Total": 10745.20,
+            "addRoom_Heat_Gain_Room_Total":10846.22,
+            "addRoom_Heat_CFM_Room_Total": 201.85,
+            "addRoom_Cool_CFM_Room_Total": 328.84
         }, {
             "addRoom_Name": "Bathroom",
             "addRoom_GrossWall": 270,
@@ -1830,13 +1964,14 @@
             "addRoom_Area_Infiltration": 20,
             "addRoom_People": 3,
             "addRoom_Appliance": 1200,
-            "addRoom_Heat_Loss_Room_Total": 5937.827033229974,
-            "addRoom_Heat_Gain_Room_Total": 8669.39453359173,
-            "addRoom_Heat_CFM_Room_Total": 111.54036074770455,
-            "addRoom_Cool_CFM_Room_Total": 254.9884005607658
+            "addRoom_Heat_Loss_Room_Total": 10745.20,
+            "addRoom_Heat_Gain_Room_Total": 11105.16,
+            "addRoom_Heat_CFM_Room_Total": 201.85,
+            "addRoom_Cool_CFM_Room_Total": 336.69
         }];
 
         $scope.prePopulate();
+        $scope.calculate();
         $scope.calculate();
     }
 
