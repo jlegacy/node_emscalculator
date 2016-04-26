@@ -1088,7 +1088,14 @@
             vm.basementHeatGainBTUH_TotalSensibleLoad = vm.basementHeatGainBTUH_Subtotal;
 
             vm.basementTotal_LatentLoad = .25 * (vm.basementInfiltration / 60) * 0.68 * vm.step1HumidityOptions_Selected;
-            vm.basementTotal_LatentLoad_Total = parseFloat(vm.basementTotal_LatentLoad) + 300 + parseFloat(vm.basementHeatGainBTUH_People_Total);
+
+            if (parseFloat(vm.basementTotal_LatentLoad) + parseFloat(vm.basementHeatGainBTUH_People_Total) > 0) {
+                vm.basementTotal_LatentLoad_Total = parseFloat(vm.basementTotal_LatentLoad) + 300 + parseFloat(vm.basementHeatGainBTUH_People_Total);
+            } else {
+                vm.basementTotal_LatentLoad_Total = 0;
+            }
+
+           
 
             
 
