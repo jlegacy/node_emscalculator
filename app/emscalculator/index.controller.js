@@ -768,6 +768,64 @@
             if (!vm.step2SolarGain_ShadedArea_West)
                 vm.step2SolarGain_ShadedArea_West = 0;
 
+            if (!vm.basementSolarGain_ShadedArea_North)
+                vm.basementSolarGain_ShadedArea_North = 0;
+            if (!vm.basementSolarGain_ShadedArea_NENW)
+                vm.basementSolarGain_ShadedArea_NENW = 0;
+            if (!vm.basementSolarGain_ShadedArea_South)
+                vm.basementSolarGain_ShadedArea_South = 0;
+            if (!vm.basementSolarGain_ShadedArea_SESW)
+                vm.basementSolarGain_ShadedArea_SESW = 0;
+            if (!vm.basementSolarGain_ShadedArea_East)
+                vm.basementSolarGain_ShadedArea_East = 0;
+            if (!vm.basementSolarGain_ShadedArea_West)
+                vm.basementSolarGain_ShadedArea_West = 0;
+
+            if (!vm.step3Area_GrossWall)
+                vm.step3Area_GrossWall = 0;
+            if (!vm.step3Area_Glass2)
+                vm.step3Area_Glass2 = 0;
+            if (!vm.step3Area_SolarSkyLight)
+                vm.step3Area_SolarSkyLight = 0;
+            if (!vm.step3Area_SolarDoors)
+                vm.step3Area_SolarDoors = 0;
+            if (!vm.step3Area_SolarNetWall)
+                vm.step3Area_SolarNetWall = 0;
+            if (!vm.step3Area_SolarCeiling)
+                vm.step3Area_SolarCeiling = 0;
+            if (!vm.step3Area_OverCrawl)
+                vm.step3Area_OverCrawl = 0;
+            if (!vm.step3Area_OpenBeach)
+                vm.step3Area_OpenBeach = 0;
+            if (!vm.step3Area_Slab)
+                vm.step3Area_Slab = 0;
+            if (!vm.step3Infiltration)
+                vm.step3Infiltration = 0;
+          
+            if (!vm.step3HeatGainBTUH_Appliances)
+                vm.step3HeatGainBTUH_Appliances = 0;
+
+            if (!vm.basementArea_GrossWall)
+                vm.basementArea_GrossWall = 0;
+            if (!vm.basementArea_Glass2)
+                vm.basementArea_Glass2 = 0;
+            if (!vm.basementArea_SolarDoors)
+                vm.basementArea_SolarDoors = 0;
+            if (!vm.basementArea_SolarNetWall_Below)
+                vm.basementArea_SolarNetWall_Below = 0;
+            if (!vm.basementArea_SolarCeiling)
+                vm.basementArea_SolarCeiling = 0;
+            if (!vm.basementArea_FloorSquareFeet)
+                vm.basementArea_FloorSquareFeet = 0;
+            if (!vm.basementArea_People)
+                vm.basementArea_People = 0;
+            if (!vm.basementInfiltration)
+                vm.basementInfiltration = 0;
+            if (!vm.basementHeatGainBTUH_Appliances)
+                vm.basementHeatGainBTUH_Appliances = 0;
+
+
+
             vm.step3Area_Glass1 = parseFloat(vm.step2SolarGain_ShadedArea_North) +
                 parseFloat(vm.step2SolarGain_ShadedArea_NENW) +
                 parseFloat(vm.step2SolarGain_ShadedArea_South) +
