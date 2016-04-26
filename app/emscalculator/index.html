@@ -648,7 +648,7 @@
                                 <input class="form-control" disabled readonly value={{vm.step3SolarGlass1.selected}} />
                             </td>
                             <td>
-                                <input class="form-control" ng-change="calculate()" value="vm.step3Area_Glass1" ng-model="vm.step3Area_Glass1">
+                                {{vm.step3Area_Glass1}}
                             </td>
                             <td>{{vm.step3HeatLossBTUH_Glass1}}</td>
                             <td></td>
@@ -1176,9 +1176,10 @@
                         <tr>
                             <td colspan="2">Infiltration-Enter cubit-ft of building</td>
                             <td>
-                                
                             </td>
-                            <td><input class="form-control" ng-change="calculate()" value="vm.basementInfiltration" ng-model="vm.basementInfiltration"></td>
+                            <td>
+                                <input class="form-control" ng-change="calculate()" value="vm.basementInfiltration" ng-model="vm.basementInfiltration">
+                            </td>
                             <td>{{vm.basementHeatLossBTUH_Infiltration}}</td>
                             <td>{{vm.basementHeatGainBTUH_Infiltration}}</td>
                             <td>
@@ -1189,9 +1190,10 @@
                             <td>People</td>
                             <td></td>
                             <td>
-                                
                             </td>
-                            <td><input class="form-control" ng-change="calculate()" value="vm.basementArea_People" ng-model="vm.basementArea_People"></td>
+                            <td>
+                                <input class="form-control" ng-change="calculate()" value="vm.basementArea_People" ng-model="vm.basementArea_People">
+                            </td>
                             <td></td>
                             <td>{{vm.basementHeatGainBTUH_People}}</td>
                             <td>{{vm.basementHeatGainBTUH_People_Total}}</td>
@@ -1311,10 +1313,10 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input class="form-control" ng-change="reCalcRooms()" required ng-model="vm.addRoom_CFM_Cooling">
+                                        <input class="form-control" ng-change="calculate()" required ng-model="vm.addRoom_CFM_Cooling">
                                     </td>
                                     <td>
-                                        <input class="form-control" ng-change="reCalcRooms()" required ng-model="vm.addRoom_CFM_Heating">
+                                        <input class="form-control" ng-change="calculate()" required ng-model="vm.addRoom_CFM_Heating">
                                     </td>
                                 </tr>
                             </table>
@@ -1379,18 +1381,15 @@
                             </tr>
                         </table>
                     </div>
-                    
                     <div class="col-md-4 pull-right">
                         <div class="well percentWarning" ng-if="vm.addRoom_Heat_Loss_Room_RunningTotal_Percentage < 95  || vm.addRoom_Heat_Loss_Room_RunningTotal_Percentage > 105
                              && vm.addRoom_Heat_Gain_Room_RunningTotal_Percentage < 95  || vm.addRoom_Heat_Gain_Room_RunningTotal_Percentage > 105">
                             The difference between the total heating load and the room-by-room load is greater than 5%. Check your figures.
                         </div>
-                        
                         <div class="well percentSuccess" ng-if="vm.addRoom_Heat_Loss_Room_RunningTotal_Percentage >= 95  && vm.addRoom_Heat_Loss_Room_RunningTotal_Percentage <= 105
                              && vm.addRoom_Heat_Gain_Room_RunningTotal_Percentage >= 95  && vm.addRoom_Heat_Gain_Room_RunningTotal_Percentage <= 105">
                             Success! You are within 5% of total heating load
                         </div>
-
                     </div>
                 </div>
             </form>
