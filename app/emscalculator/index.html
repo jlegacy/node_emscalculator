@@ -35,7 +35,8 @@
                     <a href="#">Step3</a>
                 </li>
             </ul>
-            <h1>EMS HVAC Calculator
+            <h1>
+                EMS HVAC Calculator
                 <br>
             </h1>
             <h4>www.hvacloadcalculator.com</h4>
@@ -786,7 +787,9 @@
                         <tr>
                             <td colspan="2">Infiltration-Enter cubit-ft of building</td>
                             <td></td>
-                            <td><input class="form-control" ng-change="calculate()" value="vm.step3Infiltration" ng-model="vm.step3Infiltration"></td>
+                            <td>
+                                <input class="form-control" ng-change="calculate()" value="vm.step3Infiltration" ng-model="vm.step3Infiltration">
+                            </td>
                             <td>{{vm.step3HeatLossBTUH_Infiltration}}</td>
                             <td>{{vm.step3HeatGainBTUH_Infiltration}}</td>
                             <td>
@@ -1173,8 +1176,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">Infiltration-Enter cubit-ft of building</td>
-                            <td>
-                            </td>
+                            <td></td>
                             <td>
                                 <input class="form-control" ng-change="calculate()" value="vm.basementInfiltration" ng-model="vm.basementInfiltration">
                             </td>
@@ -1187,8 +1189,7 @@
                         <tr>
                             <td>People</td>
                             <td></td>
-                            <td>
-                            </td>
+                            <td></td>
                             <td>
                                 <input class="form-control" ng-change="calculate()" value="vm.basementArea_People" ng-model="vm.basementArea_People">
                             </td>
@@ -1320,15 +1321,15 @@
                             </table>
                         </div>
                         <!--<div class="col-md-3">
-                            <table>
-                                <tr>
-                                    <td>Check Calculation</td>
-                                    <td>
-                                        <input type="checkbox" />
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>-->
+                        <table>
+                            <tr>
+                                <td>Check Calculation</td>
+                                <td>
+                                    <input type="checkbox" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>-->
                     </div>
                 </div>
                 <div class="row">
@@ -1391,6 +1392,169 @@
                     </div>
                 </div>
             </form>
+        </div>
+        <!--Duct Sizing-->
+        <h4>Duct Sizing</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <h5>1. Determine Friction Rate</h5>
+             
+                <table class="table">
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Round to Rectangle conversion</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Total Measured Length of duct</td>
+                        <td>
+                            <input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_TotalMeasuredLengthOfDuct" ng-model="vm.airDuctSizing_TotalMeasuredLengthOfDuct">
+                        </td>
+                        <td>Diameter</td>
+                        <td>Side A X</td>
+                        <td>Side B</td>
+                    </tr>
+                    <tr>
+                        <td>Total equivalent length of fittings</td>
+                        <td>
+                            <input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_TotalEquivalentLengthOfFittings" ng-model="vm.airDuctSizing_TotalEquivalentLengthOfFittings">
+                        </td>
+                        <td>
+                            <input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_RoundToRectangleConversion_Diameter" ng-model="vm.airDuctSizing_RoundToRectangleConversion_Diameter">
+                        </td>
+                        <td>
+                            <input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_RoundToRectangleConversion_SideA" ng-model="vm.airDuctSizing_RoundToRectangleConversion_SideA">
+                        </td>
+                        <td>{{vm.airDuctSizing_RoundToRectangleConversion_SideB}}</td>
+                    </tr>
+                    <tr>
+                        <td>Available static pressure for duct</td>
+                        <td>
+                            <input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_AvailableStaticPressureForDuct" ng-model="vm.airDuctSizing_AvailableStaticPressureForDuct">
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Friction Rate :</td>
+                        <td> {{vm.airDuctSizing_FrictionRate}}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+                <h4>Supply Trunk or branch</h4>
+                <table class="table">
+                    <tr>
+                        <td>First section off AH</td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_SupplyTrunk_FirstSectionOffAFU" ng-model="vm.airDuctSizing_SupplyTrunk_FirstSectionOffAFU"></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_SupplyTrunk_FirstSectionOffAFU_CFM" ng-model="vm.airDuctSizing_SupplyTrunk_FirstSectionOffAFU"></td>
+                        <td>{{vm.airDuctSizing_SupplyTrunk_FirstSectionOffAFU_DuctDiameter}}</td>
+                        <td>{{vm.airDuctSizing_SupplyTrunk_FirstSectionOffAFU_AirVelocity}}</td>
+                    </tr>
+                    <tr>
+                        <td>1st reduction or branch</td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_1" ng-model="vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_1"></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_1_CFM" ng-model="vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_1_CFM"></td>
+                        <td>{{vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_1_DuctDiameter}}</td>
+                        <td>{{vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_1_AirVelocity}}</td>
+                    </tr>
+                    <tr>
+                        <td>2st reduction or branch</td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_2" ng-model="vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_2"></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_2_CFM" ng-model="vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_2_CFM"></td>
+                        <td>{{vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_2_DuctDiameter}}</td>
+                        <td>{{vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_2_AirVelocity}}</td>
+                    </tr>
+                    <tr>
+                        <td>3st reduction or branch</td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_3" ng-model="vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_3"></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_3_CFM" ng-model="vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_3_CFM"></td>
+                        <td>{{vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_3_DuctDiameter}}</td>
+                        <td>{{vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_3_AirVelocity}}</td>
+                    </tr>
+                    <tr>
+                        <td>4st reduction or branch</td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_4" ng-model="vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_4"></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_4_CFM" ng-model="vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_4_CFM"></td>
+                        <td>{{vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_4_DuctDiameter}}</td>
+                        <td>{{vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_4_AirVelocity}}</td>
+                    </tr>
+                    <tr>
+                        <td>5st reduction or branch</td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_5" ng-model="vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_5"></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_5_CFM" ng-model="vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_5_CFM"></td>
+                        <td>{{vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_5_DuctDiameter}}</td>
+                        <td>{{vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_5_AirVelocity}}</td>
+                    </tr>
+                 
+                </table>
+                <h4>Return Trunk or branch</h4>
+                <table class="table">
+                    <tr>
+                        <td>First section off AH</td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_ReturnTrunk_FirstSectionOffAFU" ng-model="vm.airDuctSizing_ReturnTrunk_FirstSectionOffAFU"></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_ReturnTrunk_FirstSectionOffAFU_CFM" ng-model="vm.airDuctSizing_ReturnTrunk_FirstSectionOffAFU"></td>
+                        <td>{{vm.airDuctSizing_ReturnTrunk_FirstSectionOffAFU_DuctDiameter}}</td>
+                        <td>{{vm.airDuctSizing_ReturnTrunk_FirstSectionOffAFU_AirVelocity}}</td>
+                    </tr>
+                    <tr>
+                        <td>1st reduction or branch</td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_1" ng-model="vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_1"></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_1_CFM" ng-model="vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_1_CFM"></td>
+                        <td>{{vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_1_DuctDiameter}}</td>
+                        <td>{{vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_1_AirVelocity}}</td>
+                    </tr>
+                    <tr>
+                        <td>2st reduction or branch</td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_2" ng-model="vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_2"></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_2_CFM" ng-model="vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_2_CFM"></td>
+                        <td>{{vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_2_DuctDiameter}}</td>
+                        <td>{{vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_2_AirVelocity}}</td>
+                    </tr>
+                    <tr>
+                        <td>3st reduction or branch</td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_3" ng-model="vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_3"></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_3_CFM" ng-model="vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_3_CFM"></td>
+                        <td>{{vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_3_DuctDiameter}}</td>
+                        <td>{{vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_3_AirVelocity}}</td>
+                    </tr>
+                    <tr>
+                        <td>4st reduction or branch</td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_4" ng-model="vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_4"></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_4_CFM" ng-model="vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_4_CFM"></td>
+                        <td>{{vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_4_DuctDiameter}}</td>
+                        <td>{{vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_4_AirVelocity}}</td>
+                    </tr>
+                    <tr>
+                        <td>5st reduction or branch</td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_5" ng-model="vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_5"></td>
+                        <td><input class="form-control" ng-change="calculate()" value="vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_5_CFM" ng-model="vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_5_CFM"></td>
+                        <td>{{vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_5_DuctDiameter}}</td>
+                        <td>{{vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_5_AirVelocity}}</td>
+                    </tr>
+
+                </table>
+                
+                <h4>Row Runs</h4>
+                <table>
+
+                    <tr ng-repeat="row in vm.roomArray_Runs">
+                        <td>{{row.addRoom_Name}}</td>
+                        <td>{{row.addRoom_Name}}</td>
+                        <td>{{row.addRoom_Heat_Loss_Room_Total | number:2}}</td>
+                        <td>{{row.addRoom_Heat_Gain_Room_Total | number:2}}</td>
+                        <td>{{row.addRoom_Heat_CFM_Room_Total | number:2}}</td>
+                        <td>{{row.addRoom_Cool_CFM_Room_Total | number:2}}</td>
+                    </tr>
+
+                </table>
+                
+
+            </div>
         </div>
     </body>
 </html>

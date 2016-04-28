@@ -1,4 +1,4 @@
-﻿(function() {
+(function() {
     'use strict';
 
     angular
@@ -801,7 +801,7 @@
                 vm.step3Area_Slab = 0;
             if (!vm.step3Infiltration)
                 vm.step3Infiltration = 0;
-          
+
             if (!vm.step3HeatGainBTUH_Appliances)
                 vm.step3HeatGainBTUH_Appliances = 0;
 
@@ -1095,9 +1095,9 @@
                 vm.basementTotal_LatentLoad_Total = 0;
             }
 
-           
 
-            
+
+
 
             $scope.reCalcRooms();
 
