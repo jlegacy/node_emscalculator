@@ -5,7 +5,21 @@
         .module('app')
         .controller('Emscalculator.IndexController', controller);
 
-    function controller($scope, ngDialog) {
+    function controller($scope, ngDialog, localStorageService) {
+
+        var storageType = localStorageService.getStorageType();
+        console.log(storageType);
+        localStorageService.set('localStorageKey', 'Add this!');
+        // Read that value back
+        var value = localStorageService.get('vm');
+        // To remove a local storage
+        console.log(value);
+        localStorageService.remove('localStorageKey');
+        // Removes all local storage
+        localStorageService.clearAll();
+        // You can also play with cookies the same way
+        localStorageService.cookie.set('localStorageKey', 'I am a cookie value now');
+
         var vm = this;
 
         $scope.SaveRoom = function() {
@@ -274,6 +288,23 @@
 
         };
 
+        $scope.DeleteRoom_Run = function(runName) {
+            $.confirm({
+                title: 'Confirm!',
+                content: 'Are you sure you want to delete this room?',
+                confirm: function() {
+                    vm.roomArray_Runs = _.filter(vm.roomArray_Runs, function(run) {
+                        return run.addRoom_Run_Name !== runName;
+                    });
+
+                    $scope.calculate();
+                    $scope.$apply();
+                },
+                cancel: function() {}
+            });
+
+        };
+
         $scope.AddRoom = function() {
 
             vm.addRoom_Name = "";
@@ -311,6 +342,24 @@
                 scope: $scope
             });
         };
+
+        $scope.prePopulate2 = function() {
+            var x = '{"step1HumidityOptions":[{"text":"Arid","value":0,"$$hashKey":"object:12"},{"text":"Semi-Arid","value":20,"$$hashKey":"object:13"},{"text":"Average","value":30,"$$hashKey":"object:14"},{"text":"Moderately Humid","value":40,"$$hashKey":"object:15"},{"text":"Very Humid","value":60,"$$hashKey":"object:16"}],"step1FacingOptions":[{"text":"North","value":0,"$$hashKey":"object:8"},{"text":"South","value":20,"$$hashKey":"object:9"},{"text":"East","value":30,"$$hashKey":"object:10"},{"text":"West","value":40,"$$hashKey":"object:11"}],"step1TightStructure":[{"text":"Not tight-under 1500 Sq. Ft.","value":2,"$$hashKey":"object:17"},{"text":" Average-under 1500 Sq. Ft.","value":1,"$$hashKey":"object:18"},{"text":" Very tight-under 1500 Sq. Ft.","value":0.35,"$$hashKey":"object:19"},{"text":"Not tight-over 1500 Sq. Ft.","value":1,"$$hashKey":"object:20"},{"text":" Average-over 1500 Sq. Ft.","value":0.7,"$$hashKey":"object:21"},{"text":" Very tight-over 1500 Sq. Ft.","value":0.35,"$$hashKey":"object:22"},{"text":"Use blower door ENIR","value":0,"$$hashKey":"object:23"}],"step1Fireplace":[{"text":"No Fireplace","value":0,"$$hashKey":"object:28"},{"text":"Tight","value":0,"$$hashKey":"object:29"},{"text":"Semi-tight","value":13,"$$hashKey":"object:30"},{"text":"Average","value":20,"$$hashKey":"object:31"},{"text":"Semi-loose","value":27,"$$hashKey":"object:32"},{"text":"Loose","value":33,"$$hashKey":"object:33"}],"step1FireplaceNumber":[{"text":"none","value":0,"$$hashKey":"object:24"},{"text":"1","value":1,"$$hashKey":"object:25"},{"text":"2","value":7,"$$hashKey":"object:26"},{"text":"3+","value":10,"$$hashKey":"object:27"}],"step2GlassCoefficients_North":[{"text":"Single","value":32,"$$hashKey":"object:34"},{"text":"Double","value":24,"$$hashKey":"object:35"},{"text":"Tripl or Low-E","value":20,"$$hashKey":"object:36"}],"step2GlassCoefficients_East":[{"text":"Single","value":90,"$$hashKey":"object:46"},{"text":"Double","value":75,"$$hashKey":"object:47"},{"text":"Tripl or Low-E","value":65,"$$hashKey":"object:48"}],"step2GlassCoefficients_South":[{"text":"Single","value":50,"$$hashKey":"object:40"},{"text":"Double","value":40,"$$hashKey":"object:41"},{"text":"Tripl or Low-E","value":33,"$$hashKey":"object:42"}],"step2GlassCoefficients_West":[{"text":"Single","value":90,"$$hashKey":"object:49"},{"text":"Double","value":75,"$$hashKey":"object:50"},{"text":"Tripl or Low-E","value":65,"$$hashKey":"object:51"}],"step2GlassCoefficients_WintU":[{"text":"Single","value":0.98},{"text":"Double","value":0.56},{"text":"Tripl or Low-E","value":0.42}],"step2GlassCoefficients_NENW":[{"text":"Single","value":65,"$$hashKey":"object:37"},{"text":"Double","value":52,"$$hashKey":"object:38"},{"text":"Tripl or Low-E","value":46,"$$hashKey":"object:39"}],"step2GlassCoefficients_SESW":[{"text":"Single","value":80,"$$hashKey":"object:43"},{"text":"Double","value":65,"$$hashKey":"object:44"},{"text":"Tripl or Low-E","value":56,"$$hashKey":"object:45"}],"step2ReflectiveCoating":[{"text":"No","value":1,"$$hashKey":"object:52"},{"text":"Yes","value":0.6,"$$hashKey":"object:53"}],"step2TintTypes":[{"text":"Clear","value":150,"$$hashKey":"object:54"},{"text":"Tinted","value":100,"$$hashKey":"object:55"},{"text":"Reflective","value":70,"$$hashKey":"object:56"}],"step2DuctsPipesHeating":[{"text":"Conditioned area","value":"Conditioned area","$$hashKey":"object:57"},{"text":"Trunk and branches in attic","value":"Trunk and branches in attic","$$hashKey":"object:58"},{"text":"Radial or spider in attic","value":"Radial or spider in attic","$$hashKey":"object:59"},{"text":"Under an open floor","value":"Under an open floor","$$hashKey":"object:60"},{"text":"Enclosed crawl space or unheated basement","value":"Enclosed crawl space or unheated basement","$$hashKey":"object:61"},{"text":"Duct system in slab","value":"Duct system in slab","$$hashKey":"object:62"}],"step2DuctsPipesCooling":[{"text":"Conditioned area","value":"Conditioned area","$$hashKey":"object:63"},{"text":"Trunk and branches in attic","value":"Trunk and branches in attic","$$hashKey":"object:64"},{"text":"Radial or spider in attic","value":"Radial or spider in attic","$$hashKey":"object:65"},{"text":"Under an open floor","value":"Under an open floor","$$hashKey":"object:66"},{"text":"Enclosed crawl space or unheated basement","value":"Enclosed crawl space or unheated basement","$$hashKey":"object:67"},{"text":"Duct system in slab","value":"Duct system in slab","$$hashKey":"object:68"}],"step2DuctsPipesRValues":[{"text":"R-2","value":1.85,"$$hashKey":"object:69"},{"text":"R-4","value":1.24,"$$hashKey":"object:70"},{"text":"R-6","value":1,"$$hashKey":"object:71"},{"text":"R-8","value":0.85,"$$hashKey":"object:72"}],"step2DuctLeakage":[{"text":"sealed","value":1,"$$hashKey":"object:73"},{"text":"unsealed","value":1.9,"$$hashKey":"object:74"}],"step2AtticTemperature":[{"text":"95","value":95,"$$hashKey":"object:75"},{"text":"105","value":105,"$$hashKey":"object:76"},{"text":"110","value":110,"$$hashKey":"object:77"},{"text":"120","value":120,"$$hashKey":"object:78"},{"text":"130","value":130,"$$hashKey":"object:79"},{"text":"150","value":150,"$$hashKey":"object:80"}],"step3SolarGlass1":[{"text":"Single","value":0.98,"$$hashKey":"object:81"},{"text":"Double","value":0.56,"$$hashKey":"object:82"},{"text":"Triple/Low-E","value":0.42,"$$hashKey":"object:83"}],"step3SolarGlass2":[{"text":"Single","value":0.98,"$$hashKey":"object:84"},{"text":"Double","value":0.56,"$$hashKey":"object:85"},{"text":"Triple/Low-E","value":0.42,"$$hashKey":"object:86"}],"step3SolarSkyLight":[{"text":"Single","value":0.98,"$$hashKey":"object:87"},{"text":"Double","value":0.56,"$$hashKey":"object:88"},{"text":"Triple/Low-E","value":0.42,"$$hashKey":"object:89"}],"step3SolarDoors":[{"text":"Single Wood","value":0.56,"$$hashKey":"object:90"},{"text":"Insulated or Storm","value":0.4,"$$hashKey":"object:91"}],"step3SolarNetWall":[{"text":"No Insulation","value":0.27,"$$hashKey":"object:92"},{"text":"R-11","value":0.08,"$$hashKey":"object:93"},{"text":"R-15","value":0.07,"$$hashKey":"object:94"},{"text":"R-19","value":0.06,"$$hashKey":"object:95"},{"text":"R-25","value":0.042,"$$hashKey":"object:96"},{"text":"R-30","value":0.033,"$$hashKey":"object:97"},{"text":"R-38","value":0.026,"$$hashKey":"object:98"},{"text":"R-45","value":0.022,"$$hashKey":"object:99"},{"text":"R-55","value":0.018,"$$hashKey":"object:100"},{"text":"Enter R Value","value":0,"$$hashKey":"object:101"}],"step3SolarCeiling":[{"text":"No Insulation","value":0.6,"$$hashKey":"object:102"},{"text":"R-11","value":0.09,"$$hashKey":"object:103"},{"text":"R-19","value":0.05,"$$hashKey":"object:104"},{"text":"R-30","value":0.033,"$$hashKey":"object:105"},{"text":"R-38","value":0.026,"$$hashKey":"object:106"},{"text":"R-45","value":0.022,"$$hashKey":"object:107"},{"text":"R-55","value":0.018,"$$hashKey":"object:108"},{"text":"Enter R Value","value":0,"$$hashKey":"object:109"}],"step3SolarGainFloors_OverCrawl":[{"text":"No Insulation","value":0.15,"$$hashKey":"object:110"},{"text":"R-11","value":0.08,"$$hashKey":"object:111"},{"text":"R-19","value":0.025,"$$hashKey":"object:112"},{"text":"R-30","value":0.02,"$$hashKey":"object:113"},{"text":"R-38","value":0.014,"$$hashKey":"object:114"},{"text":"Enter R Value","value":0,"$$hashKey":"object:115"}],"step3SolarGainFloors_OpenBeach":[{"text":"No Insulation","value":0.31,"$$hashKey":"object:116"},{"text":"R-11","value":0.08,"$$hashKey":"object:117"},{"text":"R-19","value":0.05,"$$hashKey":"object:118"},{"text":"R-30","value":0.04,"$$hashKey":"object:119"},{"text":"R-38","value":0.026,"$$hashKey":"object:120"},{"text":"Enter R Value","value":0,"$$hashKey":"object:121"}],"step3SolarGainFloors_Slab":[{"text":"No Insulation","value":0.8,"$$hashKey":"object:122"},{"text":"R-5","value":0.5,"$$hashKey":"object:123"},{"text":"R-10","value":0.04,"$$hashKey":"object:124"},{"text":"R-15","value":0.35,"$$hashKey":"object:125"},{"text":"Enter R Value","value":0,"$$hashKey":"object:126"}],"basementGlassCoefficients_North":[{"text":"Single","value":32,"$$hashKey":"object:127"},{"text":"Double","value":24,"$$hashKey":"object:128"},{"text":"Tripl or Low-E","value":20,"$$hashKey":"object:129"}],"basementGlassCoefficients_East":[{"text":"Single","value":90,"$$hashKey":"object:139"},{"text":"Double","value":75,"$$hashKey":"object:140"},{"text":"Tripl or Low-E","value":65,"$$hashKey":"object:141"}],"basementGlassCoefficients_South":[{"text":"Single","value":50,"$$hashKey":"object:133"},{"text":"Double","value":40,"$$hashKey":"object:134"},{"text":"Tripl or Low-E","value":33,"$$hashKey":"object:135"}],"basementGlassCoefficients_West":[{"text":"Single","value":90,"$$hashKey":"object:142"},{"text":"Double","value":75,"$$hashKey":"object:143"},{"text":"Tripl or Low-E","value":65,"$$hashKey":"object:144"}],"basementGlassCoefficients_WintU":[{"text":"Single","value":0.98},{"text":"Double","value":0.56},{"text":"Tripl or Low-E","value":0.42}],"basementGlassCoefficients_NENW":[{"text":"Single","value":65,"$$hashKey":"object:130"},{"text":"Double","value":52,"$$hashKey":"object:131"},{"text":"Tripl or Low-E","value":46,"$$hashKey":"object:132"}],"basementGlassCoefficients_SESW":[{"text":"Single","value":80,"$$hashKey":"object:136"},{"text":"Double","value":65,"$$hashKey":"object:137"},{"text":"Tripl or Low-E","value":56,"$$hashKey":"object:138"}],"basementReflectiveCoating":[{"text":"No","value":1,"$$hashKey":"object:145"},{"text":"Yes","value":0.6,"$$hashKey":"object:146"}],"basementTintTypes":[{"text":"Clear","value":150},{"text":"Tinted","value":100},{"text":"Reflective","value":70}],"basementDuctsPipesHeating":[{"text":"Conditioned area","value":"Conditioned area"},{"text":"Trunk and branches in attic","value":"Trunk and branches in attic"},{"text":"Radial or spider in attic","value":"Radial or spider in attic"},{"text":"Under an open floor","value":"Under an open floor"},{"text":"Enclosed crawl space or unheated basement","value":"Enclosed crawl space or unheated basement"},{"text":"Duct system in slab","value":"Duct system in slab"}],"basementDuctsPipesCooling":[{"text":"Conditioned area","value":"Conditioned area"},{"text":"Trunk and branches in attic","value":"Trunk and branches in attic"},{"text":"Radial or spider in attic","value":"Radial or spider in attic"},{"text":"Under an open floor","value":"Under an open floor"},{"text":"Enclosed crawl space or unheated basement","value":"Enclosed crawl space or unheated basement"},{"text":"Duct system in slab","value":"Duct system in slab"}],"basementDuctsPipesRValues":[{"text":"R-2","value":1.85},{"text":"R-4","value":1.24},{"text":"R-6","value":1},{"text":"R-8","value":0.85}],"basementDuctLeakage":[{"text":"sealed","value":1},{"text":"unsealed","value":1.9}],"basementAtticTemperature":[{"text":"95","value":95},{"text":"105","value":105},{"text":"110","value":110},{"text":"120","value":120},{"text":"130","value":130},{"text":"150","value":150}],"basementSolarGlass1":[{"text":"Single","value":0.98,"$$hashKey":"object:147"},{"text":"Double","value":0.56,"$$hashKey":"object:148"},{"text":"Triple/Low-E","value":0.42,"$$hashKey":"object:149"}],"basementSolarGlass2":[{"text":"Single","value":0.98,"$$hashKey":"object:150"},{"text":"Double","value":0.56,"$$hashKey":"object:151"},{"text":"Triple/Low-E","value":0.42,"$$hashKey":"object:152"}],"basementSolarSkyLight":[{"text":"Single","value":0.98},{"text":"Double","value":0.56},{"text":"Triple/Low-E","value":0.42}],"basementSolarDoors":[{"text":"Single Wood","value":0.56,"$$hashKey":"object:153"},{"text":"Insulated or Storm","value":0.4,"$$hashKey":"object:154"}],"basementSolarNetWall_Above":[{"text":"No Insulation","value":0.27,"$$hashKey":"object:155"},{"text":"R-11","value":0.08,"$$hashKey":"object:156"},{"text":"R-15","value":0.07,"$$hashKey":"object:157"},{"text":"R-19","value":0.06,"$$hashKey":"object:158"},{"text":"R-25","value":0.042,"$$hashKey":"object:159"},{"text":"R-30","value":0.033,"$$hashKey":"object:160"},{"text":"R-38","value":0.026,"$$hashKey":"object:161"},{"text":"R-45","value":0.022,"$$hashKey":"object:162"},{"text":"R-55","value":0.018,"$$hashKey":"object:163"},{"text":"Enter R Value","value":0,"$$hashKey":"object:164"}],"basementSolarNetWall_Below":[{"text":"No Insulation","value":0.125,"$$hashKey":"object:165"},{"text":"R-5","value":0.07,"$$hashKey":"object:166"},{"text":"R-11","value":0.05,"$$hashKey":"object:167"},{"text":"R-15","value":0.04,"$$hashKey":"object:168"},{"text":"R-19","value":0.03,"$$hashKey":"object:169"},{"text":"R-25","value":0.025,"$$hashKey":"object:170"},{"text":"Enter R Value","value":0,"$$hashKey":"object:171"}],"basementSolarCeiling":[{"text":"No Insulation","value":0.6,"$$hashKey":"object:172"},{"text":"R-11","value":0.09,"$$hashKey":"object:173"},{"text":"R-19","value":0.05,"$$hashKey":"object:174"},{"text":"R-30","value":0.033,"$$hashKey":"object:175"},{"text":"R-38","value":0.026,"$$hashKey":"object:176"},{"text":"R-45","value":0.022,"$$hashKey":"object:177"},{"text":"R-55","value":0.018,"$$hashKey":"object:178"},{"text":"Enter R Value","value":0,"$$hashKey":"object:179"}],"basementSolarGainFloors_OverCrawl":[{"text":"No Insulation","value":0.15},{"text":"R-11","value":0.08},{"text":"R-19","value":0.025},{"text":"R-30","value":0.02},{"text":"R-38","value":0.014},{"text":"Enter R Value","value":0}],"basementSolarGainFloors_OpenBeach":[{"text":"No Insulation","value":0.31},{"text":"R-11","value":0.08},{"text":"R-19","value":0.05},{"text":"R-30","value":0.04},{"text":"R-38","value":0.026},{"text":"Enter R Value","value":0}],"basementSolarGainFloors_Slab":[{"text":"No Insulation","value":0.8},{"text":"R-5","value":0.5},{"text":"R-10","value":0.04},{"text":"R-15","value":0.35},{"text":"Enter R Value","value":0}],"roomArray":[{"addRoom_Name":"diningRoom1","addRoom_GrossWall":270,"addRoom_Area_North":270,"addRoom_Area_NENW":0,"addRoom_Area_South":270,"addRoom_Area_SESW":0,"addRoom_Area_East":0,"addRoom_Area_West":0,"addRoom_Area_SkyLight":0,"addRoom_Area_Doors":0,"addRoom_Area_NetWalls":-270,"addRoom_Area_Ceiling":0,"addRoom_Area_FloorCrawl":0,"addRoom_Area_FloorOpen":0,"addRoom_Area_FloorSlab":0,"addRoom_Area_Infiltration":540,"addRoom_People":0,"addRoom_Appliance":0,"addRoom_Heat_Loss_Room_Total":68249.61651521739,"addRoom_Heat_Gain_Room_Total":22282.13316521739,"addRoom_Heat_CFM_Room_Total":1947.103579038982,"addRoom_Cool_CFM_Room_Total":1057.6402777793649,"addRoom_NumOfOutlets":0,"addRoom_OutLetCFM":0,"addRoom_DuctDiameter":0,"addRoom_AirVelocity":0,"$$hashKey":"object:183"},{"addRoom_Name":"diningRoom2","addRoom_GrossWall":270,"addRoom_Area_North":270,"addRoom_Area_NENW":0,"addRoom_Area_South":270,"addRoom_Area_SESW":0,"addRoom_Area_East":0,"addRoom_Area_West":0,"addRoom_Area_SkyLight":0,"addRoom_Area_Doors":0,"addRoom_Area_NetWalls":-270,"addRoom_Area_Ceiling":0,"addRoom_Area_FloorCrawl":0,"addRoom_Area_FloorOpen":0,"addRoom_Area_FloorSlab":0,"addRoom_Area_Infiltration":540,"addRoom_People":0,"addRoom_Appliance":0,"addRoom_Heat_Loss_Room_Total":68249.61651521739,"addRoom_Heat_Gain_Room_Total":22282.13316521739,"addRoom_Heat_CFM_Room_Total":1947.103579038982,"addRoom_Cool_CFM_Room_Total":1057.6402777793649,"addRoom_NumOfOutlets":0,"addRoom_OutLetCFM":0,"addRoom_DuctDiameter":0,"addRoom_AirVelocity":0,"$$hashKey":"object:184"}],"roomArray_Runs":[{"addRoom_Run_Name":"room1","addRoom_Run_CFM":277,"addRoom_Run_NumOfOutlets":2,"addRoom_Run_OutLetCFM":138,"addRoom_Run_DuctDiameter":7,"addRoom_Run_AirVelocity":489},{"addRoom_Run_Name":"room2","addRoom_Run_CFM":277,"addRoom_Run_NumOfOutlets":2,"addRoom_Run_OutLetCFM":113,"addRoom_Run_DuctDiameter":7,"addRoom_Run_AirVelocity":489}],"addRoom_CFM_Cooling":"1000.","addRoom_CFM_Heating":"1000","testValue":1,"step1WinterIndoor":70,"step1SummerIndoor":75,"step1SummerOutdoor":95,"step1WinterOutdoor":20,"totalConditionedArea":1900,"step1NumberOfOccupants":4,"frontOfBuildingFacing":"East","step2OverhangDistanceTop_East":0.5,"step2OverhangDistanceTop_West":0.5,"step2OverhangDistanceTop_South":0.5,"step2OverhangLength_East":1.5,"step2OverhangLength_West":1.5,"step2OverhangLength_South":1.5,"step2LinearFootAcrossTop_East":"6","step2LinearFootAcrossTop_West":"6","step2LinearFootAcrossTop_South":"6","step2SolarGainThroughGlassLat":40,"step2SolarGainUValue":0.4,"step2SolarSGHC":0.35,"basementSolarGainThroughGlassLat":40,"basementSolarGainUValue":0.4,"basementSolarSGHC":0.35,"step2SolarGain_ShadedArea_North":"24","step2SolarGain_ShadedArea_NENW":"0","step2SolarGain_ShadedArea_South":"24","step2SolarGain_ShadedArea_SESW":"0","step2SolarGain_ShadedArea_East":"24","step2SolarGain_ShadedArea_West":"24","basementSolarGain_ShadedArea_North":"0","basementSolarGain_ShadedArea_NENW":"0","basementSolarGain_ShadedArea_South":"0","basementSolarGain_ShadedArea_SESW":"0","basementSolarGain_ShadedArea_East":"0","basementSolarGain_ShadedArea_West":"0","step1WinterDiff":50,"step1SummerDiff":20,"step1TightStructureWinter":0.7,"step1TightStructureSummer":0.35,"step1CFM":20,"step2HTM_North":24,"step2HTM_NENW":52,"step2HTM_South":40,"step2HTM_SESW":65,"step2HTM_East":75,"step2HTM_West":75,"basementHTM_North":24,"basementHTM_NENW":52,"basementHTM_South":40,"basementHTM_SESW":65,"basementHTM_East":75,"basementHTM_West":75,"step2ReflectiveCoatingValue":1,"step2TintTypesValue":70,"step2GlassShaded_NENW":"0","step2GlassShaded_South":20.400000000000002,"step2GlassShaded_SESW":"0","step2GlassShaded_East":4.290000000000001,"step2GlassShaded_West":4.290000000000001,"step2GlassShaded_North":52.980000000000004,"step2GlassUnShaded_North":0,"step2GlassUnShaded_NENW":0,"step2GlassUnShaded_South":3.599999999999998,"step2GlassUnShaded_SESW":0,"step2GlassUnShaded_East":19.71,"step2GlassUnShaded_West":19.71,"step2GlassBTUH_North":1271.52,"step2GlassBTUH_NENW":0,"step2GlassBTUH_South":143.99999999999991,"step2GlassBTUH_SESW":0,"step2GlassBTUH_East":1478.25,"step2GlassBTUH_West":1478.25,"step2GlassBTUH_Total":4372.02,"step2SkyLight_Total":560,"step2TotalSolarGain":4932.02,"step2DuctGainLossConditionedArea_Cool":0,"step2DuctGainLossTrunkBranchAttic_Cool":0.304,"step2DuctGainLossRadialSpiderAttic_Cool":0.18239999999999998,"step2DuctGainLossUnderOpenFloor_Cool":0.214,"step2DuctGainLossEnclosedCrawl_Cool":0.0963,"step2DuctGainDuctSystemSlab_Cool":0.3,"step2DuctGainLossConditionedArea_Heat":0,"step2DuctGainLossTrunkBranchAttic_Heat":0.1338,"step2DuctGainLossRadialSpiderAttic_Heat":0.08028,"step2DuctGainLossUnderOpenFloor_Heat":0.202125,"step2DuctGainLossEnclosedCrawl_Heat":0.08085,"step2DuctGainDuctSystemSlab_Heat":0.041855,"step2DuctLoss_Heating":0.11373,"step2DuctGain_Cooling":0.25839999999999996,"step3HeatLossBTUH_Glass1":2688.0000000000005,"step3HeatLossBTUH_Glass2":0,"step3HeatLossBTUH_SkyLight":224.00000000000003,"step3HeatLossBTUH_Doors":840,"step3HeatLossBTUH_NetWall":6648,"step3HeatLossBTUH_Ceiling":5000,"step3HeatLossBTUH_OverCrawl":4000,"step3HeatLossBTUH_OpenBeach":0,"step3HeatLossBTUH_Slab":0,"step3HeatGainBTUH_Doors":336,"step3HeatGainBTUH_NetWall":2659.2000000000003,"step3HeatGainBTUH_Ceiling":4500,"step3HeatGainBTUH_OverCrawl":0,"step3HeatGainBTUH_OpenBeach":0,"step3HeatGainBTUH_Slab":0,"step3HeatLossBTUH_Infiltration":12072.5,"step3HeatGainBTUH_Infiltration":2194.5,"step3HeatGainBTUH_People":920,"step3HeatGainBTUH_People_Total":800,"step3HeatGainBTUH_Appliances":1200,"step3HeatLossBTUH_Subtotal":31472.5,"step3HeatGainBTUH_Subtotal":16741.72,"step3HeatLossBTUH_DuctGain":3579.367425,"step3HeatGainBTUH_DuctGain":4326.060447999999,"step3HeatGainBTUH_DuctGain_Total":698.725,"step3HeatLossBTUH_TotalSensibleLoad":35051.867425,"step3HeatGainBTUH_TotalSensibleLoad":21067.780448,"step3Total_LatentLoad":2713.2,"step3Total_LatentLoad_Total":4211.924999999999,"step3SolarGainFloors_OverCrawl_Drop":0.08,"step3SolarGainFloors_OpenBeach_Drop":0.08,"basementGlassBTUH_North":0,"basementGlassBTUH_NENW":0,"basementGlassBTUH_South":0,"basementGlassBTUH_SESW":0,"basementGlassBTUH_East":0,"basementGlassBTUH_West":0,"basementGlassBTUH_Total":0,"basementTotalSolarGain":0,"basementHeatLossBTUH_Floor_UValue":0.024,"basementHeatLossBTUH_Glass1":0,"basementHeatLossBTUH_Glass2":0,"basementHeatLossBTUH_SkyLight":null,"basementHeatLossBTUH_Doors":0,"basementHeatLossBTUH_NetWall_Above":0,"basementHeatLossBTUH_NetWall_Below":0,"basementHeatGainBTUH_NetWall_Above":0,"basementHeatGainBTUH_NetWall_Below":0,"basementHeatLossBTUH_Ceiling":0,"basementHeatLossBTUH_OverCrawl":null,"basementHeatLossBTUH_OpenBeach":null,"basementHeatLossBTUH_Slab":null,"basementHeatGainBTUH_Doors":0,"basementHeatGainBTUH_Ceiling":0,"basementHeatGainBTUH_OverCrawl":0,"basementHeatGainBTUH_OpenBeach":null,"basementHeatGainBTUH_Slab":0,"basementHeatGainBTUH_People":0,"basementHeatGainBTUH_People_Total":0,"basementHeatGainBTUH_Floor":0,"basementHeatGainBTUH_Appliances":"0","step2SkyLightQty":"8","heatingFactor":0.1338,"coolingFactor":0.304,"step2AreaDuctLocated":"1900","step3Area_GrossWall":1800,"step3SolarNetWall_Drop":0.08,"step3SolarCeiling_Drop":0.05,"step3Area_Glass1":96,"step3Area_Glass2":"0","step3Area_SolarSkyLight":"8","step3Area_SolarDoors":42,"step3Area_SolarNetWall":1662,"step3Area_SolarCeiling":"2000","step1HumidityOptions_Selected":40,"step3SolarGainFloors_Slab_Drop":0.8,"step3Area_OverCrawl":"2000","step3Area_OpenBeach":"0","step3Infiltration":17100,"step3Area_Slab":0,"basementArea_GrossWall":"0","basementSolarNetWall_Above_Drop":0,"basementSolarNetWall_Below_Drop":0.05,"basementSolarCeiling_Drop":0.09,"basementArea_Glass1":"000000","basementArea_Glass2":"0","basementArea_SolarDoors":"0","basementArea_SolarNetWall_Above":0,"basementArea_SolarNetWall_Below":"0","basementArea_SolarCeiling":"0","basementArea_FloorSquareFeet":"0","basementInfiltration":"0","basementArea_People":"0","basementHeatLossBTUH_Infiltration":0,"basementHeatGainBTUH_Infiltration":0,"basementHeatLossBTUH_Floor":0,"basementHeatLossBTUH_Subtotal":0,"basementHeatGainBTUH_Subtotal":0,"basementHeatLossBTUH_TotalSensibleLoad":0,"basementHeatGainBTUH_TotalSensibleLoad":0,"basementTotal_LatentLoad":0,"basementTotal_LatentLoad_Total":0,"airDuctSizing_FrictionRate":null,"airDuctSizing_SupplyTrunk_FirstSectionOffAFU_CFM":"1000.","airDuctSizing_SupplyTrunk_FirstSectionOffAFU_DuctDiameter":null,"airDuctSizing_SupplyTrunk_FirstSectionOffAFU_AirVelocity":null,"airDuctSizing_SupplyTrunk_ReductionOfBranch_1_DuctDiameter":null,"airDuctSizing_SupplyTrunk_ReductionOfBranch_1_AirVelocity":null,"airDuctSizing_SupplyTrunk_ReductionOfBranch_2_DuctDiameter":null,"airDuctSizing_SupplyTrunk_ReductionOfBranch_2_AirVelocity":null,"airDuctSizing_SupplyTrunk_ReductionOfBranch_3_DuctDiameter":null,"airDuctSizing_SupplyTrunk_ReductionOfBranch_3_AirVelocity":null,"airDuctSizing_SupplyTrunk_ReductionOfBranch_4_DuctDiameter":null,"airDuctSizing_SupplyTrunk_ReductionOfBranch_4_AirVelocity":null,"airDuctSizing_SupplyTrunk_ReductionOfBranch_5_DuctDiameter":null,"airDuctSizing_SupplyTrunk_ReductionOfBranch_5_AirVelocity":null,"airDuctSizing_ReturnTrunk_FirstSectionOffAFU_CFM":"1000.","airDuctSizing_ReturnTrunk_FirstSectionOffAFU_DuctDiameter":null,"airDuctSizing_ReturnTrunk_FirstSectionOffAFU_AirVelocity":null,"airDuctSizing_ReturnTrunk_ReductionOfBranch_1_DuctDiameter":null,"airDuctSizing_ReturnTrunk_ReductionOfBranch_1_AirVelocity":null,"airDuctSizing_ReturnTrunk_ReductionOfBranch_2_DuctDiameter":null,"airDuctSizing_ReturnTrunk_ReductionOfBranch_2_AirVelocity":null,"airDuctSizing_ReturnTrunk_ReductionOfBranch_3_DuctDiameter":null,"airDuctSizing_ReturnTrunk_ReductionOfBranch_3_AirVelocity":null,"airDuctSizing_ReturnTrunk_ReductionOfBranch_4_DuctDiameter":null,"airDuctSizing_ReturnTrunk_ReductionOfBranch_4_AirVelocity":null,"airDuctSizing_ReturnTrunk_ReductionOfBranch_5_DuctDiameter":null,"airDuctSizing_ReturnTrunk_ReductionOfBranch_5_AirVelocity":null,"addRoom_Name":"kitchen","addRoom_GrossWall":"450","addRoom_Area_North":"12","addRoom_Area_NENW":0,"addRoom_Area_South":"0","addRoom_Area_SESW":0,"addRoom_Area_East":0,"addRoom_Area_West":"12","addRoom_Area_SkyLight":"8","addRoom_Area_Doors":"21","addRoom_Area_Ceiling":"500","addRoom_Area_FloorCrawl":"500","addRoom_Area_FloorOpen":0,"addRoom_Area_FloorSlab":0,"addRoom_Area_Infiltration":45,"addRoom_People":0,"addRoom_Appliance":0,"addRoom_Heat_Loss_Room_Total":10160.207722934783,"addRoom_Heat_Gain_Room_Total":4732.288430434783,"addRoom_Heat_CFM_Room_Total":289.86209492759383,"addRoom_Cool_CFM_Room_Total":224.62206885604917,"addRoom_Area_NetWalls":405,"addRoom_Area_Btu_Heat_North":336.00000000000006,"addRoom_Area_Btu_Cool_North":288,"addRoom_Area_Btu_Heat_NENW":0,"addRoom_Area_Btu_Cool_NENW":0,"addRoom_Area_Btu_Heat_South":0,"addRoom_Area_Btu_Cool_South":0,"addRoom_Area_Btu_Heat_SESW":0,"addRoom_Area_Btu_Cool_SESW":0,"addRoom_Area_Btu_Heat_East":0,"addRoom_Area_Btu_Cool_East":0,"addRoom_Area_Btu_Heat_West":336.00000000000006,"addRoom_Area_Btu_Cool_West":900,"addRoom_Area_Btu_Heat_SkyLight":224.00000000000003,"addRoom_Area_Btu_Cool_SkyLight":560,"addRoom_Area_Btu_Heat_Doors":420,"addRoom_Area_Btu_Cool_Doors":168,"addRoom_Area_Btu_Heat_NetWalls":1620,"addRoom_Area_Btu_Cool_NetWalls":648,"addRoom_Area_Btu_Heat_Ceiling":1250,"addRoom_Area_Btu_Cool_Ceiling":1125,"addRoom_Area_Btu_Heat_FloorCrawl":1000,"addRoom_Area_Btu_Cool_FloorCrawl":0,"addRoom_Area_Btu_Heat_FloorOpen":0,"addRoom_Area_Btu_Cool_FloorOpen":0,"addRoom_Area_Btu_Heat_FloorSlab":0,"addRoom_Area_Btu_Cool_FloorSlab":0,"addRoom_Area_Btu_Heat_Infiltration":3936.6847826086955,"addRoom_Area_Btu_Cool_Infiltration":71.55978260869566,"addRoom_People_Total":0,"addRoom_Duct_Loss":1037.5229403260869,"addRoom_Duct_Gain":971.7286478260868,"addRoom_Heat_Loss_Room_RunningTotal":136499.23303043479,"addRoom_Heat_Gain_Room_RunningTotal":44564.26633043478,"addRoom_Heat_CFM_Room_RunningTotal":3894.207158077964,"addRoom_Cool_CFM_Room_RunningTotal":2115.2805555587297,"addRoom_Heat_Loss_Room_RunningTotal_Percentage":389,"addRoom_Heat_Gain_Room_RunningTotal_Percentage":211,"addRoom_Heat_CFM_Room_RunningTotal_Percentage":389,"addRoom_Cool_CFM_Room_RunningTotal_Percentage":211}'
+            var strObj = JSON.parse(x);
+
+           // vm["step1WinterIndoor"] = 70;
+
+            _.each(strObj, function (value, key) {
+
+                    vm[key] = value;
+
+                });
+
+             
+
+
+        }
+
 
         $scope.prePopulate = function() {
             vm.addRoom_CFM_Cooling = 1400;
@@ -611,8 +660,8 @@
                 parseFloat(vm.addRoom_Area_West) +
                 parseFloat(vm.addRoom_Area_Doors);
 
-            vm.addRoom_Area_Btu_Heat_Infiltration = (vm.addRoom_Area_Infiltration / (vm.step3Area_Glass1 + vm.step3Area_Glass2 + vm.step3Area_SolarDoors + vm.basementArea_Glass1 + vm.basementArea_Glass2 + vm.basementArea_SolarDoors)) * (vm.basementHeatLossBTUH_Infiltration + vm.step3HeatLossBTUH_Infiltration);
-            vm.addRoom_Area_Btu_Cool_Infiltration = (vm.addRoom_Area_Infiltration / (vm.step3Area_Glass1 + vm.step3Area_Glass2 + vm.step3Area_SolarDoors + vm.basementArea_Glass1 + vm.basementArea_Glass2 + vm.basementArea_SolarDoors)) * (vm.step3HeatGainBTUH_Infiltration + vm.basementHeatGainBTUH_Infiltration);
+            vm.addRoom_Area_Btu_Heat_Infiltration = (vm.addRoom_Area_Infiltration / (parseFloat(vm.step3Area_Glass1) + parseFloat(vm.step3Area_Glass2) + parseFloat(vm.step3Area_SolarDoors) + parseFloat(vm.basementArea_Glass1) + parseFloat(vm.basementArea_Glass2) + parseFloat(vm.basementArea_SolarDoors))) * (parseFloat(vm.basementHeatLossBTUH_Infiltration) + parseFloat(vm.step3HeatLossBTUH_Infiltration));
+            vm.addRoom_Area_Btu_Cool_Infiltration = (vm.addRoom_Area_Infiltration / (parseFloat(vm.step3Area_Glass1) + parseFloat(vm.step3Area_Glass2) + parseFloat(vm.step3Area_SolarDoors) + parseFloat(vm.basementArea_Glass1) + parseFloat(vm.basementArea_Glass2) + vm.basementArea_SolarDoors)) * (parseFloat(vm.step3HeatGainBTUH_Infiltration) + parseFloat(vm.basementHeatGainBTUH_Infiltration));
 
 
             vm.addRoom_People_Total = vm.addRoom_People * 230;
@@ -943,6 +992,8 @@
 
             /*Step 3*/
 
+            vm.step3Area_SolarNetWall = vm.step3Area_GrossWall - (parseFloat(vm.step3Area_Glass1) + parseFloat(vm.step3Area_Glass2) + parseFloat(vm.step3Area_SolarDoors));
+
             vm.step3HeatLossBTUH_Glass1 = vm.step1WinterDiff * vm.step3Area_Glass1 * vm.step3SolarGlass1.selected;
             vm.step3HeatLossBTUH_Glass2 = vm.step1WinterDiff * vm.step3Area_Glass2 * vm.step3SolarGlass2.selected;
             vm.step3HeatLossBTUH_SkyLight = vm.step1WinterDiff * vm.step3Area_SolarSkyLight * vm.step3SolarSkyLight.selected;
@@ -1096,11 +1147,55 @@
             }
 
 
+            //calculate room run //Supply
+            vm.airDuctSizing_FrictionRate = (vm.airDuctSizing_AvailableStaticPressureForDuct * 100) / (parseFloat(vm.airDuctSizing_TotalMeasuredLengthOfDuct) + parseFloat(vm.airDuctSizing_TotalEquivalentLengthOfFittings));
+            vm.airDuctSizing_SupplyTrunk_FirstSectionOffAFU_CFM = vm.addRoom_CFM_Cooling;
 
+            vm.airDuctSizing_SupplyTrunk_FirstSectionOffAFU_DuctDiameter = Math.pow(((0.10913 * Math.pow(vm.airDuctSizing_SupplyTrunk_FirstSectionOffAFU_CFM, 1.9)) / vm.airDuctSizing_FrictionRate), (1 / 5.02));
+            vm.airDuctSizing_SupplyTrunk_FirstSectionOffAFU_AirVelocity = vm.airDuctSizing_SupplyTrunk_FirstSectionOffAFU_CFM / ((3.14 * (vm.airDuctSizing_SupplyTrunk_FirstSectionOffAFU_DuctDiameter / 2 * vm.airDuctSizing_SupplyTrunk_FirstSectionOffAFU_DuctDiameter / 2)) / 144);
+
+            vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_1_DuctDiameter = Math.pow(((0.10913 * Math.pow(vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_1_CFM, 1.9)) / vm.airDuctSizing_FrictionRate), (1 / 5.02));
+            vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_1_AirVelocity = vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_1_CFM / ((3.14 * (vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_1_DuctDiameter / 2 * vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_1_DuctDiameter / 2)) / 144);
+
+            vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_2_DuctDiameter = Math.pow(((0.10913 * Math.pow(vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_2_CFM, 1.9)) / vm.airDuctSizing_FrictionRate), (1 / 5.02));
+            vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_2_AirVelocity = vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_2_CFM / ((3.14 * (vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_2_DuctDiameter / 2 * vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_2_DuctDiameter / 2)) / 144);
+
+            vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_3_DuctDiameter = Math.pow(((0.10913 * Math.pow(vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_3_CFM, 1.9)) / vm.airDuctSizing_FrictionRate), (1 / 5.02));
+            vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_3_AirVelocity = vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_3_CFM / ((3.14 * (vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_3_DuctDiameter / 2 * vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_3_DuctDiameter / 2)) / 144);
+
+            vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_4_DuctDiameter = Math.pow(((0.10913 * Math.pow(vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_4_CFM, 1.9)) / vm.airDuctSizing_FrictionRate), (1 / 5.02));
+            vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_4_AirVelocity = vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_4_CFM / ((3.14 * (vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_4_DuctDiameter / 2 * vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_4_DuctDiameter / 2)) / 144);
+
+            vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_5_DuctDiameter = Math.pow(((0.10913 * Math.pow(vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_5_CFM, 1.9)) / vm.airDuctSizing_FrictionRate), (1 / 5.02));
+            vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_5_AirVelocity = vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_5_CFM / ((3.14 * (vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_5_DuctDiameter / 2 * vm.airDuctSizing_SupplyTrunk_ReductionOfBranch_5_DuctDiameter / 2)) / 144);
+
+            //calculate room run //Return
+
+            vm.airDuctSizing_FrictionRate = (vm.airDuctSizing_AvailableStaticPressureForDuct * 100) / (parseFloat(vm.airDuctSizing_TotalMeasuredLengthOfDuct) + parseFloat(vm.airDuctSizing_TotalEquivalentLengthOfFittings));
+            vm.airDuctSizing_ReturnTrunk_FirstSectionOffAFU_CFM = vm.addRoom_CFM_Cooling;
+
+            vm.airDuctSizing_ReturnTrunk_FirstSectionOffAFU_DuctDiameter = Math.pow(((0.10913 * Math.pow(vm.airDuctSizing_ReturnTrunk_FirstSectionOffAFU_CFM, 1.9)) / vm.airDuctSizing_FrictionRate), (1 / 5.02));
+            vm.airDuctSizing_ReturnTrunk_FirstSectionOffAFU_AirVelocity = vm.airDuctSizing_ReturnTrunk_FirstSectionOffAFU_CFM / ((3.14 * (vm.airDuctSizing_ReturnTrunk_FirstSectionOffAFU_DuctDiameter / 2 * vm.airDuctSizing_ReturnTrunk_FirstSectionOffAFU_DuctDiameter / 2)) / 144);
+
+            vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_1_DuctDiameter = Math.pow(((0.10913 * Math.pow(vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_1_CFM, 1.9)) / vm.airDuctSizing_FrictionRate), (1 / 5.02));
+            vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_1_AirVelocity = vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_1_CFM / ((3.14 * (vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_1_DuctDiameter / 2 * vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_1_DuctDiameter / 2)) / 144);
+
+            vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_2_DuctDiameter = Math.pow(((0.10913 * Math.pow(vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_2_CFM, 1.9)) / vm.airDuctSizing_FrictionRate), (1 / 5.02));
+            vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_2_AirVelocity = vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_2_CFM / ((3.14 * (vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_2_DuctDiameter / 2 * vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_2_DuctDiameter / 2)) / 144);
+
+            vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_3_DuctDiameter = Math.pow(((0.10913 * Math.pow(vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_3_CFM, 1.9)) / vm.airDuctSizing_FrictionRate), (1 / 5.02));
+            vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_3_AirVelocity = vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_3_CFM / ((3.14 * (vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_3_DuctDiameter / 2 * vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_3_DuctDiameter / 2)) / 144);
+
+            vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_4_DuctDiameter = Math.pow(((0.10913 * Math.pow(vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_4_CFM, 1.9)) / vm.airDuctSizing_FrictionRate), (1 / 5.02));
+            vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_4_AirVelocity = vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_4_CFM / ((3.14 * (vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_4_DuctDiameter / 2 * vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_4_DuctDiameter / 2)) / 144);
+
+            vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_5_DuctDiameter = Math.pow(((0.10913 * Math.pow(vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_5_CFM, 1.9)) / vm.airDuctSizing_FrictionRate), (1 / 5.02));
+            vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_5_AirVelocity = vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_5_CFM / ((3.14 * (vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_5_DuctDiameter / 2 * vm.airDuctSizing_ReturnTrunk_ReductionOfBranch_5_DuctDiameter / 2)) / 144);
 
 
             $scope.reCalcRooms();
 
+            localStorageService.set('vm', vm);
 
         }
 
@@ -1186,6 +1281,32 @@
 
             $scope.calculate();
         };
+
+        $scope.roomRunChange = function() {
+            angular.forEach(vm.roomArray, function(value, key) {
+                value.addRoom_OutLetCFM = value.addRoom_CFM / value.addRoom_NumOfOutlets;
+                value.addRoom_DuctDiameter = Math.pow(((0.10913 * Math.pow(value.addRoom_OutLetCFM, 1.9)) / vm.airDuctSizing_FrictionRate), (1 / 5.02));
+                value.airDuctSizing_ReturnTrunk_ReductionOfBranch_5_AirVelocity = value.addRoom_OutLetCFM / ((3.14 * (value.addRoom_DuctDiameter / 2 * value.addRoom_DuctDiameter / 2)) / 144);
+            });
+
+        }
+
+        $scope.AddRunRoom = function() {
+
+            var roomObj = {
+
+                "addRoom_Run_Name": "",
+                "addRoom_Run_CFM": 0,
+                "addRoom_Run_NumOfOutlets": 0,
+                "addRoom_Run_OutLetCFM": 0,
+                "addRoom_Run_DuctDiameter": 0,
+                "addRoom_Run_AirVelocity": 0
+
+            }
+
+
+            vm.roomArray_Runs.push(roomObj);
+        }
 
 
 
@@ -2009,7 +2130,11 @@
             "addRoom_Heat_Loss_Room_Total": 0,
             "addRoom_Heat_Gain_Room_Total": 0,
             "addRoom_Heat_CFM_Room_Total": 0,
-            "addRoom_Cool_CFM_Room_Total": 0
+            "addRoom_Cool_CFM_Room_Total": 0,
+            "addRoom_NumOfOutlets": 0,
+            "addRoom_OutLetCFM": 0,
+            "addRoom_DuctDiameter": 0,
+            "addRoom_AirVelocity": 0
         }, {
             "addRoom_Name": "diningRoom2",
             "addRoom_GrossWall": 270,
@@ -2032,10 +2157,31 @@
             "addRoom_Heat_Loss_Room_Total": 0,
             "addRoom_Heat_Gain_Room_Total": 0,
             "addRoom_Heat_CFM_Room_Total": 0,
-            "addRoom_Cool_CFM_Room_Total": 0
+            "addRoom_Cool_CFM_Room_Total": 0,
+            "addRoom_NumOfOutlets": 0,
+            "addRoom_OutLetCFM": 0,
+            "addRoom_DuctDiameter": 0,
+            "addRoom_AirVelocity": 0
         }];
 
-        $scope.prePopulate();
+        vm.roomArray_Runs = [{
+            "addRoom_Run_Name": "room1",
+            "addRoom_Run_CFM": 277,
+            "addRoom_Run_NumOfOutlets": 2,
+            "addRoom_Run_OutLetCFM": 138,
+            "addRoom_Run_DuctDiameter": 7,
+            "addRoom_Run_AirVelocity": 489
+        }, {
+            "addRoom_Run_Name": "room2",
+            "addRoom_Run_CFM": 277,
+            "addRoom_Run_NumOfOutlets": 2,
+            "addRoom_Run_OutLetCFM": 113,
+            "addRoom_Run_DuctDiameter": 7,
+            "addRoom_Run_AirVelocity": 489
+        }];
+
+          $scope.prePopulate();
+       // $scope.prePopulate2();
         $scope.calculate();
     }
 

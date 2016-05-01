@@ -32,6 +32,21 @@
         background: lightgreen;
     }
 
+    .deleteRoomRunButton {
+            width: 42px;
+    
+    }
+
+   .deleteRoomRunInput {
+    width: 124px;
+    margin-left: 5px;
+    }
+
+    .float-left {
+        position: relative;
+        float: left;
+    }
+
 
  
 

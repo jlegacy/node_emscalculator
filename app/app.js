@@ -2,12 +2,18 @@
     'use strict';
 
     angular
-        .module('app', ['ui.router', 'ngDialog'])
+        .module('app', ['ui.router', 'ngDialog', 'LocalStorageModule'])
         .config(config)
         .run(run);
 
-    function config($stateProvider, $urlRouterProvider) {
+    function config($stateProvider, $urlRouterProvider, localStorageServiceProvider) {
         // default route
+
+        localStorageServiceProvider
+            .setPrefix('app')
+            .setStorageType('localStorage')
+            .setNotify(true, true);
+
         $urlRouterProvider.otherwise("/");
 
         $stateProvider
